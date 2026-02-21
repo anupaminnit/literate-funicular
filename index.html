@@ -8,43 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  /* Baxter brand */
-  --navy:#252969;
-  --blue:#1e56c8;
-  --blue2:#2563eb;
-  --sky:#3b82f6;
-  --sky2:#60a5fa;
-  --ice:#eff6ff;
-  --ice2:#dbeafe;
-  --ice3:#bfdbfe;
-
-  /* Backgrounds */
-  --bg:#ffffff;
-  --bg2:#f8faff;
-  --bg3:#f0f5ff;
-  --bg4:#e8f0fe;
-
-  /* Text */
-  --text:#0f1729;
-  --text2:#1e2d4d;
-  --muted:#4b6080;
-  --muted2:#6b80a0;
-
-  /* Borders */
-  --bd:rgba(30,86,200,0.1);
-  --bd2:rgba(30,86,200,0.2);
-  --bd3:rgba(30,86,200,0.32);
-
-  /* Shadows */
+  --navy:#252969;--blue:#1e56c8;--blue2:#2563eb;--sky:#3b82f6;--sky2:#60a5fa;
+  --ice:#eff6ff;--ice2:#dbeafe;--ice3:#bfdbfe;
+  --bg:#ffffff;--bg2:#f8faff;--bg3:#f0f5ff;--bg4:#e8f0fe;
+  --text:#0f1729;--text2:#1e2d4d;--muted:#4b6080;--muted2:#6b80a0;
+  --bd:rgba(30,86,200,0.1);--bd2:rgba(30,86,200,0.2);--bd3:rgba(30,86,200,0.32);
   --sh:0 1px 3px rgba(37,41,105,0.06),0 4px 16px rgba(37,41,105,0.06);
   --sh2:0 4px 20px rgba(37,41,105,0.1),0 1px 4px rgba(37,41,105,0.06);
   --sh3:0 8px 32px rgba(37,41,105,0.13);
-
-  --ff-h:'Outfit',sans-serif;
-  --ff-b:'DM Sans',sans-serif;
-  --ff-m:'JetBrains Mono',monospace;
-  --r:12px;--rs:7px;
-  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ff-h:'Outfit',sans-serif;--ff-b:'DM Sans',sans-serif;--ff-m:'JetBrains Mono',monospace;
+  --r:12px;--rs:7px;--ease:cubic-bezier(0.4,0,0.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -52,17 +25,14 @@ body{font-family:var(--ff-b);background:var(--bg);color:var(--text);overflow-x:h
 ::selection{background:var(--ice2);color:var(--navy)}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--sky);border-radius:2px}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;
-  display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
-  background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--bd);box-shadow:0 1px 0 var(--bd)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);box-shadow:0 1px 0 var(--bd)}
 .nb{display:flex;align-items:center;gap:0.65rem}
-.nm{width:32px;height:32px;border-radius:8px;
-  background:linear-gradient(135deg,var(--navy),var(--blue2));
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--ff-h);font-weight:800;font-size:0.73rem;color:#fff;
-  box-shadow:0 2px 8px rgba(37,41,105,0.25)}
+.nm{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--blue2));
+  display:flex;align-items:center;justify-content:center;font-family:var(--ff-h);font-weight:800;
+  font-size:0.73rem;color:#fff;box-shadow:0 2px 8px rgba(37,41,105,0.25)}
 .nw{font-family:var(--ff-h);font-weight:700;font-size:1rem;letter-spacing:-0.02em;color:var(--navy)}
 .nw em{color:var(--blue2);font-style:normal}
 .ns{font-size:0.53rem;color:var(--muted2);font-family:var(--ff-m);letter-spacing:0.1em;margin-top:1px}
@@ -71,64 +41,52 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;
   padding:0.32rem 0.68rem;border-radius:6px;transition:all .2s var(--ease)}
 .nl a:hover{color:var(--navy);background:var(--ice)}
 .nl .nc{background:var(--navy);color:#fff!important;font-weight:600!important;
-  padding:0.35rem 0.9rem!important;border-radius:7px!important;
-  box-shadow:0 2px 8px rgba(37,41,105,0.28)}
+  padding:0.35rem 0.9rem!important;border-radius:7px!important;box-shadow:0 2px 8px rgba(37,41,105,0.28)}
 .nl .nc:hover{background:var(--blue)!important;box-shadow:0 4px 14px rgba(37,41,105,0.32)!important}
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 section{position:relative}
 .w{max-width:1100px;margin:0 auto;padding:0 2rem}
 .sp{padding:6rem 0}
-
-/* ── DIVIDERS ── */
 .sec-div{height:1px;background:linear-gradient(90deg,transparent,var(--bd2) 30%,var(--bd2) 70%,transparent)}
 
-/* ── LABELS ── */
+/* LABELS */
 .lbl{display:inline-flex;align-items:center;font-family:var(--ff-m);font-size:0.58rem;
-  text-transform:uppercase;letter-spacing:0.22em;color:var(--blue);
-  padding:0.18rem 0.62rem;border-radius:100px;margin-bottom:0.9rem;
-  background:var(--ice);border:1px solid var(--bd2)}
+  text-transform:uppercase;letter-spacing:0.22em;color:var(--blue);padding:0.18rem 0.62rem;
+  border-radius:100px;margin-bottom:0.9rem;background:var(--ice);border:1px solid var(--bd2)}
 
-/* ── HEADINGS ── */
-h2.sh{font-family:var(--ff-h);font-size:clamp(1.75rem,3vw,2.45rem);
-  font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:0.8rem;color:var(--navy)}
+/* HEADINGS */
+h2.sh{font-family:var(--ff-h);font-size:clamp(1.75rem,3vw,2.45rem);font-weight:700;
+  line-height:1.1;letter-spacing:-0.03em;margin-bottom:0.8rem;color:var(--navy)}
 h2.sh .hi{color:var(--blue2)}
 .sub{color:var(--muted);font-size:0.93rem;font-weight:300;line-height:1.8;max-width:560px;margin-bottom:2.75rem}
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL REVEAL */
 .rv{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.07s}.rv.d2{transition-delay:.14s}.rv.d3{transition-delay:.21s}.rv.d4{transition-delay:.28s}
 
-/* ════════════════════════════════
-   HERO
-════════════════════════════════ */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:7rem 2rem 4rem;
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 2rem 4rem;
   background:linear-gradient(180deg,#fff 0%,var(--bg2) 60%,var(--bg3) 100%);
   position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 70% 50% at 70% 0%,rgba(37,41,105,0.06) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 90%,rgba(30,86,200,0.05) 0%,transparent 60%);
-  pointer-events:none}
-/* grid dot pattern */
+#hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 70% 0%,rgba(37,41,105,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 90%,rgba(30,86,200,0.05) 0%,transparent 60%)}
 #hero::after{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:radial-gradient(circle,rgba(30,86,200,0.12) 1px,transparent 1px);
   background-size:32px 32px;
   mask-image:radial-gradient(ellipse 75% 65% at 50% 30%,rgba(0,0,0,0.5) 0%,transparent 100%)}
 .h-kicker{position:relative;z-index:1;display:inline-flex;align-items:center;gap:0.5rem;
-  border:1px solid var(--bd2);background:var(--ice);
-  padding:0.28rem 0.88rem;border-radius:100px;
-  font-family:var(--ff-m);font-size:0.58rem;color:var(--blue);
-  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.6rem;
-  animation:hi 0.7s ease both;box-shadow:var(--sh)}
-.ld{width:5px;height:5px;border-radius:50%;background:var(--blue2);
-  animation:blink 2s ease infinite}
+  border:1px solid var(--bd2);background:var(--ice);padding:0.28rem 0.88rem;border-radius:100px;
+  font-family:var(--ff-m);font-size:0.58rem;color:var(--blue);letter-spacing:0.18em;
+  text-transform:uppercase;margin-bottom:1.6rem;animation:hi 0.7s ease both;box-shadow:var(--sh)}
+.ld{width:5px;height:5px;border-radius:50%;background:var(--blue2);animation:blink 2s ease infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
 .h-t{position:relative;z-index:1;font-family:var(--ff-h);font-weight:800;
-  font-size:clamp(2.6rem,7vw,5.5rem);line-height:0.95;
-  letter-spacing:-0.04em;margin-bottom:1.4rem;animation:hi 0.7s .07s ease both}
+  font-size:clamp(2.6rem,7vw,5.5rem);line-height:0.95;letter-spacing:-0.04em;
+  margin-bottom:1.4rem;animation:hi 0.7s .07s ease both}
 .h-t .l1{display:block;color:var(--navy)}
 .h-t .l2{display:block;
   background:linear-gradient(110deg,var(--navy) 0%,var(--blue2) 45%,var(--sky) 100%);
@@ -136,8 +94,8 @@ h2.sh .hi{color:var(--blue2)}
   background-clip:text;background-size:200% auto;
   animation:hi 0.7s .07s ease both,gf 8s ease-in-out infinite 1s}
 @keyframes gf{0%,100%{background-position:0% center}50%{background-position:100% center}}
-.h-t .l3{display:block;color:var(--muted2);font-size:0.33em;
-  font-weight:400;letter-spacing:0.04em;margin-top:0.55em;font-family:var(--ff-b)}
+.h-t .l3{display:block;color:var(--muted2);font-size:0.33em;font-weight:400;
+  letter-spacing:0.04em;margin-top:0.55em;font-family:var(--ff-b)}
 .h-desc{position:relative;z-index:1;max-width:560px;margin:0 auto 2rem;
   font-size:0.98rem;color:var(--muted);font-weight:300;line-height:1.82;
   animation:hi 0.7s .14s ease both}
@@ -145,46 +103,35 @@ h2.sh .hi{color:var(--blue2)}
 .h-pills{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:0.35rem;
   justify-content:center;margin-bottom:2.1rem;animation:hi 0.7s .2s ease both}
 .pill{padding:0.24rem 0.68rem;border-radius:100px;font-size:0.67rem;font-weight:500;
-  border:1px solid var(--bd2);color:var(--blue);background:var(--ice);
-  transition:all .2s;cursor:default}
+  border:1px solid var(--bd2);color:var(--blue);background:var(--ice);transition:all .2s;cursor:default}
 .pill:hover{background:var(--ice2);border-color:var(--bd3);color:var(--navy)}
 .h-btns{position:relative;z-index:1;display:flex;gap:0.75rem;justify-content:center;
   flex-wrap:wrap;animation:hi 0.7s .26s ease both}
-.btn{padding:0.75rem 1.75rem;border-radius:8px;font-family:var(--ff-b);
-  font-size:0.83rem;font-weight:600;cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;gap:0.4rem;transition:all .22s var(--ease)}
+.btn{padding:0.75rem 1.75rem;border-radius:8px;font-family:var(--ff-b);font-size:0.83rem;
+  font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;
+  gap:0.4rem;transition:all .22s var(--ease)}
 .btn-p{background:var(--navy);color:#fff;box-shadow:0 2px 10px rgba(37,41,105,0.28)}
 .btn-p:hover{background:var(--blue);box-shadow:0 6px 20px rgba(37,41,105,0.32);transform:translateY(-2px)}
 .btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--bd2);box-shadow:var(--sh)}
 .btn-s:hover{border-color:var(--bd3);background:var(--ice);transform:translateY(-2px);box-shadow:var(--sh2)}
-.scroll-cue{position:relative;z-index:1;margin-top:3.5rem;
-  display:flex;flex-direction:column;align-items:center;gap:0.4rem;
-  animation:hi 0.7s .38s ease both;opacity:0.4}
+.scroll-cue{position:relative;z-index:1;margin-top:3.5rem;display:flex;flex-direction:column;
+  align-items:center;gap:0.4rem;animation:hi 0.7s .38s ease both;opacity:0.4}
 .scroll-cue span{width:1px;height:40px;background:linear-gradient(to bottom,var(--blue),transparent)}
-.scroll-cue p{font-family:var(--ff-m);font-size:0.52rem;color:var(--muted2);
-  letter-spacing:0.24em;text-transform:uppercase}
+.scroll-cue p{font-family:var(--ff-m);font-size:0.52rem;color:var(--muted2);letter-spacing:0.24em;text-transform:uppercase}
 @keyframes hi{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── SHARED CARD ── */
-.card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.5rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
-.card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
-
-/* ════════════════════════════════
-   1. GEN AI
-════════════════════════════════ */
+/* GEN AI */
 .genai-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
 @media(max-width:720px){.genai-trio{grid-template-columns:1fr}}
-.trio-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.4rem;box-shadow:var(--sh);transition:all .25s var(--ease);position:relative;overflow:hidden}
+.trio-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease);position:relative;overflow:hidden}
 .trio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .trio-card:nth-child(1)::before{background:linear-gradient(90deg,var(--navy),var(--blue2))}
 .trio-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue2),var(--sky))}
 .trio-card:nth-child(3)::before{background:linear-gradient(90deg,var(--sky),var(--sky2))}
 .trio-card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
 .trio-ico{font-size:1.35rem;margin-bottom:0.6rem;display:block}
-.trio-title{font-family:var(--ff-h);font-size:0.88rem;font-weight:700;
-  color:var(--navy);margin-bottom:0.38rem}
+.trio-title{font-family:var(--ff-h);font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.38rem}
 .trio-desc{font-size:0.79rem;color:var(--muted);line-height:1.65}
 .trio-desc strong{color:var(--text2);font-weight:500}
 
@@ -195,83 +142,127 @@ h2.sh .hi{color:var(--blue2)}
   text-transform:uppercase;letter-spacing:0.2em;margin-bottom:1.15rem}
 .cap-limit{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.cap-limit{grid-template-columns:1fr}}
-.cl-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
-  padding:1.25rem;box-shadow:var(--sh)}
+.cl-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);padding:1.25rem;box-shadow:var(--sh)}
 .cl-box h4{font-family:var(--ff-h);font-size:0.8rem;font-weight:700;margin-bottom:0.7rem}
 .cl-box.good h4{color:#15803d}.cl-box.bad h4{color:#b91c1c}
 .cl-row{display:flex;align-items:flex-start;gap:0.45rem;margin-bottom:0.38rem;
   font-size:0.76rem;color:var(--muted);line-height:1.45}
 .cl-row:last-child{margin-bottom:0}
 
-/* ── FLIP CARDS ── */
+/* ═══════════════════════════════════════════
+   FLIP CARDS — fixed layout
+   Key fix: cards are taller (216px), back face
+   uses flex-start alignment so text flows from
+   top and never gets clipped.
+═══════════════════════════════════════════ */
+.fc-header{display:flex;align-items:center;justify-content:space-between;
+  margin-top:2.75rem;margin-bottom:1rem}
 .fc-section-label{font-family:var(--ff-m);font-size:0.58rem;color:var(--muted2);
-  text-transform:uppercase;letter-spacing:0.22em;margin-bottom:1rem;display:flex;
-  align-items:center;gap:0.6rem}
+  text-transform:uppercase;letter-spacing:0.22em;display:flex;align-items:center;gap:0.55rem}
 .fc-section-label::after{content:'';flex:1;height:1px;background:var(--bd2)}
-.fc-hint{font-family:var(--ff-m);font-size:0.54rem;color:var(--muted2);
-  letter-spacing:0.08em;opacity:0.7}
-.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:0.85rem;margin-top:0.75rem}
-.fc{height:148px;perspective:900px;cursor:pointer}
-.fc-inner{position:relative;width:100%;height:100%;
-  transform-style:preserve-3d;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
-.fc.flipped .fc-inner{transform:rotateY(180deg)}
-.fc-front,.fc-back{position:absolute;inset:0;border-radius:var(--r);
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:1.1rem;text-align:center}
-.fc-front{background:#fff;border:1px solid var(--bd);box-shadow:var(--sh);
-  transition:box-shadow 0.25s,border-color 0.25s}
-.fc:hover .fc-front{box-shadow:var(--sh3);border-color:var(--bd2)}
-.fc-back{background:linear-gradient(135deg,var(--navy) 0%,var(--blue2) 100%);
-  transform:rotateY(180deg);border:1px solid var(--navy);box-shadow:var(--sh2)}
-.fc-ico{font-size:1.7rem;display:block;margin-bottom:0.45rem;line-height:1}
-.fc-term{font-family:var(--ff-h);font-size:0.82rem;font-weight:700;
-  color:var(--navy);line-height:1.2;margin-bottom:0.3rem}
-.fc-tap{font-family:var(--ff-m);font-size:0.5rem;color:var(--muted2);
-  letter-spacing:0.14em;text-transform:uppercase;opacity:0.65}
-.fc-back .fc-term-back{font-family:var(--ff-h);font-size:0.72rem;font-weight:700;
-  color:rgba(255,255,255,0.6);letter-spacing:0.06em;text-transform:uppercase;
-  margin-bottom:0.45rem}
-.fc-back .fc-def{font-size:0.73rem;color:#fff;line-height:1.55;font-family:var(--ff-b);font-weight:300}
-.fc-back .fc-def strong{color:var(--sky2);font-weight:600}
-@media(max-width:600px){.fc-grid{grid-template-columns:repeat(auto-fill,minmax(135px,1fr))}.fc{height:138px}}
+.fc-hint{display:inline-flex;align-items:center;gap:0.35rem;
+  font-family:var(--ff-m);font-size:0.52rem;color:var(--muted2);
+  letter-spacing:0.06em;opacity:0.65;white-space:nowrap}
+/* Grid: 3 columns desktop — wider cards mean more chars per line, fewer lines per definition */
+.fc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+@media(max-width:780px){.fc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.fc-grid{grid-template-columns:1fr 1fr}}
 
-/* ════════════════════════════════
-   2. HOW WORKS
-════════════════════════════════ */
+/* Each card wrapper — height must comfortably hold definition text.
+   240px gives roughly 7 lines of body text + term label + padding. */
+.fc{height:240px;perspective:1000px;cursor:pointer;user-select:none}
+
+/* Inner wrapper — rotates on flip */
+.fc-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  border-radius:var(--r);
+}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+
+/* Both faces: absolute to fill the card, no clipping */
+.fc-front,.fc-back{
+  position:absolute;inset:0;
+  border-radius:var(--r);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+/* FRONT */
+.fc-front{
+  background:#fff;
+  border:1px solid var(--bd);
+  box-shadow:var(--sh);
+  transition:box-shadow 0.25s,border-color 0.25s;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:1.25rem 1rem;
+}
+.fc:hover .fc-front{box-shadow:var(--sh3);border-color:var(--bd2)}
+.fc-ico{font-size:1.75rem;display:block;margin-bottom:0.5rem;line-height:1}
+.fc-term{font-family:var(--ff-h);font-size:0.84rem;font-weight:700;
+  color:var(--navy);line-height:1.2;margin-bottom:0.35rem}
+.fc-tap{font-family:var(--ff-m);font-size:0.48rem;color:var(--muted2);
+  letter-spacing:0.16em;text-transform:uppercase;opacity:0.6}
+
+/* BACK — rotated 180deg, text flows from top-left */
+.fc-back{
+  background:linear-gradient(145deg,var(--navy) 0%,var(--blue2) 100%);
+  border:1px solid var(--navy);
+  box-shadow:var(--sh2);
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:flex-start;
+  text-align:left;
+  padding:0.95rem 1.05rem 0.85rem;
+  overflow:hidden;
+}
+.fc-back-term{
+  font-family:var(--ff-m);font-size:0.5rem;font-weight:600;
+  color:rgba(255,255,255,0.5);letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:0.42rem;line-height:1;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  padding-bottom:0.38rem;width:100%;flex-shrink:0;
+}
+.fc-def{
+  font-size:0.74rem;color:#fff;
+  line-height:1.52;
+  font-family:var(--ff-b);
+  font-weight:300;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+  white-space:normal;
+}
+.fc-def strong{color:var(--sky2);font-weight:600}
+
+/* HOW GEN AI WORKS */
 .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem;margin-bottom:1.75rem}
-.hs{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.hs{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.3rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease)}
 .hs:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
-.hs-n{font-family:var(--ff-m);font-size:0.54rem;color:var(--muted2);
-  text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.5rem}
+.hs-n{font-family:var(--ff-m);font-size:0.54rem;color:var(--muted2);text-transform:uppercase;
+  letter-spacing:0.2em;margin-bottom:0.5rem}
 .hs-ico{font-size:1.3rem;display:block;margin-bottom:0.45rem}
-.hs-t{font-family:var(--ff-h);font-size:0.83rem;font-weight:700;
-  color:var(--navy);margin-bottom:0.32rem}
+.hs-t{font-family:var(--ff-h);font-size:0.83rem;font-weight:700;color:var(--navy);margin-bottom:0.32rem}
 .hs-d{font-size:0.77rem;color:var(--muted);line-height:1.62}
 .params-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem}
-.param-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
-  padding:1rem 1.1rem;box-shadow:var(--sh)}
-.param-lbl{font-family:var(--ff-m);font-size:0.55rem;color:var(--blue);
-  letter-spacing:.15em;text-transform:uppercase;margin-bottom:.28rem}
+.param-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);padding:1rem 1.1rem;box-shadow:var(--sh)}
+.param-lbl{font-family:var(--ff-m);font-size:0.55rem;color:var(--blue);letter-spacing:.15em;
+  text-transform:uppercase;margin-bottom:.28rem}
 .param-box p{font-size:.76rem;color:var(--muted);line-height:1.55}
 
-/* ════════════════════════════════
-   3. RAG
-════════════════════════════════ */
-.rag-def{background:linear-gradient(135deg,var(--bg3),var(--ice2));
-  border:1px solid var(--bd2);border-radius:var(--r);padding:2rem;
-  margin-bottom:1.25rem;box-shadow:var(--sh)}
-.rag-def h3{font-family:var(--ff-h);font-size:1.1rem;font-weight:700;
-  margin-bottom:.8rem;color:var(--navy)}
+/* RAG */
+.rag-def{background:linear-gradient(135deg,var(--bg3),var(--ice2));border:1px solid var(--bd2);
+  border-radius:var(--r);padding:2rem;margin-bottom:1.25rem;box-shadow:var(--sh)}
+.rag-def h3{font-family:var(--ff-h);font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:var(--navy)}
 .rag-def p{font-size:.87rem;color:var(--muted);line-height:1.82;margin-bottom:.75rem}
 .rag-def p:last-child{margin-bottom:0}
 .rag-def strong{color:var(--text2);font-weight:500}
 .rag-def em{color:var(--blue2);font-style:normal;font-weight:500}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
-.cmp{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.4rem;box-shadow:var(--sh)}
+.cmp{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh)}
 .cmp h4{font-family:var(--ff-h);font-size:.83rem;font-weight:700;margin-bottom:.85rem}
 .cmp.neg h4{color:#b91c1c}.cmp.pos h4{color:#15803d}
 .cmp-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem;
@@ -279,34 +270,31 @@ h2.sh .hi{color:var(--blue2)}
 .cmp-row:last-child{margin-bottom:0}
 .cmp-row strong{color:var(--text2);font-weight:500}
 
-/* ════════════════════════════════
-   4. HOW RAG WORKS
-════════════════════════════════ */
-.pipe-wrap{background:var(--bg2);border:1px solid var(--bd);
-  border-radius:var(--r);padding:2rem 1.75rem;margin-bottom:1.5rem;box-shadow:var(--sh)}
+/* RAG PIPELINE */
+.pipe-wrap{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
+  padding:2rem 1.75rem;margin-bottom:1.5rem;box-shadow:var(--sh)}
 .ph{display:flex;align-items:center;gap:.6rem;margin-bottom:1.35rem}
-.pb{font-family:var(--ff-m);font-size:.56rem;text-transform:uppercase;
-  letter-spacing:.15em;padding:.2rem .6rem;border-radius:100px}
+.pb{font-family:var(--ff-m);font-size:.56rem;text-transform:uppercase;letter-spacing:.15em;
+  padding:.2rem .6rem;border-radius:100px}
 .pb-v{background:var(--bg4);color:var(--navy);border:1px solid var(--bd2)}
 .pb-t{background:var(--ice2);color:var(--blue2);border:1px solid var(--bd2)}
 .pt{font-family:var(--ff-h);font-size:.84rem;font-weight:600;color:var(--text2)}
 .pipe-row{display:flex;align-items:center;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1.75rem}
 .pipe-row:last-child{margin-bottom:0}
-.pn{flex-shrink:0;width:105px;background:#fff;border:1px solid var(--bd);
-  border-radius:var(--rs);padding:.82rem .6rem;text-align:center;box-shadow:var(--sh);
-  transition:all .22s}
+.pn{flex-shrink:0;width:105px;background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
+  padding:.82rem .6rem;text-align:center;box-shadow:var(--sh)}
 .pn.a{border-color:var(--bd2);background:var(--ice)}
 .pn.b{border-color:var(--bd3);background:var(--ice2)}
 .pi{font-size:1.15rem;display:block;margin-bottom:.35rem}
-.pnm{font-family:var(--ff-h);font-size:.59rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;margin-bottom:.13rem}
+.pnm{font-family:var(--ff-h);font-size:.59rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:.13rem}
 .pn.a .pnm{color:var(--navy)}.pn.b .pnm{color:var(--blue2)}
 .pns{font-size:.54rem;color:var(--muted2);line-height:1.3}
-.parr{flex-shrink:0;width:28px;display:flex;align-items:center;
-  justify-content:center;color:var(--bd3);font-family:var(--ff-m);font-size:.65rem}
+.parr{flex-shrink:0;width:28px;display:flex;align-items:center;justify-content:center;
+  color:var(--bd3);font-family:var(--ff-m);font-size:.65rem}
 .step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1rem}
-.sc{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.sc{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.3rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease)}
 .sc:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
 .sc-ico{font-size:1.25rem;margin-bottom:.52rem}
 .sc-t{font-family:var(--ff-h);font-size:.78rem;font-weight:700;color:var(--blue2);
@@ -316,15 +304,12 @@ h2.sh .hi{color:var(--blue2)}
 .tt{font-family:var(--ff-m);font-size:.55rem;padding:.12rem .42rem;border-radius:4px;
   background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
 
-/* ════════════════════════════════
-   5. COPILOT AS RAG
-════════════════════════════════ */
+/* COPILOT RAG */
 .cop-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
 @media(max-width:680px){.cop-grid{grid-template-columns:1fr}}
 .cop-card{border:1px solid var(--bd);border-radius:var(--r);padding:1.75rem;
   background:#fff;box-shadow:var(--sh)}
-.cop-card h3{font-family:var(--ff-h);font-size:.95rem;font-weight:700;
-  margin-bottom:.65rem;color:var(--navy)}
+.cop-card h3{font-family:var(--ff-h);font-size:.95rem;font-weight:700;margin-bottom:.65rem;color:var(--navy)}
 .cop-card p{font-size:.82rem;color:var(--muted);line-height:1.75;margin-bottom:.65rem}
 .cop-card p:last-child{margin-bottom:0}
 .cop-card strong{color:var(--text2);font-weight:500}
@@ -337,77 +322,66 @@ h2.sh .hi{color:var(--blue2)}
 .cq.dim{border-color:var(--bd3);color:var(--muted)}.cq.dim .cql{color:var(--muted2)}
 .mg-box{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
   padding:1.6rem;margin-top:1.25rem;box-shadow:var(--sh)}
-.mg-box h4{font-family:var(--ff-h);font-size:.88rem;font-weight:700;
-  color:var(--navy);margin-bottom:1rem}
+.mg-box h4{font-family:var(--ff-h);font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
 .mg-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.55rem}
 .mg-row:last-child{margin-bottom:0}
 .mgl{font-family:var(--ff-m);font-size:.58rem;color:var(--muted);min-width:78px}
 .mgi{display:flex;flex-wrap:wrap;gap:.25rem}
-.mgb{font-family:var(--ff-m);font-size:.58rem;padding:.16rem .5rem;
-  border-radius:5px;background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
+.mgb{font-family:var(--ff-m);font-size:.58rem;padding:.16rem .5rem;border-radius:5px;
+  background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
 .agent-note{margin-top:1rem;padding:.9rem 1.05rem;border-radius:var(--rs);
   background:linear-gradient(135deg,var(--ice),var(--ice2));border:1px solid var(--bd2)}
-.agent-note-lbl{font-family:var(--ff-m);font-size:.53rem;color:var(--blue2);
-  text-transform:uppercase;letter-spacing:.18em;display:block;margin-bottom:.26rem}
+.agent-note-lbl{font-family:var(--ff-m);font-size:.53rem;color:var(--blue2);text-transform:uppercase;
+  letter-spacing:.18em;display:block;margin-bottom:.26rem}
 .agent-note p{font-size:.77rem;color:var(--muted);line-height:1.65;margin:0}
 .agent-note strong{color:var(--navy);font-weight:500}
 
-/* ════════════════════════════════
-   6. FRAMEWORK
-════════════════════════════════ */
-.fhero{background:linear-gradient(135deg,var(--bg3),var(--ice2));
-  border:1px solid var(--bd2);border-radius:var(--r);padding:1.85rem;
-  margin-bottom:2rem;box-shadow:var(--sh)}
-.flbl{font-family:var(--ff-m);font-size:.55rem;color:var(--muted2);
-  text-transform:uppercase;letter-spacing:.2em;margin-bottom:1.1rem}
+/* FRAMEWORK */
+.fhero{background:linear-gradient(135deg,var(--bg3),var(--ice2));border:1px solid var(--bd2);
+  border-radius:var(--r);padding:1.85rem;margin-bottom:2rem;box-shadow:var(--sh)}
+.flbl{font-family:var(--ff-m);font-size:.55rem;color:var(--muted2);text-transform:uppercase;
+  letter-spacing:.2em;margin-bottom:1.1rem}
 .frow{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem}
-.fp{padding:.38rem .8rem;border-radius:6px;font-family:var(--ff-h);
-  font-size:.73rem;font-weight:700;white-space:nowrap;
-  background:var(--ice);color:var(--navy);border:1px solid var(--bd2)}
+.fp{padding:.38rem .8rem;border-radius:6px;font-family:var(--ff-h);font-size:.73rem;font-weight:700;
+  white-space:nowrap;background:var(--ice);color:var(--navy);border:1px solid var(--bd2)}
 .fp.alt{background:var(--ice2);color:var(--blue2);border-color:var(--bd2)}
 .fp.dim{background:#fff;color:var(--muted);border-color:var(--bd)}
 .fp-eq{font-size:1rem;color:var(--muted2);opacity:.5;font-family:var(--ff-h)}
-.fp-res{padding:.38rem .95rem;border-radius:6px;background:var(--navy);
-  color:#fff;font-family:var(--ff-h);font-size:.75rem;font-weight:700;
-  box-shadow:0 2px 8px rgba(37,41,105,0.25)}
+.fp-res{padding:.38rem .95rem;border-radius:6px;background:var(--navy);color:#fff;
+  font-family:var(--ff-h);font-size:.75rem;font-weight:700;box-shadow:0 2px 8px rgba(37,41,105,0.25)}
 .pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem}
-.pl{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.5rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.pl{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease)}
 .pl:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
 .pl-ic{font-size:1.4rem;display:block;margin-bottom:.5rem}
-.pl-tt{font-family:var(--ff-h);font-size:.86rem;font-weight:700;
-  color:var(--navy);margin-bottom:.42rem}
+.pl-tt{font-family:var(--ff-h);font-size:.86rem;font-weight:700;color:var(--navy);margin-bottom:.42rem}
 .pl-dc{font-size:.79rem;color:var(--muted);line-height:1.68}
-.pl-ex{margin-top:.9rem;padding:.7rem .85rem;border-radius:var(--rs);
-  background:var(--bg2);border-left:2.5px solid var(--blue2);
-  font-family:var(--ff-m);font-size:.65rem;color:var(--text2);line-height:1.55}
-.pl-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;
-  color:var(--blue);display:block;margin-bottom:.25rem}
+.pl-ex{margin-top:.9rem;padding:.7rem .85rem;border-radius:var(--rs);background:var(--bg2);
+  border-left:2.5px solid var(--blue2);font-family:var(--ff-m);font-size:.65rem;
+  color:var(--text2);line-height:1.55}
+.pl-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;color:var(--blue);
+  display:block;margin-bottom:.25rem}
 
-/* ════════════════════════════════
-   7. USE CASES
-════════════════════════════════ */
-.tab-bar{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:1.75rem;
-  padding:.28rem;background:var(--bg3);border-radius:10px;border:1px solid var(--bd)}
-.tb{flex:1;min-width:90px;padding:.52rem .6rem;border-radius:7px;
-  border:none;cursor:pointer;font-family:var(--ff-b);font-size:.72rem;font-weight:500;
-  transition:all .2s var(--ease);background:transparent;color:var(--muted);
-  display:flex;align-items:center;gap:.3rem;justify-content:center;white-space:nowrap}
+/* USE CASES */
+.tab-bar{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:1.75rem;padding:.28rem;
+  background:var(--bg3);border-radius:10px;border:1px solid var(--bd)}
+.tb{flex:1;min-width:90px;padding:.52rem .6rem;border-radius:7px;border:none;cursor:pointer;
+  font-family:var(--ff-b);font-size:.72rem;font-weight:500;transition:all .2s var(--ease);
+  background:transparent;color:var(--muted);display:flex;align-items:center;
+  gap:.3rem;justify-content:center;white-space:nowrap}
 .tb.on{background:#fff;color:var(--navy);box-shadow:var(--sh);font-weight:600}
 .tb:hover:not(.on){color:var(--navy);background:rgba(255,255,255,0.6)}
 .tp{display:none}
-.tp.on{display:grid;grid-template-columns:1fr 1.4fr;gap:1.6rem;
-  animation:ti .28s ease}
+.tp.on{display:grid;grid-template-columns:1fr 1.4fr;gap:1.6rem;animation:ti .28s ease}
 @keyframes ti{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:720px){.tp.on{grid-template-columns:1fr}}
-.ui h3{font-family:var(--ff-h);font-size:1.2rem;font-weight:700;
-  letter-spacing:-.02em;margin-bottom:.7rem;color:var(--navy)}
+.ui h3{font-family:var(--ff-h);font-size:1.2rem;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:.7rem;color:var(--navy)}
 .ui h3 span{color:var(--blue2)}
 .ui p{font-size:.83rem;color:var(--muted);line-height:1.78;margin-bottom:.9rem}
-.utip{padding:.9rem 1.05rem;border-radius:var(--rs);
-  background:var(--bg2);border:1px solid var(--bd)}
-.utip-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;
-  letter-spacing:.18em;color:var(--blue);margin-bottom:.32rem;display:block}
+.utip{padding:.9rem 1.05rem;border-radius:var(--rs);background:var(--bg2);border:1px solid var(--bd)}
+.utip-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--blue);margin-bottom:.32rem;display:block}
 .utip p{font-size:.76rem;line-height:1.62;margin:0;color:var(--muted)}
 .ps2{display:flex;flex-direction:column;gap:.65rem}
 .pc{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
@@ -416,20 +390,16 @@ h2.sh .hi{color:var(--blue2)}
 .pc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2.5px;
   background:linear-gradient(180deg,var(--navy),var(--blue2))}
 .pc:hover{box-shadow:var(--sh2);border-color:var(--bd2);transform:translateX(3px)}
-.pc-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;
-  letter-spacing:.18em;color:var(--blue);margin-bottom:.4rem;display:block}
+.pc-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--blue);margin-bottom:.4rem;display:block}
 .pc-t{font-family:var(--ff-m);font-size:.69rem;color:var(--text2);line-height:1.65}
-.pc-b{display:inline-block;margin-top:.48rem;padding:.12rem .48rem;
-  border-radius:100px;font-size:.56rem;background:var(--ice);
-  color:var(--blue);border:1px solid var(--bd2)}
+.pc-b{display:inline-block;margin-top:.48rem;padding:.12rem .48rem;border-radius:100px;
+  font-size:.56rem;background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
 
-/* ════════════════════════════════
-   8. PROMPT ENGINEERING
-════════════════════════════════ */
+/* PROMPT ENGINEERING */
 .pe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:1rem;margin-bottom:1.5rem}
-.pe-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.35rem;box-shadow:var(--sh);transition:all .25s var(--ease);
-  position:relative;overflow:hidden}
+.pe-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.35rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease);position:relative;overflow:hidden}
 .pe-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px}
 .pe-card:nth-child(1)::after{background:linear-gradient(90deg,var(--navy),var(--blue2))}
 .pe-card:nth-child(2)::after{background:linear-gradient(90deg,var(--blue2),var(--sky))}
@@ -440,108 +410,90 @@ h2.sh .hi{color:var(--blue2)}
 .pe-card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
 .pe-t{font-family:var(--ff-h);font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.38rem}
 .pe-d{font-size:.77rem;color:var(--muted);line-height:1.65}
-.pe-ex{margin-top:.75rem;padding:.65rem .8rem;border-radius:var(--rs);
-  background:var(--bg2);border:1px solid var(--bd);
-  font-family:var(--ff-m);font-size:.63rem;color:var(--text2);line-height:1.55}
-.pe-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.18em;
-  color:var(--muted2);display:block;margin-bottom:.22rem}
+.pe-ex{margin-top:.75rem;padding:.65rem .8rem;border-radius:var(--rs);background:var(--bg2);
+  border:1px solid var(--bd);font-family:var(--ff-m);font-size:.63rem;color:var(--text2);line-height:1.55}
+.pe-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted2);
+  display:block;margin-bottom:.22rem}
 .dos-donts{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.dos-donts{grid-template-columns:1fr}}
-.dd-box{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.4rem;box-shadow:var(--sh)}
+.dd-box{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh)}
 .dd-box h4{font-family:var(--ff-h);font-size:.83rem;font-weight:700;margin-bottom:.8rem}
 .dd-box.dos h4{color:#15803d}.dd-box.don h4{color:#b91c1c}
 .dd-r{display:flex;align-items:flex-start;gap:.45rem;margin-bottom:.36rem;
   font-size:.76rem;color:var(--muted);line-height:1.5}
 .dd-r:last-child{margin-bottom:0}
 
-/* ════════════════════════════════
-   9. COPILOT TIPS
-════════════════════════════════ */
+/* COPILOT TIPS */
 .cop-tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1rem}
-.ct{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.ct{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.3rem;
+  box-shadow:var(--sh);transition:all .25s var(--ease)}
 .ct:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
-.ct-app{font-family:var(--ff-m);font-size:.53rem;color:var(--blue);
-  text-transform:uppercase;letter-spacing:.18em;margin-bottom:.5rem;display:block}
+.ct-app{font-family:var(--ff-m);font-size:.53rem;color:var(--blue);text-transform:uppercase;
+  letter-spacing:.18em;margin-bottom:.5rem;display:block}
 .ct-ico{font-size:1.25rem;display:block;margin-bottom:.45rem}
-.ct-t{font-family:var(--ff-h);font-size:.84rem;font-weight:700;
-  color:var(--navy);margin-bottom:.35rem}
+.ct-t{font-family:var(--ff-h);font-size:.84rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
 .ct p{font-size:.76rem;color:var(--muted);line-height:1.62}
-.wf-box{background:linear-gradient(135deg,var(--bg3),var(--ice2));
-  border:1px solid var(--bd2);border-radius:var(--r);padding:1.75rem;
-  margin-top:1.5rem;box-shadow:var(--sh)}
-.wf-box h4{font-family:var(--ff-h);font-size:.9rem;font-weight:700;
-  color:var(--navy);margin-bottom:1.2rem}
+.wf-box{background:linear-gradient(135deg,var(--bg3),var(--ice2));border:1px solid var(--bd2);
+  border-radius:var(--r);padding:1.75rem;margin-top:1.5rem;box-shadow:var(--sh)}
+.wf-box h4{font-family:var(--ff-h);font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:1.2rem}
 .wf-steps{display:flex;align-items:flex-start;flex-wrap:wrap;gap:0}
 .wf-s{flex:1;min-width:110px;text-align:center;padding:.6rem .4rem;position:relative}
-.wf-s::after{content:'';position:absolute;top:1.25rem;right:-7px;
-  width:14px;height:1px;background:linear-gradient(90deg,var(--blue2),transparent)}
+.wf-s::after{content:'';position:absolute;top:1.25rem;right:-7px;width:14px;height:1px;
+  background:linear-gradient(90deg,var(--blue2),transparent)}
 .wf-s:last-child::after{display:none}
 .wf-ico{font-size:1.15rem;display:block;margin-bottom:.28rem}
-.wf-l{font-family:var(--ff-h);font-size:.63rem;font-weight:700;
-  color:var(--navy);margin-bottom:.16rem;text-transform:uppercase;letter-spacing:.04em}
+.wf-l{font-family:var(--ff-h);font-size:.63rem;font-weight:700;color:var(--navy);margin-bottom:.16rem;
+  text-transform:uppercase;letter-spacing:.04em}
 .wf-s2{font-size:.59rem;color:var(--muted);line-height:1.38}
 
-/* ════════════════════════════════
-   10. IMPACT
-════════════════════════════════ */
+/* IMPACT */
 .im-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1rem;margin-bottom:1.25rem}
-.im{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.5rem;text-align:center;box-shadow:var(--sh);
-  transition:all .25s var(--ease);position:relative;overflow:hidden}
+.im{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;text-align:center;
+  box-shadow:var(--sh);transition:all .25s var(--ease);position:relative;overflow:hidden}
 .im::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--navy),var(--blue2),var(--sky))}
 .im:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
 .im-ico{font-size:1.5rem;display:block;margin-bottom:.45rem}
-.im-v{font-family:var(--ff-h);font-size:1.85rem;font-weight:800;
-  color:var(--navy);letter-spacing:-.04em;line-height:1;margin-bottom:.2rem}
-.im-t{font-family:var(--ff-h);font-size:.73rem;font-weight:700;
-  color:var(--text2);margin-bottom:.25rem}
+.im-v{font-family:var(--ff-h);font-size:1.85rem;font-weight:800;color:var(--navy);
+  letter-spacing:-.04em;line-height:1;margin-bottom:.2rem}
+.im-t{font-family:var(--ff-h);font-size:.73rem;font-weight:700;color:var(--text2);margin-bottom:.25rem}
 .im-d{font-size:.71rem;color:var(--muted);line-height:1.55}
 .iq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.iq-grid{grid-template-columns:1fr}}
-.iq{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
-  padding:1.4rem;box-shadow:var(--sh)}
-.iq h4{font-family:var(--ff-h);font-size:.84rem;font-weight:700;
-  color:var(--navy);margin-bottom:.8rem}
+.iq{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh)}
+.iq h4{font-family:var(--ff-h);font-size:.84rem;font-weight:700;color:var(--navy);margin-bottom:.8rem}
 .iq-r{display:flex;align-items:flex-start;gap:.45rem;margin-bottom:.38rem;
   font-size:.76rem;color:var(--muted);line-height:1.5}
 .iq-r:last-child{margin-bottom:0}
-.iq-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;
-  margin-top:.42rem;background:var(--navy)}
+.iq-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:.42rem;background:var(--navy)}
 .iq.alt .iq-dot{background:var(--blue2)}
 
-/* ════════════════════════════════
-   11. CHEATSHEET
-════════════════════════════════ */
+/* CHEATSHEET */
 .cs-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh)}
 table.cs{width:100%;border-collapse:collapse}
 table.cs thead tr{background:var(--bg3)}
-table.cs th{padding:.82rem 1.05rem;text-align:left;font-family:var(--ff-h);
-  font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--navy);border-bottom:1px solid var(--bd2)}
-table.cs td{padding:.75rem 1.05rem;border-bottom:1px solid var(--bd);
-  vertical-align:top;font-size:.78rem;color:var(--text)}
+table.cs th{padding:.82rem 1.05rem;text-align:left;font-family:var(--ff-h);font-size:.63rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);
+  border-bottom:1px solid var(--bd2)}
+table.cs td{padding:.75rem 1.05rem;border-bottom:1px solid var(--bd);vertical-align:top;
+  font-size:.78rem;color:var(--text)}
 table.cs tr:last-child td{border-bottom:none}
 table.cs tr:hover td{background:var(--bg3)}
-.rt{font-family:var(--ff-m);font-size:.54rem;padding:.11rem .4rem;
-  border-radius:4px;white-space:nowrap;background:var(--ice);
-  color:var(--blue);border:1px solid var(--bd2)}
+.rt{font-family:var(--ff-m);font-size:.54rem;padding:.11rem .4rem;border-radius:4px;
+  white-space:nowrap;background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
 .rt-ce{background:#fff3ed;color:#c2410c;border-color:#fed7aa}
 .rt-al{background:var(--ice2);color:var(--navy);border-color:var(--bd3)}
-table.cs td:nth-child(3){font-family:var(--ff-m);font-size:.67rem;
-  color:var(--text2);min-width:275px}
+table.cs td:nth-child(3){font-family:var(--ff-m);font-size:.67rem;color:var(--text2);min-width:275px}
 table.cs td:last-child{color:var(--muted);font-size:.71rem}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
-.fl{font-family:var(--ff-h);font-size:1.25rem;font-weight:700;
-  letter-spacing:-.02em;margin-bottom:.28rem;color:#fff}
+.fl{font-family:var(--ff-h);font-size:1.25rem;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:.28rem;color:#fff}
 .fl em{color:var(--sky2);font-style:normal}
-.fauth{display:inline-flex;align-items:center;gap:.9rem;
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
-  border-radius:10px;padding:.8rem 1.35rem;margin:.9rem auto;text-align:left}
+.fauth{display:inline-flex;align-items:center;gap:.9rem;background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);border-radius:10px;
+  padding:.8rem 1.35rem;margin:.9rem auto;text-align:left}
 .fav{width:36px;height:36px;border-radius:50%;
   background:linear-gradient(135deg,var(--sky),var(--sky2));
   display:flex;align-items:center;justify-content:center;
@@ -688,180 +640,180 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       </div>
     </div>
 
-    <!-- FLIP CARDS -->
+    <!-- FLIP CARDS: Key Terminology -->
     <div class="rv d3" style="margin-top:2.75rem">
-      <div class="fc-section-label">Key Terminology &nbsp;<span class="fc-hint">&#8592; tap any card to reveal the definition</span></div>
-      <div class="fc-grid" id="fcg">
+      <div class="fc-section-label">Key Terminology &nbsp;<span class="fc-hint">&#8592; click any card to reveal the definition</span></div>
+      <div class="fc-grid">
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#129504;</span>
               <div class="fc-term">Transformer</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Transformer</div>
-              <div class="fc-def">A neural network architecture built on <strong>self-attention</strong>. Introduced in 2017, it processes all tokens in parallel and learns which parts of the input matter for each output — enabling the scale that makes modern LLMs possible.</div>
+              <div class="fc-back-term">Transformer</div>
+              <div class="fc-def">A neural network architecture built on <strong>self-attention</strong>. Introduced in 2017, it processes all tokens in parallel, learning which parts of the input matter for each output &mdash; enabling the scale of modern LLMs.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128288;</span>
               <div class="fc-term">Tokenisation</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Tokenisation</div>
-              <div class="fc-def">Splitting text into <strong>sub-word units</strong> called tokens (~¾ of a word each). Models never see raw characters — only token IDs. "Power Automate" becomes 3 tokens. Context window limits are measured in tokens, not words.</div>
+              <div class="fc-back-term">Tokenisation</div>
+              <div class="fc-def">Splitting text into <strong>sub-word units</strong> called tokens (~&frac34; of a word each). Models never see raw characters &mdash; only token IDs. Context window limits are measured in tokens, not words or characters.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#127358;</span>
               <div class="fc-term">Embedding</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Embedding</div>
-              <div class="fc-def">A <strong>dense numeric vector</strong> representing a token or document in high-dimensional space. Semantically similar words cluster together. This is how models measure meaning — through geometry, not rules.</div>
+              <div class="fc-back-term">Embedding</div>
+              <div class="fc-def">A <strong>dense numeric vector</strong> representing a token or document in high-dimensional space. Semantically similar words cluster together. This is how models measure meaning &mdash; through geometry, not rules.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128064;</span>
-              <div class="fc-term">Attention</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-term">Self-Attention</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Self-Attention</div>
-              <div class="fc-def">A mechanism that lets every token <strong>weigh every other token</strong> in the context window. "The flow fails when it…" — attention helps the model link "it" back to "flow" across many tokens.</div>
+              <div class="fc-back-term">Self-Attention</div>
+              <div class="fc-def">A mechanism that lets every token <strong>weigh every other token</strong> in the context window. This is how the model links pronouns to nouns, resolves ambiguity, and tracks context across long passages.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128202;</span>
               <div class="fc-term">Parameters</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Parameters</div>
-              <div class="fc-def">The <strong>numerical weights</strong> learned during training — GPT-4 has ~1 trillion. They encode all the model's knowledge. Once trained, they are fixed. Increasing parameters generally increases capability but also cost.</div>
+              <div class="fc-back-term">Parameters</div>
+              <div class="fc-def">The <strong>numerical weights</strong> learned during training. GPT-4 has ~1 trillion. They encode all the model's knowledge. Once trained, they are fixed &mdash; the model cannot learn new facts without retraining or RAG.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
-              <span class="fc-ico">&#127919;</span>
+              <span class="fc-ico">&#9889;</span>
               <div class="fc-term">Inference</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Inference</div>
-              <div class="fc-def">Running a <strong>trained model to generate output</strong> — what happens every time you send a prompt. Different from training (which updates weights). Inference is fast and cheap; training is slow and expensive.</div>
+              <div class="fc-back-term">Inference</div>
+              <div class="fc-def">Running a <strong>trained model to generate output</strong> &mdash; what happens every time you send a prompt. Distinct from training, which updates weights. Inference is fast and cheap; training is slow and very expensive.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
-              <span class="fc-ico">&#127919;</span>
+              <span class="fc-ico">&#127777;</span>
               <div class="fc-term">Temperature</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Temperature</div>
-              <div class="fc-def">A <strong>sampling parameter</strong> that controls output randomness. At 0 the model always picks the highest-probability token (deterministic). At 1+ it samples more freely — more creative but less precise.</div>
+              <div class="fc-back-term">Temperature</div>
+              <div class="fc-def">A <strong>sampling parameter</strong> controlling output randomness. At 0 the model picks the highest-probability token every time (deterministic). At 1+ it samples more freely &mdash; more creative, less precise.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128268;</span>
               <div class="fc-term">Context Window</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Context Window</div>
-              <div class="fc-def">The <strong>maximum tokens a model can process at once</strong> — both input and output combined. GPT-4o: 128K tokens (~96K words). Everything in the window influences the output. Larger windows = richer context = better answers.</div>
+              <div class="fc-back-term">Context Window</div>
+              <div class="fc-def">The <strong>maximum tokens</strong> a model can see at once &mdash; input and output combined. GPT-4o: 128K tokens. Everything in the window shapes every token generated. Larger = richer context = better answers.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#127775;</span>
               <div class="fc-term">RLHF</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">RLHF</div>
-              <div class="fc-def"><strong>Reinforcement Learning from Human Feedback.</strong> After pretraining, human raters score outputs. The model is fine-tuned to produce outputs humans prefer — this is what turns a raw text predictor into a helpful assistant like Copilot.</div>
+              <div class="fc-back-term">RLHF</div>
+              <div class="fc-def"><strong>Reinforcement Learning from Human Feedback.</strong> Human raters score model outputs, and the model is fine-tuned toward preferred responses. This turns a raw text predictor into a helpful assistant like Copilot.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128290;</span>
               <div class="fc-term">Vector Search</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Vector Search</div>
+              <div class="fc-back-term">Vector Search</div>
               <div class="fc-def">Finding documents by <strong>semantic similarity</strong>, not keyword matching. A query is embedded into a vector, then the index returns the nearest document vectors by cosine distance. The foundation of every RAG system.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#127970;</span>
               <div class="fc-term">Foundation Model</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Foundation Model</div>
-              <div class="fc-def">A <strong>large pretrained model</strong> (GPT-4o, Claude, Gemini) trained on internet-scale data, then adapted for specific tasks. Called "foundation" because other products and applications are built on top of them.</div>
+              <div class="fc-back-term">Foundation Model</div>
+              <div class="fc-def">A <strong>large pretrained model</strong> (GPT-4o, Claude, Gemini) trained on internet-scale data, then adapted for specific tasks. Called &ldquo;foundation&rdquo; because other products are built on top of them.</div>
             </div>
           </div>
         </div>
 
-        <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="fc-inner">
             <div class="fc-front">
               <span class="fc-ico">&#128172;</span>
               <div class="fc-term">Prompt</div>
-              <div class="fc-tap">Tap to flip</div>
+              <div class="fc-tap">Click to reveal</div>
             </div>
             <div class="fc-back">
-              <div class="fc-term-back">Prompt</div>
-              <div class="fc-def">The <strong>full input sent to the model</strong> — typically a system message (hidden instructions) plus the user message. Prompt engineering is the discipline of crafting inputs to reliably elicit the outputs you want.</div>
+              <div class="fc-back-term">Prompt</div>
+              <div class="fc-def">The <strong>full input sent to the model</strong> &mdash; typically a system message (hidden instructions) plus the user message. Prompt engineering is the discipline of crafting inputs to reliably elicit the outputs you need.</div>
             </div>
           </div>
         </div>
 
-      </div>
+      </div><!-- /fc-grid -->
     </div>
   </div>
 </section>
@@ -876,11 +828,11 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       <p class="sub">The transformer architecture in enough depth to reason about why prompts work and why they fail.</p>
     </div>
     <div class="how-grid">
-      <div class="hs rv"><div class="hs-n">Step 01</div><span class="hs-ico">&#128288;</span><div class="hs-t">Tokenisation</div><p class="hs-d">Text splits into sub-word tokens (~&#190; of a word each). "Power Automate" becomes ["Power"," Autom","ate"]. The model never sees raw characters &mdash; only token IDs mapped to learned embedding vectors.</p></div>
+      <div class="hs rv"><div class="hs-n">Step 01</div><span class="hs-ico">&#128288;</span><div class="hs-t">Tokenisation</div><p class="hs-d">Text splits into sub-word tokens (~&frac34; of a word each). "Power Automate" becomes ["Power"," Autom","ate"]. The model never sees raw characters &mdash; only token IDs mapped to learned embedding vectors.</p></div>
       <div class="hs rv d1"><div class="hs-n">Step 02</div><span class="hs-ico">&#127358;</span><div class="hs-t">Embeddings</div><p class="hs-d">Each token ID maps to a dense vector (12,288 dimensions in GPT-4). Semantically similar tokens cluster in this space. This is where meaning enters the computation &mdash; not rules, pure geometry.</p></div>
       <div class="hs rv d2"><div class="hs-n">Step 03</div><span class="hs-ico">&#128064;</span><div class="hs-t">Self-Attention</div><p class="hs-d">Every token attends to every other token in context. Multi-head attention learns which tokens matter to each other &mdash; capturing long-range dependencies, pronoun resolution, and contextual meaning shifts.</p></div>
-      <div class="hs rv d3"><div class="hs-n">Step 04</div><span class="hs-ico">&#128267;</span><div class="hs-t">Feed-Forward Layers</div><p class="hs-d">After attention, each position passes through FFN layers that encode learned knowledge. This is where most factual knowledge appears to be stored in model weights &mdash; not the attention mechanism.</p></div>
-      <div class="hs rv"><div class="hs-n">Step 05</div><span class="hs-ico">&#127922;</span><div class="hs-t">Next Token Sampling</div><p class="hs-d">The final layer outputs a probability distribution over the full vocabulary (~50k tokens). The model samples the next token, appends it, and repeats. This autoregressive loop is generation.</p></div>
+      <div class="hs rv d3"><div class="hs-n">Step 04</div><span class="hs-ico">&#128267;</span><div class="hs-t">Feed-Forward Layers</div><p class="hs-d">After attention, each position passes through FFN layers encoding learned knowledge. Most factual knowledge appears to be stored here in the model weights &mdash; not in the attention mechanism.</p></div>
+      <div class="hs rv"><div class="hs-n">Step 05</div><span class="hs-ico">&#127922;</span><div class="hs-t">Next Token Sampling</div><p class="hs-d">The final layer outputs a probability distribution over ~50k tokens. The model samples the next token, appends it, and repeats. This autoregressive loop is generation.</p></div>
       <div class="hs rv d1"><div class="hs-n">Step 06</div><span class="hs-ico">&#127775;</span><div class="hs-t">RLHF Alignment</div><p class="hs-d">Raw pretrained models output chaotic continuations. RLHF trains the model to follow instructions and be helpful &mdash; producing the clean assistant behaviour you see in Copilot. Temperature and system prompts shape outputs at inference time.</p></div>
     </div>
     <div class="dw rv d2" style="margin-bottom:0">
@@ -909,8 +861,6 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       <p>LLMs have <em>static parametric knowledge</em> &mdash; baked into weights at training time, containing nothing beyond the cutoff date and nothing specific to your organisation. Ask GPT-4o "What is the error handling procedure for our SAP sync flow?" and it will confidently fabricate a plausible-sounding but factually wrong answer for your context. This is the fundamental enterprise AI problem.</p>
       <p>RAG separates <strong>retrieval of relevant information</strong> from <strong>language generation</strong>. At query time, the system fetches the most semantically relevant content from an external knowledge store &mdash; your SharePoint, Celonis reports, runbooks &mdash; then injects that content into the model's context alongside the question. The model generates grounded in actual, specific, up-to-date information. Every answer is citable. Every claim is verifiable. This is the architecture behind every trustworthy enterprise AI system in production today &mdash; including <em>Microsoft Copilot 365</em>.</p>
     </div>
-
-    <!-- SVG: RAG vs No-RAG -->
     <div class="dw rv d2" style="margin-bottom:1.25rem">
       <div class="dlbl">// Parametric LLM vs RAG-augmented LLM</div>
       <svg viewBox="0 0 760 135" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:0 auto;overflow:visible">
@@ -934,9 +884,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
         <text x="336" y="77" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">confident but wrong</text>
         <text x="336" y="88" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">no citations</text>
         <text x="336" y="99" text-anchor="middle" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="7">not auditable</text>
-
         <line x1="400" y1="10" x2="400" y2="128" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 3"/>
-
         <text x="580" y="16" text-anchor="middle" fill="#15803d" font-family="Outfit,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.4">WITH RAG</text>
         <rect x="410" y="24" width="104" height="88" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
         <text x="462" y="52" text-anchor="middle" font-size="18" font-family="sans-serif">&#128172;</text>
@@ -959,7 +907,6 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
         <text x="721" y="99" text-anchor="middle" fill="#15803d" font-family="JetBrains Mono,monospace" font-size="7">auditable</text>
       </svg>
     </div>
-
     <div class="compare-grid rv d2">
       <div class="cmp neg">
         <h4>&#10060; Without RAG &mdash; Parametric LLM</h4>
@@ -1021,8 +968,8 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       <div class="sc rv d1"><div class="sc-ico">&#128290;</div><div class="sc-t">Embedding Models</div><p class="sc-d">Identical model at index and query time is mandatory. text-embedding-3-large (3072-dim) outperforms ada-002 on most benchmarks. Never mix models across phases.</p><div class="sc-tags"><span class="tt">ada-002</span><span class="tt">text-embedding-3</span><span class="tt">Cosine Similarity</span></div></div>
       <div class="sc rv d2"><div class="sc-ico">&#128269;</div><div class="sc-t">Hybrid Search</div><p class="sc-d">Pure vector search misses exact-match queries (error codes, IDs). Pure BM25 misses semantic variants. Hybrid via RRF captures both. Azure AI Search supports this natively. Always use hybrid in production.</p><div class="sc-tags"><span class="tt">BM25</span><span class="tt">RRF Fusion</span><span class="tt">Azure AI Search</span></div></div>
       <div class="sc rv"><div class="sc-ico">&#127919;</div><div class="sc-t">Reranking</div><p class="sc-d">Vector retrieval gets you approximately right chunks. A cross-encoder reranker (Azure Semantic Ranker) re-scores with full query-document attention &mdash; dramatically improving precision. The latency cost is worth it.</p><div class="sc-tags"><span class="tt">Cross-Encoder</span><span class="tt">Semantic Ranker</span><span class="tt">Top-K</span></div></div>
-      <div class="sc rv d1"><div class="sc-ico">&#129504;</div><div class="sc-t">Grounding Instruction</div><p class="sc-d">The key hallucination control: "Answer only from the provided context. If the answer is not present, say so explicitly." This demotes parametric knowledge to a fallback and anchors every response to retrieved content.</p><div class="sc-tags"><span class="tt">System Prompt</span><span class="tt">Grounding</span><span class="tt">Context Window</span></div></div>
-      <div class="sc rv d2"><div class="sc-ico">&#10024;</div><div class="sc-t">Citation &amp; Traceability</div><p class="sc-d">Production RAG returns source document, page, and chunk alongside each answer. For Baxter with GxP and 21 CFR Part 11 requirements, this is non-negotiable. Every AI claim must trace to a primary source.</p><div class="sc-tags"><span class="tt">Source Citation</span><span class="tt">GxP</span><span class="tt">Audit Trail</span></div></div>
+      <div class="sc rv d1"><div class="sc-ico">&#129504;</div><div class="sc-t">Grounding Instruction</div><p class="sc-d">The key hallucination control: "Answer only from the provided context. If the answer is not present, say so explicitly." This demotes parametric knowledge and anchors every response to retrieved content.</p><div class="sc-tags"><span class="tt">System Prompt</span><span class="tt">Grounding</span><span class="tt">Context Window</span></div></div>
+      <div class="sc rv d2"><div class="sc-ico">&#10024;</div><div class="sc-t">Citation &amp; Traceability</div><p class="sc-d">Production RAG returns source document, page, and chunk alongside each answer. For GxP and 21 CFR Part 11 requirements, this is non-negotiable. Every AI claim must trace to a primary source.</p><div class="sc-tags"><span class="tt">Source Citation</span><span class="tt">GxP</span><span class="tt">Audit Trail</span></div></div>
     </div>
   </div>
 </section>
@@ -1047,7 +994,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
         <h3>Prompting Copilot Effectively</h3>
         <p>Since Copilot does RAG over Graph data, prompts should <em>explicitly reference real artefacts</em> &mdash; this signals which data to retrieve and dramatically improves answer quality.</p>
         <div class="cq dim"><span class="cql">Weak &mdash; generic retrieval</span>Give me a status update on the invoice automation.</div>
-        <div class="cq" style="margin-top:0.65rem"><span class="cql">Strong &mdash; targeted retrieval</span>Based on the PDD in our IA SharePoint Bot Documentation library, my email thread with Finance this week, and action items from Monday&apos;s Teams standup &mdash; summarise project status, top 2 risks, and the one thing I need to do today.</div>
+        <div class="cq" style="margin-top:0.65rem"><span class="cql">Strong &mdash; targeted retrieval</span>Based on the PDD in our IA SharePoint Bot Documentation library, my email thread with Finance this week, and action items from Monday's Teams standup &mdash; summarise project status, top 2 risks, and the one thing I need to do today.</div>
       </div>
     </div>
     <div class="mg-box rv d2">
@@ -1180,7 +1127,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       <div class="pe-card rv"><div class="pe-t">Chain-of-Thought</div><p class="pe-d">Instruct the model to reason step-by-step before the final answer. "Think through this step by step" activates more deliberate computation and reduces errors on multi-step reasoning, debugging, and architectural decisions.</p><div class="pe-ex"><span class="pe-el">Pattern</span>...before designing the flow, reason through the data dependencies and potential race conditions step by step, then provide the final design.</div></div>
       <div class="pe-card rv d1"><div class="pe-t">Few-Shot Exemplars</div><p class="pe-d">Provide 2-3 input-output pair examples before your actual request. The model infers the pattern and dramatically improves format consistency. Powerful for custom document formats like Baxter's PDD template and classification tasks.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Here are two correctly formatted user stories from our last project: [example 1] [example 2]. Now write user stories for this: [requirement].</div></div>
       <div class="pe-card rv d2"><div class="pe-t">Self-Consistency Sampling</div><p class="pe-d">For high-stakes outputs, request 3 independent analyses and identify convergence. "Give me 3 independent analyses and identify where they agree." The majority answer across samples is more reliable than any single answer.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Analyse this architecture from 3 angles: performance, security, and maintainability. Then identify where all three agree on the biggest risk.</div></div>
-      <div class="pe-card rv"><div class="pe-t">Persona + Constraint Stacking</div><p class="pe-d">Combine a specific expert persona with hard constraints to narrow the probability distribution precisely. "Act as a GxP-compliance-focused PA architect who must use only standard connectors approved for Baxter's production environment" is far more precise than "help me design a flow."</p><div class="pe-ex"><span class="pe-el">Pattern</span>Act as a GxP-aware automation architect. Design only to Baxter IT-approved connector list. Every decision must include a GxP risk justification.</div></div>
+      <div class="pe-card rv"><div class="pe-t">Persona + Constraint Stacking</div><p class="pe-d">Combine a specific expert persona with hard constraints to narrow the probability distribution precisely. This is far more effective than a generic request &mdash; it activates the right knowledge and eliminates unsuitable solutions in one prompt.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Act as a GxP-aware automation architect. Design only to Baxter IT-approved connector list. Every decision must include a GxP risk justification.</div></div>
       <div class="pe-card rv d1"><div class="pe-t">Output Schema Locking</div><p class="pe-d">Define the output as a rigid schema &mdash; JSON structure, table with exact columns, numbered sections with defined headings. Locked format channels creativity entirely into content quality rather than structural decisions. Produces consistently parseable outputs.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Return as JSON: {{"risk": string, "severity": "High|Medium|Low", "mitigation": string}}. No preamble or explanation outside the schema.</div></div>
       <div class="pe-card rv d2"><div class="pe-t">Anti-Hallucination Grounding</div><p class="pe-d">For accuracy-critical tasks, add an explicit uncertainty instruction: "If you are not certain about a specific API endpoint or technical detail, say so rather than guessing." Shifts sampling toward admitted uncertainty over confident fabrication.</p><div class="pe-ex"><span class="pe-el">Pattern</span>...if uncertain about any specific SharePoint REST endpoint or PA expression syntax, state your uncertainty rather than guessing.</div></div>
     </div>
