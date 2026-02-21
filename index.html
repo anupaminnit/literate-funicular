@@ -486,6 +486,63 @@ table.cs tr:hover td{background:var(--bg3)}
 table.cs td:nth-child(3){font-family:var(--ff-m);font-size:.67rem;color:var(--text2);min-width:275px}
 table.cs td:last-child{color:var(--muted);font-size:.71rem}
 
+/* ════════════════════════════════
+   FURTHER LEARNING — Video Cards
+════════════════════════════════ */
+.creator-block{margin-bottom:2.5rem}
+.creator-block:last-child{margin-bottom:0}
+.creator-header{display:flex;align-items:center;gap:0.9rem;margin-bottom:1.25rem}
+.creator-badge{display:flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  font-size:1.2rem;box-shadow:var(--sh2)}
+.creator-badge.b3b{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.creator-badge.sqw{background:linear-gradient(135deg,#0f3460,#533483)}
+.creator-info h3{font-family:var(--ff-h);font-size:1rem;font-weight:700;
+  color:var(--navy);margin-bottom:0.1rem}
+.creator-info p{font-size:0.76rem;color:var(--muted);line-height:1.4}
+.creator-info a{color:var(--blue2);text-decoration:none;font-size:0.72rem;
+  font-family:var(--ff-m);letter-spacing:0.04em}
+.creator-info a:hover{color:var(--navy);text-decoration:underline}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.vid-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--sh);transition:all .25s var(--ease);
+  text-decoration:none;display:block;color:inherit}
+.vid-card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.vid-thumb{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg3)}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .35s var(--ease)}
+.vid-card:hover .vid-thumb img{transform:scale(1.04)}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(37,41,105,0.22);transition:background .25s}
+.vid-card:hover .vid-play{background:rgba(37,41,105,0.38)}
+.vid-play-btn{width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.93);display:flex;align-items:center;
+  justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.25);
+  transition:transform .2s}
+.vid-card:hover .vid-play-btn{transform:scale(1.1)}
+.vid-play-ico{width:0;height:0;border-style:solid;margin-left:3px;
+  border-width:7px 0 7px 13px;
+  border-color:transparent transparent transparent var(--navy)}
+.vid-body{padding:0.9rem 1rem 1rem}
+.vid-tags{display:flex;flex-wrap:wrap;gap:0.28rem;margin-bottom:0.55rem}
+.vid-tag{font-family:var(--ff-m);font-size:0.5rem;padding:0.1rem 0.42rem;
+  border-radius:100px;background:var(--ice);color:var(--blue);
+  border:1px solid var(--bd2);letter-spacing:0.06em}
+.vid-title{font-family:var(--ff-h);font-size:0.82rem;font-weight:700;
+  color:var(--navy);line-height:1.28;margin-bottom:0.32rem}
+.vid-desc{font-size:0.72rem;color:var(--muted);line-height:1.55}
+.vid-meta{display:flex;align-items:center;gap:0.45rem;margin-top:0.6rem;
+  font-family:var(--ff-m);font-size:0.52rem;color:var(--muted2)}
+.vid-dot{width:3px;height:3px;border-radius:50%;background:var(--bd3)}
+.credit-note{margin-top:2rem;padding:1.1rem 1.4rem;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--bg3),var(--ice2));
+  border:1px solid var(--bd2);display:flex;align-items:flex-start;gap:0.9rem}
+.credit-note-ico{font-size:1.25rem;flex-shrink:0;margin-top:0.05rem}
+.credit-note p{font-size:0.8rem;color:var(--muted);line-height:1.72;margin:0}
+.credit-note strong{color:var(--navy);font-weight:600}
+.credit-note a{color:var(--blue2);text-decoration:none;font-weight:500}
+.credit-note a:hover{text-decoration:underline}
+
 /* FOOTER */
 footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
 .fl{font-family:var(--ff-h);font-size:1.25rem;font-weight:700;letter-spacing:-.02em;
@@ -529,6 +586,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
     <li><a href="#prompting">Prompting</a></li>
     <li><a href="#impact">Impact</a></li>
     <li><a href="#cheatsheet" class="nc">Cheatsheet</a></li>
+    <li><a href="#videos">Videos</a></li>
   </ul>
 </nav>
 
@@ -1264,6 +1322,211 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
   </div>
 </section>
 
+<div class="sec-div"></div>
+
+<!-- 12. FURTHER LEARNING -->
+<section id="videos" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Further Learning</span>
+      <h2 class="sh">Go <span class="hi">Deeper</span></h2>
+      <p class="sub">The best free resources on the internet for understanding neural networks, transformers, and generative AI from first principles. These channels inspired this guide.</p>
+    </div>
+
+    <!-- 3Blue1Brown -->
+    <div class="creator-block rv d1">
+      <div class="creator-header">
+        <div class="creator-badge b3b">&#127850;</div>
+        <div class="creator-info">
+          <h3>3Blue1Brown &mdash; Grant Sanderson</h3>
+          <p>Visual mathematics at its finest. Grant's neural network and transformer series are the clearest explanations of how these systems actually work &mdash; built from pure mathematical intuition, no shortcuts.</p>
+          <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener">youtube.com/@3blue1brown &rarr;</a>
+        </div>
+      </div>
+      <div class="vid-grid">
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/aircAruvnKk/mqdefault.jpg" alt="But what is a neural network?" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Neural Networks</span><span class="vid-tag">Foundations</span></div>
+            <div class="vid-title">But what is a neural network?</div>
+            <div class="vid-desc">The perfect starting point. Neurons, layers, activations, and the core intuition behind how a network represents a function.</div>
+            <div class="vid-meta"><span>Chapter 1</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=IHZwWFHWa-w" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/IHZwWFHWa-w/mqdefault.jpg" alt="Gradient descent, how neural networks learn" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Gradient Descent</span><span class="vid-tag">Training</span></div>
+            <div class="vid-title">Gradient descent, how neural networks learn</div>
+            <div class="vid-desc">How training actually works &mdash; loss landscapes, the gradient as a direction of steepest ascent, and why learning is an optimisation problem.</div>
+            <div class="vid-meta"><span>Chapter 2</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=Ilg3gGewQ5U" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/Ilg3gGewQ5U/mqdefault.jpg" alt="What is backpropagation really doing?" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Backpropagation</span><span class="vid-tag">Training</span></div>
+            <div class="vid-title">What is backpropagation really doing?</div>
+            <div class="vid-desc">The algorithm that makes training possible, explained visually. Watch this and the chain rule finally makes intuitive sense.</div>
+            <div class="vid-meta"><span>Chapter 3</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/wjZofJX0v4M/mqdefault.jpg" alt="But what is a GPT?" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Transformers</span><span class="vid-tag">GPT</span><span class="vid-tag">LLMs</span></div>
+            <div class="vid-title">But what is a GPT? Visual intro to transformers</div>
+            <div class="vid-desc">Demystifies the full transformer architecture. If you only watch one video about how LLMs work, make it this one.</div>
+            <div class="vid-meta"><span>Chapter 5</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=eMlx5fFNoYc" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/eMlx5fFNoYc/mqdefault.jpg" alt="Attention in transformers, visually explained" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Attention</span><span class="vid-tag">Transformers</span></div>
+            <div class="vid-title">Attention in transformers, visually explained</div>
+            <div class="vid-desc">A deep visual dive into the self-attention mechanism &mdash; query, key, value matrices, multi-head attention, and why it works so well on sequences.</div>
+            <div class="vid-meta"><span>Chapter 6</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=LPZh9BOjkQs" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/LPZh9BOjkQs/mqdefault.jpg" alt="Large Language Models explained briefly" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">LLMs</span><span class="vid-tag">Overview</span></div>
+            <div class="vid-title">Large Language Models explained briefly</div>
+            <div class="vid-desc">A concise, visual overview of how LLMs scale from the transformer architecture to GPT-level systems. Great for sharing with non-technical stakeholders.</div>
+            <div class="vid-meta"><span>Standalone</span><span class="vid-dot"></span><span>3Blue1Brown</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- StatQuest -->
+    <div class="creator-block rv d2">
+      <div class="creator-header">
+        <div class="creator-badge sqw">&#128202;</div>
+        <div class="creator-info">
+          <h3>StatQuest &mdash; Josh Starmer</h3>
+          <p>Statistics and ML concepts made genuinely understandable. Josh breaks down everything from basic probability to neural networks and transformers with zero hand-waving &mdash; just clear, methodical explanations.</p>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">youtube.com/@statquest &rarr;</a>
+        </div>
+      </div>
+      <div class="vid-grid">
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/Gv9_4yMHFhI/mqdefault.jpg" alt="A Gentle Introduction to Machine Learning" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Machine Learning</span><span class="vid-tag">Foundations</span></div>
+            <div class="vid-title">A Gentle Introduction to Machine Learning</div>
+            <div class="vid-desc">The ideal first video. Josh explains the difference between training and testing, bias-variance tradeoff, and the core ML workflow with no jargon.</div>
+            <div class="vid-meta"><span>StatQuest Essentials</span><span class="vid-dot"></span><span>ML Fundamentals</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=CqOfi41LfDw" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/CqOfi41LfDw/mqdefault.jpg" alt="Neural Networks Pt. 1: Inside the Black Box" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Neural Networks</span><span class="vid-tag">Deep Learning</span></div>
+            <div class="vid-title">Neural Networks Pt. 1: Inside the Black Box</div>
+            <div class="vid-desc">Josh opens the black box. Covers how weights, biases, and activation functions combine to let a network model complex, non-linear relationships.</div>
+            <div class="vid-meta"><span>Part 1</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=IN2XmBhILt4" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/IN2XmBhILt4/mqdefault.jpg" alt="Backpropagation, Clearly Explained" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Backpropagation</span><span class="vid-tag">Training</span></div>
+            <div class="vid-title">Backpropagation, Clearly Explained!!!</div>
+            <div class="vid-desc">The full backpropagation algorithm explained step by step. Complements the 3B1B version with a more numerical, worked-example approach.</div>
+            <div class="vid-meta"><span>Part 3</span><span class="vid-dot"></span><span>Neural Networks series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=4Bdc55j80l8" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/4Bdc55j80l8/mqdefault.jpg" alt="Transformer Neural Networks, Clearly Explained!" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Transformers</span><span class="vid-tag">Attention</span></div>
+            <div class="vid-title">Transformer Neural Networks, Clearly Explained!</div>
+            <div class="vid-desc">Josh's signature step-by-step breakdown of the full transformer architecture &mdash; encoder, decoder, positional encoding, and multi-head attention.</div>
+            <div class="vid-meta"><span>StatQuest</span><span class="vid-dot"></span><span>Transformer series</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=viZrOnJclY0" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/viZrOnJclY0/mqdefault.jpg" alt="Word Embedding and Word2Vec, Clearly Explained!" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">Embeddings</span><span class="vid-tag">Word2Vec</span><span class="vid-tag">NLP</span></div>
+            <div class="vid-title">Word Embedding and Word2Vec, Clearly Explained!</div>
+            <div class="vid-desc">Builds the intuition for embeddings from scratch &mdash; exactly the concept behind semantic search, RAG retrieval, and how models represent meaning as geometry.</div>
+            <div class="vid-meta"><span>StatQuest</span><span class="vid-dot"></span><span>NLP Foundations</span></div>
+          </div>
+        </a>
+
+        <a class="vid-card" href="https://www.youtube.com/watch?v=MSo1GBwf2co" target="_blank" rel="noopener">
+          <div class="vid-thumb">
+            <img src="https://img.youtube.com/vi/MSo1GBwf2co/mqdefault.jpg" alt="Decoder-Only Transformers, ChatGPT Clearly Explained!" loading="lazy"/>
+            <div class="vid-play"><div class="vid-play-btn"><div class="vid-play-ico"></div></div></div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-tags"><span class="vid-tag">LLMs</span><span class="vid-tag">ChatGPT</span><span class="vid-tag">Decoder</span></div>
+            <div class="vid-title">Decoder-Only Transformers, ChatGPT Clearly Explained!</div>
+            <div class="vid-desc">How GPT and ChatGPT-style models differ from the original encoder-decoder transformer. The essential video for understanding how Copilot and Claude generate text.</div>
+            <div class="vid-meta"><span>StatQuest</span><span class="vid-dot"></span><span>Transformer series</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Credit note -->
+    <div class="credit-note rv d3">
+      <div class="credit-note-ico">&#10084;&#65039;</div>
+      <p><strong>A genuine thank-you</strong> to <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener">Grant Sanderson (3Blue1Brown)</a> and <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">Josh Starmer (StatQuest)</a> &mdash; two educators who make intimidating mathematics feel genuinely approachable. The conceptual clarity in this guide stands on the foundation of their work. If something in this site sparked curiosity, these playlists are the natural next step. Both channels are completely free.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="fl">A<em>I</em>mplify</div>
@@ -1282,7 +1545,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
     <a href="#copilot-rag">Copilot as RAG</a><a href="#framework">Framework</a>
     <a href="#usecases">Use Cases</a><a href="#prompting">Prompt Engineering</a>
     <a href="#copilot-tips">Copilot Tips</a><a href="#impact">Impact</a>
-    <a href="#cheatsheet">Cheatsheet</a>
+    <a href="#cheatsheet">Cheatsheet</a><a href="#videos">Further Learning</a>
   </div>
   <div class="fcopy">Built for the Baxter IA Team &middot; Copilot 365 &middot; Power Platform &middot; Celonis &middot; Azure AI</div>
 </footer>
