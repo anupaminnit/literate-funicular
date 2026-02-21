@@ -589,6 +589,42 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
 @keyframes tok-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .tok-animated{animation:tok-in 0.4s ease both}
 
+
+/* ════════════════════════════════
+   ABBREVIATIONS SECTION
+════════════════════════════════ */
+.abbr-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.15rem}
+.abbr-cat{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem 1.5rem;box-shadow:var(--sh);position:relative;overflow:hidden}
+.abbr-cat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.abbr-cat:nth-child(1)::before{background:linear-gradient(90deg,var(--navy),var(--blue2))}
+.abbr-cat:nth-child(2)::before{background:linear-gradient(90deg,var(--blue2),var(--sky))}
+.abbr-cat:nth-child(3)::before{background:linear-gradient(90deg,var(--sky),var(--sky2))}
+.abbr-cat:nth-child(4)::before{background:linear-gradient(90deg,var(--navy),var(--sky))}
+.abbr-cat:nth-child(5)::before{background:linear-gradient(90deg,var(--sky2),var(--blue2))}
+.abbr-cat:nth-child(6)::before{background:linear-gradient(90deg,var(--blue2),var(--navy))}
+.abbr-cat-title{display:flex;align-items:center;gap:0.55rem;
+  font-family:var(--ff-h);font-size:0.78rem;font-weight:700;color:var(--navy);
+  margin-bottom:1rem;padding-bottom:0.65rem;border-bottom:1px solid var(--bd)}
+.abbr-cat-ico{font-size:1rem}
+.abbr-table{width:100%;border-collapse:collapse}
+.abbr-table tr{border-bottom:1px solid var(--bd)}
+.abbr-table tr:last-child{border-bottom:none}
+.abbr-table td{padding:0.42rem 0;vertical-align:top;font-size:0.78rem;line-height:1.5}
+.abbr-key{font-family:var(--ff-m);font-weight:600;color:var(--navy);
+  font-size:0.75rem;min-width:82px;padding-right:0.75rem;white-space:nowrap}
+.abbr-full{color:var(--text2);font-weight:500;padding-right:0.6rem;min-width:150px}
+.abbr-note{color:var(--muted);font-size:0.72rem;font-style:italic}
+.abbr-search-wrap{margin-bottom:1.5rem}
+.abbr-search{width:100%;padding:0.65rem 1rem;border-radius:8px;
+  border:1.5px solid var(--bd2);font-family:var(--ff-b);font-size:0.85rem;
+  color:var(--text);background:#fff;outline:none;
+  box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.abbr-search:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
+.abbr-search::placeholder{color:var(--muted2)}
+.abbr-row{transition:opacity .15s}
+.abbr-row.hidden{display:none}
+
 </style>
 </head>
 <body>
@@ -609,7 +645,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
     <li><a href="#usecases">Use Cases</a></li>
     <li><a href="#prompting">Prompting</a></li>
     <li><a href="#impact">Impact</a></li>
-    <li><a href="#cheatsheet" class="nc">Cheatsheet</a></li>
+    <li><a href="#abbreviations">Abbrev.</a></li><li><a href="#cheatsheet" class="nc">Cheatsheet</a></li>
     <li><a href="#videos">Videos</a></li>
   </ul>
 </nav>
@@ -1006,7 +1042,43 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
   <style>
     @keyframes dash-flow{to{stroke-dashoffset:-20}}
     .flow-line{stroke-dasharray:6 4;animation:dash-flow 1.8s linear infinite}
-  </style>
+  
+/* ════════════════════════════════
+   ABBREVIATIONS SECTION
+════════════════════════════════ */
+.abbr-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.15rem}
+.abbr-cat{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem 1.5rem;box-shadow:var(--sh);position:relative;overflow:hidden}
+.abbr-cat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.abbr-cat:nth-child(1)::before{background:linear-gradient(90deg,var(--navy),var(--blue2))}
+.abbr-cat:nth-child(2)::before{background:linear-gradient(90deg,var(--blue2),var(--sky))}
+.abbr-cat:nth-child(3)::before{background:linear-gradient(90deg,var(--sky),var(--sky2))}
+.abbr-cat:nth-child(4)::before{background:linear-gradient(90deg,var(--navy),var(--sky))}
+.abbr-cat:nth-child(5)::before{background:linear-gradient(90deg,var(--sky2),var(--blue2))}
+.abbr-cat:nth-child(6)::before{background:linear-gradient(90deg,var(--blue2),var(--navy))}
+.abbr-cat-title{display:flex;align-items:center;gap:0.55rem;
+  font-family:var(--ff-h);font-size:0.78rem;font-weight:700;color:var(--navy);
+  margin-bottom:1rem;padding-bottom:0.65rem;border-bottom:1px solid var(--bd)}
+.abbr-cat-ico{font-size:1rem}
+.abbr-table{width:100%;border-collapse:collapse}
+.abbr-table tr{border-bottom:1px solid var(--bd)}
+.abbr-table tr:last-child{border-bottom:none}
+.abbr-table td{padding:0.42rem 0;vertical-align:top;font-size:0.78rem;line-height:1.5}
+.abbr-key{font-family:var(--ff-m);font-weight:600;color:var(--navy);
+  font-size:0.75rem;min-width:82px;padding-right:0.75rem;white-space:nowrap}
+.abbr-full{color:var(--text2);font-weight:500;padding-right:0.6rem;min-width:150px}
+.abbr-note{color:var(--muted);font-size:0.72rem;font-style:italic}
+.abbr-search-wrap{margin-bottom:1.5rem}
+.abbr-search{width:100%;padding:0.65rem 1rem;border-radius:8px;
+  border:1.5px solid var(--bd2);font-family:var(--ff-b);font-size:0.85rem;
+  color:var(--text);background:#fff;outline:none;
+  box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.abbr-search:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
+.abbr-search::placeholder{color:var(--muted2)}
+.abbr-row{transition:opacity .15s}
+.abbr-row.hidden{display:none}
+
+</style>
   <text x="320" y="18" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em">TRANSFORMER BLOCK — HOW ONE LAYER PROCESSES A TOKEN</text>
 
   <!-- Input layer nodes -->
@@ -1829,6 +1901,133 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
 
 <div class="sec-div"></div>
 
+<!-- 11. ABBREVIATIONS -->
+<section id="abbreviations" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Reference</span>
+      <h2 class="sh">Abbreviations <span class="hi">Glossary</span></h2>
+      <p class="sub">Every acronym and abbreviation used across this guide, grouped by domain. Use the search box to jump straight to any term.</p>
+    </div>
+
+    <div class="abbr-search-wrap rv d1">
+      <input class="abbr-search" type="search" placeholder="&#128269;  Search abbreviations &mdash; e.g. RAG, PDD, RLHF, KPI..." id="abbrSearch" oninput="filterAbbr(this.value)" autocomplete="off"/>
+    </div>
+
+    <div class="abbr-cats rv d2" id="abbrGrid">
+
+      <!-- AI & Machine Learning -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#129504;</span>AI &amp; Machine Learning</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">AI</td><td class="abbr-full">Artificial Intelligence</td><td class="abbr-note">Umbrella term for machine-based reasoning and learning</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">ML</td><td class="abbr-full">Machine Learning</td><td class="abbr-note">Systems that learn from data without explicit programming</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">LLM</td><td class="abbr-full">Large Language Model</td><td class="abbr-note">e.g. GPT-4o, Claude, Gemini — trained on internet-scale text</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">GPT</td><td class="abbr-full">Generative Pre-trained Transformer</td><td class="abbr-note">Architecture family behind ChatGPT and Copilot</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RAG</td><td class="abbr-full">Retrieval-Augmented Generation</td><td class="abbr-note">Pattern that grounds LLM output in retrieved documents</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RLHF</td><td class="abbr-full">Reinforcement Learning from Human Feedback</td><td class="abbr-note">Training method that aligns LLMs to follow instructions</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">NLP</td><td class="abbr-full">Natural Language Processing</td><td class="abbr-note">Field of AI dealing with understanding and generating text</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">FFN</td><td class="abbr-full">Feed-Forward Network</td><td class="abbr-note">Layer in a transformer where factual knowledge is stored</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">Q / K / V</td><td class="abbr-full">Query / Key / Value</td><td class="abbr-note">Three matrices used in self-attention computation</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RRF</td><td class="abbr-full">Reciprocal Rank Fusion</td><td class="abbr-note">Algorithm that merges vector and keyword search rankings</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">BM25</td><td class="abbr-full">Best Match 25</td><td class="abbr-note">Classic keyword-based ranking algorithm used in hybrid search</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">HNSW</td><td class="abbr-full">Hierarchical Navigable Small World</td><td class="abbr-note">Graph-based vector index algorithm used in Azure AI Search</td></tr>
+        </table>
+      </div>
+
+      <!-- Microsoft & Platform -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#9729;</span>Microsoft &amp; Platform</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">M365</td><td class="abbr-full">Microsoft 365</td><td class="abbr-note">Suite including Outlook, Teams, SharePoint, Word, Excel</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">PA</td><td class="abbr-full">Power Automate</td><td class="abbr-note">Microsoft's low-code workflow automation platform</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">API</td><td class="abbr-full">Application Programming Interface</td><td class="abbr-note">Standardised way for systems to communicate with each other</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">REST</td><td class="abbr-full">Representational State Transfer</td><td class="abbr-note">Architectural style for HTTP-based APIs (SharePoint, SAP)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">SSO</td><td class="abbr-full">Single Sign-On</td><td class="abbr-note">Authentication allowing one login to access multiple systems</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">AD</td><td class="abbr-full">Azure Active Directory</td><td class="abbr-note">Microsoft's identity and access management service</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">OData</td><td class="abbr-full">Open Data Protocol</td><td class="abbr-note">Standard for REST-based data querying used in SharePoint PA connectors</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">SQL</td><td class="abbr-full">Structured Query Language</td><td class="abbr-note">Standard language for relational database queries</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">UX</td><td class="abbr-full">User Experience</td><td class="abbr-note">The overall quality of how users interact with an interface</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">UAT</td><td class="abbr-full">User Acceptance Testing</td><td class="abbr-note">Final testing phase where end-users validate the solution</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">UTC</td><td class="abbr-full">Coordinated Universal Time</td><td class="abbr-note">Standard time reference for scheduling automations</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">VB.Net</td><td class="abbr-full">Visual Basic .NET</td><td class="abbr-note">Microsoft language used for UiPath RPA scripting</td></tr>
+        </table>
+      </div>
+
+      <!-- Process & Business -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#128202;</span>Process &amp; Business</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">IA</td><td class="abbr-full">Intelligent Automation</td><td class="abbr-note">Baxter's team combining RPA, AI, and process mining</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RPA</td><td class="abbr-full">Robotic Process Automation</td><td class="abbr-note">Software bots that automate repetitive, rule-based tasks</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">KPI</td><td class="abbr-full">Key Performance Indicator</td><td class="abbr-note">Quantifiable metric used to evaluate process performance</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">ROI</td><td class="abbr-full">Return on Investment</td><td class="abbr-note">Financial measure of automation value vs. build cost</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">FTE</td><td class="abbr-full">Full-Time Equivalent</td><td class="abbr-note">Unit for measuring staff capacity (1 FTE = one full-time role)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">SLA</td><td class="abbr-full">Service Level Agreement</td><td class="abbr-note">Agreed response/resolution time for operational issues</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">VP</td><td class="abbr-full">Vice President</td><td class="abbr-note">Senior leadership stakeholder audience for executive comms</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">P2P</td><td class="abbr-full">Procure-to-Pay</td><td class="abbr-note">End-to-end process from purchase requisition to payment</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">PO</td><td class="abbr-full">Purchase Order</td><td class="abbr-note">Formal document authorising a supplier to deliver goods/services</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">AP</td><td class="abbr-full">Accounts Payable</td><td class="abbr-note">Finance function responsible for paying suppliers</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">AS-IS</td><td class="abbr-full">Current State</td><td class="abbr-note">Documentation of the existing process before automation</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">TO-BE</td><td class="abbr-full">Future State</td><td class="abbr-note">Documentation of the intended automated process design</td></tr>
+        </table>
+      </div>
+
+      <!-- Documents & Artefacts -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#128196;</span>Documents &amp; Artefacts</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">PDD</td><td class="abbr-full">Process Design Document</td><td class="abbr-note">Primary artefact defining what an automation does and why</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">SDD</td><td class="abbr-full">Solution Design Document</td><td class="abbr-note">Technical artefact defining how an automation is built</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">BRD</td><td class="abbr-full">Business Requirements Document</td><td class="abbr-note">Captures stakeholder needs before solution design begins</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">NFR</td><td class="abbr-full">Non-Functional Requirement</td><td class="abbr-note">Constraints like performance, security, availability</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">BDD</td><td class="abbr-full">Behaviour-Driven Development</td><td class="abbr-note">Given-When-Then format for writing testable acceptance criteria</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RAG</td><td class="abbr-full">Red / Amber / Green</td><td class="abbr-note">Project status classification (separate meaning to RAG in AI)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">GxP</td><td class="abbr-full">Good Practice</td><td class="abbr-note">Pharma regulatory quality guidelines (GMP, GCP, GLP)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">21 CFR</td><td class="abbr-full">Code of Federal Regulations Title 21</td><td class="abbr-note">US FDA regulation governing pharma records and electronic signatures</td></tr>
+        </table>
+      </div>
+
+      <!-- Celonis & SAP -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#128310;</span>Celonis &amp; SAP</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">EMS</td><td class="abbr-full">Execution Management System</td><td class="abbr-note">Celonis's platform that goes beyond mining to fix processes</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">PQL</td><td class="abbr-full">Process Query Language</td><td class="abbr-note">Celonis's SQL-like language for querying event logs</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">SAP</td><td class="abbr-full">Systems, Applications &amp; Products</td><td class="abbr-note">Enterprise ERP platform (S/4HANA used by Baxter)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">S/4HANA</td><td class="abbr-full">SAP S/4HANA</td><td class="abbr-note">SAP's in-memory ERP suite (successor to SAP ECC)</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">ERP</td><td class="abbr-full">Enterprise Resource Planning</td><td class="abbr-note">Integrated software managing core business processes</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">KPI</td><td class="abbr-full">Key Performance Indicator</td><td class="abbr-note">Celonis surfaces KPIs from event log data to expose bottlenecks</td></tr>
+        </table>
+      </div>
+
+      <!-- Roles & Frameworks -->
+      <div class="abbr-cat">
+        <div class="abbr-cat-title"><span class="abbr-cat-ico">&#128104;&#8205;&#128187;</span>Roles &amp; Frameworks</div>
+        <table class="abbr-table">
+          <tr class="abbr-row"><td class="abbr-key">BA</td><td class="abbr-full">Business Analyst</td><td class="abbr-note">Bridges business requirements and technical implementation</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RTCFC</td><td class="abbr-full">Role / Task / Context / Format / Constraints</td><td class="abbr-note">AImplify's prompt engineering framework for structured prompts</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">L1 / L2</td><td class="abbr-full">Level 1 / Level 2 Support</td><td class="abbr-note">Operational support tiers; L1 = frontline, L2 = technical escalation</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">IT</td><td class="abbr-full">Information Technology</td><td class="abbr-note">Broader department within which Intelligent Automation sits</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">Dev / Prod</td><td class="abbr-full">Development / Production</td><td class="abbr-note">Environment stages: Dev → UAT → Prod deployment pipeline</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">RAG</td><td class="abbr-full">Red / Amber / Green (status)</td><td class="abbr-note">Portfolio health classification used in steering reports</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">CoE</td><td class="abbr-full">Centre of Excellence</td><td class="abbr-note">Centralised team owning standards, tooling, and best practices</td></tr>
+          <tr class="abbr-row"><td class="abbr-key">OKR</td><td class="abbr-full">Objectives &amp; Key Results</td><td class="abbr-note">Goal-setting framework used to track strategic outcomes</td></tr>
+        </table>
+      </div>
+
+    </div><!-- /abbr-cats -->
+
+    <!-- RAG disambiguation note -->
+    <div class="credit-note rv d3" style="margin-top:1.5rem">
+      <div class="credit-note-ico">&#9888;&#65039;</div>
+      <p><strong>Note on RAG:</strong> This page uses &ldquo;RAG&rdquo; with two distinct meanings depending on context. In AI sections it means <strong>Retrieval-Augmented Generation</strong> &mdash; the architecture behind Copilot 365. In project management sections (cheatsheet, steering reports) it means <strong>Red / Amber / Green</strong> &mdash; the standard project status classification. The context makes the intended meaning clear in every case.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
 <!-- 11. CHEATSHEET -->
 <section id="cheatsheet" class="sp" style="background:var(--bg)">
   <div class="w">
@@ -2087,7 +2286,7 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
     <a href="#copilot-rag">Copilot as RAG</a><a href="#framework">Framework</a>
     <a href="#usecases">Use Cases</a><a href="#prompting">Prompt Engineering</a>
     <a href="#copilot-tips">Copilot Tips</a><a href="#impact">Impact</a>
-    <a href="#cheatsheet">Cheatsheet</a><a href="#videos">Further Learning</a>
+    <a href="#abbreviations">Abbreviations</a><a href="#cheatsheet">Cheatsheet</a><a href="#videos">Further Learning</a>
   </div>
   <div class="fcopy">Built for the Baxter IA Team &middot; Copilot 365 &middot; Power Platform &middot; Celonis &middot; Azure AI</div>
 </footer>
@@ -2108,6 +2307,20 @@ addEventListener('scroll',()=>{
   ss.forEach(s=>{if(scrollY>=s.offsetTop-110)cur=s.id});
   nas.forEach(a=>{const on=a.getAttribute('href')==='#'+cur;if(!a.classList.contains('nc'))a.style.color=on?'var(--blue2)':''});
 },{passive:true});
+
+function filterAbbr(q){
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.abbr-row').forEach(row=>{
+    const txt = row.textContent.toLowerCase();
+    row.classList.toggle('hidden', q.length > 0 && !txt.includes(q));
+  });
+  // hide empty categories
+  document.querySelectorAll('.abbr-cat').forEach(cat=>{
+    const visible = [...cat.querySelectorAll('.abbr-row')].some(r=>!r.classList.contains('hidden'));
+    cat.style.display = (q.length > 0 && !visible) ? 'none' : '';
+  });
+}
+
 </script>
 </body>
 </html>
