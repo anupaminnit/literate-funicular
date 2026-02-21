@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AImplify &mdash; Gen AI &amp; Copilot 365 &middot; Baxter IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  /* Baxter brand */
+  --navy:#252969;
+  --blue:#1e56c8;
+  --blue2:#2563eb;
+  --sky:#3b82f6;
+  --sky2:#60a5fa;
+  --ice:#eff6ff;
+  --ice2:#dbeafe;
+  --ice3:#bfdbfe;
+
+  /* Backgrounds */
+  --bg:#ffffff;
+  --bg2:#f8faff;
+  --bg3:#f0f5ff;
+  --bg4:#e8f0fe;
+
+  /* Text */
+  --text:#0f1729;
+  --text2:#1e2d4d;
+  --muted:#4b6080;
+  --muted2:#6b80a0;
+
+  /* Borders */
+  --bd:rgba(30,86,200,0.1);
+  --bd2:rgba(30,86,200,0.2);
+  --bd3:rgba(30,86,200,0.32);
+
+  /* Shadows */
+  --sh:0 1px 3px rgba(37,41,105,0.06),0 4px 16px rgba(37,41,105,0.06);
+  --sh2:0 4px 20px rgba(37,41,105,0.1),0 1px 4px rgba(37,41,105,0.06);
+  --sh3:0 8px 32px rgba(37,41,105,0.13);
+
+  --ff-h:'Outfit',sans-serif;
+  --ff-b:'DM Sans',sans-serif;
+  --ff-m:'JetBrains Mono',monospace;
+  --r:12px;--rs:7px;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--ice2);color:var(--navy)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--sky);border-radius:2px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
+  background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd);box-shadow:0 1px 0 var(--bd)}
+.nb{display:flex;align-items:center;gap:0.65rem}
+.nm{width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--navy),var(--blue2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-h);font-weight:800;font-size:0.73rem;color:#fff;
+  box-shadow:0 2px 8px rgba(37,41,105,0.25)}
+.nw{font-family:var(--ff-h);font-weight:700;font-size:1rem;letter-spacing:-0.02em;color:var(--navy)}
+.nw em{color:var(--blue2);font-style:normal}
+.ns{font-size:0.53rem;color:var(--muted2);font-family:var(--ff-m);letter-spacing:0.1em;margin-top:1px}
+.nl{display:flex;gap:0.05rem;list-style:none;align-items:center}
+.nl a{color:var(--muted);text-decoration:none;font-size:0.73rem;font-weight:500;
+  padding:0.32rem 0.68rem;border-radius:6px;transition:all .2s var(--ease)}
+.nl a:hover{color:var(--navy);background:var(--ice)}
+.nl .nc{background:var(--navy);color:#fff!important;font-weight:600!important;
+  padding:0.35rem 0.9rem!important;border-radius:7px!important;
+  box-shadow:0 2px 8px rgba(37,41,105,0.28)}
+.nl .nc:hover{background:var(--blue)!important;box-shadow:0 4px 14px rgba(37,41,105,0.32)!important}
+
+/* ── LAYOUT ── */
+section{position:relative}
+.w{max-width:1100px;margin:0 auto;padding:0 2rem}
+.sp{padding:6rem 0}
+
+/* ── DIVIDERS ── */
+.sec-div{height:1px;background:linear-gradient(90deg,transparent,var(--bd2) 30%,var(--bd2) 70%,transparent)}
+
+/* ── LABELS ── */
+.lbl{display:inline-flex;align-items:center;font-family:var(--ff-m);font-size:0.58rem;
+  text-transform:uppercase;letter-spacing:0.22em;color:var(--blue);
+  padding:0.18rem 0.62rem;border-radius:100px;margin-bottom:0.9rem;
+  background:var(--ice);border:1px solid var(--bd2)}
+
+/* ── HEADINGS ── */
+h2.sh{font-family:var(--ff-h);font-size:clamp(1.75rem,3vw,2.45rem);
+  font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:0.8rem;color:var(--navy)}
+h2.sh .hi{color:var(--blue2)}
+.sub{color:var(--muted);font-size:0.93rem;font-weight:300;line-height:1.8;max-width:560px;margin-bottom:2.75rem}
+
+/* ── SCROLL REVEAL ── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.07s}.rv.d2{transition-delay:.14s}.rv.d3{transition-delay:.21s}.rv.d4{transition-delay:.28s}
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:7rem 2rem 4rem;
+  background:linear-gradient(180deg,#fff 0%,var(--bg2) 60%,var(--bg3) 100%);
+  position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 70% 0%,rgba(37,41,105,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 90%,rgba(30,86,200,0.05) 0%,transparent 60%);
+  pointer-events:none}
+/* grid dot pattern */
+#hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(30,86,200,0.12) 1px,transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse 75% 65% at 50% 30%,rgba(0,0,0,0.5) 0%,transparent 100%)}
+.h-kicker{position:relative;z-index:1;display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid var(--bd2);background:var(--ice);
+  padding:0.28rem 0.88rem;border-radius:100px;
+  font-family:var(--ff-m);font-size:0.58rem;color:var(--blue);
+  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.6rem;
+  animation:hi 0.7s ease both;box-shadow:var(--sh)}
+.ld{width:5px;height:5px;border-radius:50%;background:var(--blue2);
+  animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.h-t{position:relative;z-index:1;font-family:var(--ff-h);font-weight:800;
+  font-size:clamp(2.6rem,7vw,5.5rem);line-height:0.95;
+  letter-spacing:-0.04em;margin-bottom:1.4rem;animation:hi 0.7s .07s ease both}
+.h-t .l1{display:block;color:var(--navy)}
+.h-t .l2{display:block;
+  background:linear-gradient(110deg,var(--navy) 0%,var(--blue2) 45%,var(--sky) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;background-size:200% auto;
+  animation:hi 0.7s .07s ease both,gf 8s ease-in-out infinite 1s}
+@keyframes gf{0%,100%{background-position:0% center}50%{background-position:100% center}}
+.h-t .l3{display:block;color:var(--muted2);font-size:0.33em;
+  font-weight:400;letter-spacing:0.04em;margin-top:0.55em;font-family:var(--ff-b)}
+.h-desc{position:relative;z-index:1;max-width:560px;margin:0 auto 2rem;
+  font-size:0.98rem;color:var(--muted);font-weight:300;line-height:1.82;
+  animation:hi 0.7s .14s ease both}
+.h-desc strong{color:var(--text2);font-weight:500}
+.h-pills{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:0.35rem;
+  justify-content:center;margin-bottom:2.1rem;animation:hi 0.7s .2s ease both}
+.pill{padding:0.24rem 0.68rem;border-radius:100px;font-size:0.67rem;font-weight:500;
+  border:1px solid var(--bd2);color:var(--blue);background:var(--ice);
+  transition:all .2s;cursor:default}
+.pill:hover{background:var(--ice2);border-color:var(--bd3);color:var(--navy)}
+.h-btns{position:relative;z-index:1;display:flex;gap:0.75rem;justify-content:center;
+  flex-wrap:wrap;animation:hi 0.7s .26s ease both}
+.btn{padding:0.75rem 1.75rem;border-radius:8px;font-family:var(--ff-b);
+  font-size:0.83rem;font-weight:600;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:0.4rem;transition:all .22s var(--ease)}
+.btn-p{background:var(--navy);color:#fff;box-shadow:0 2px 10px rgba(37,41,105,0.28)}
+.btn-p:hover{background:var(--blue);box-shadow:0 6px 20px rgba(37,41,105,0.32);transform:translateY(-2px)}
+.btn-s{background:#fff;color:var(--navy);border:1.5px solid var(--bd2);box-shadow:var(--sh)}
+.btn-s:hover{border-color:var(--bd3);background:var(--ice);transform:translateY(-2px);box-shadow:var(--sh2)}
+.scroll-cue{position:relative;z-index:1;margin-top:3.5rem;
+  display:flex;flex-direction:column;align-items:center;gap:0.4rem;
+  animation:hi 0.7s .38s ease both;opacity:0.4}
+.scroll-cue span{width:1px;height:40px;background:linear-gradient(to bottom,var(--blue),transparent)}
+.scroll-cue p{font-family:var(--ff-m);font-size:0.52rem;color:var(--muted2);
+  letter-spacing:0.24em;text-transform:uppercase}
+@keyframes hi{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SHARED CARD ── */
+.card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.5rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+
+/* ════════════════════════════════
+   1. GEN AI
+════════════════════════════════ */
+.genai-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:720px){.genai-trio{grid-template-columns:1fr}}
+.trio-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem;box-shadow:var(--sh);transition:all .25s var(--ease);position:relative;overflow:hidden}
+.trio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.trio-card:nth-child(1)::before{background:linear-gradient(90deg,var(--navy),var(--blue2))}
+.trio-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue2),var(--sky))}
+.trio-card:nth-child(3)::before{background:linear-gradient(90deg,var(--sky),var(--sky2))}
+.trio-card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.trio-ico{font-size:1.35rem;margin-bottom:0.6rem;display:block}
+.trio-title{font-family:var(--ff-h);font-size:0.88rem;font-weight:700;
+  color:var(--navy);margin-bottom:0.38rem}
+.trio-desc{font-size:0.79rem;color:var(--muted);line-height:1.65}
+.trio-desc strong{color:var(--text2);font-weight:500}
+
+/* DIAGRAM */
+.dw{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.75rem 1.5rem;margin-bottom:1.25rem;box-shadow:var(--sh)}
+.dlbl{font-family:var(--ff-m);font-size:0.56rem;color:var(--muted2);
+  text-transform:uppercase;letter-spacing:0.2em;margin-bottom:1.15rem}
+.cap-limit{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.cap-limit{grid-template-columns:1fr}}
+.cl-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
+  padding:1.25rem;box-shadow:var(--sh)}
+.cl-box h4{font-family:var(--ff-h);font-size:0.8rem;font-weight:700;margin-bottom:0.7rem}
+.cl-box.good h4{color:#15803d}.cl-box.bad h4{color:#b91c1c}
+.cl-row{display:flex;align-items:flex-start;gap:0.45rem;margin-bottom:0.38rem;
+  font-size:0.76rem;color:var(--muted);line-height:1.45}
+.cl-row:last-child{margin-bottom:0}
+
+/* ── FLIP CARDS ── */
+.fc-section-label{font-family:var(--ff-m);font-size:0.58rem;color:var(--muted2);
+  text-transform:uppercase;letter-spacing:0.22em;margin-bottom:1rem;display:flex;
+  align-items:center;gap:0.6rem}
+.fc-section-label::after{content:'';flex:1;height:1px;background:var(--bd2)}
+.fc-hint{font-family:var(--ff-m);font-size:0.54rem;color:var(--muted2);
+  letter-spacing:0.08em;opacity:0.7}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:0.85rem;margin-top:0.75rem}
+.fc{height:148px;perspective:900px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;border-radius:var(--r);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:1.1rem;text-align:center}
+.fc-front{background:#fff;border:1px solid var(--bd);box-shadow:var(--sh);
+  transition:box-shadow 0.25s,border-color 0.25s}
+.fc:hover .fc-front{box-shadow:var(--sh3);border-color:var(--bd2)}
+.fc-back{background:linear-gradient(135deg,var(--navy) 0%,var(--blue2) 100%);
+  transform:rotateY(180deg);border:1px solid var(--navy);box-shadow:var(--sh2)}
+.fc-ico{font-size:1.7rem;display:block;margin-bottom:0.45rem;line-height:1}
+.fc-term{font-family:var(--ff-h);font-size:0.82rem;font-weight:700;
+  color:var(--navy);line-height:1.2;margin-bottom:0.3rem}
+.fc-tap{font-family:var(--ff-m);font-size:0.5rem;color:var(--muted2);
+  letter-spacing:0.14em;text-transform:uppercase;opacity:0.65}
+.fc-back .fc-term-back{font-family:var(--ff-h);font-size:0.72rem;font-weight:700;
+  color:rgba(255,255,255,0.6);letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:0.45rem}
+.fc-back .fc-def{font-size:0.73rem;color:#fff;line-height:1.55;font-family:var(--ff-b);font-weight:300}
+.fc-back .fc-def strong{color:var(--sky2);font-weight:600}
+@media(max-width:600px){.fc-grid{grid-template-columns:repeat(auto-fill,minmax(135px,1fr))}.fc{height:138px}}
+
+/* ════════════════════════════════
+   2. HOW WORKS
+════════════════════════════════ */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem;margin-bottom:1.75rem}
+.hs{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.hs:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.hs-n{font-family:var(--ff-m);font-size:0.54rem;color:var(--muted2);
+  text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.5rem}
+.hs-ico{font-size:1.3rem;display:block;margin-bottom:0.45rem}
+.hs-t{font-family:var(--ff-h);font-size:0.83rem;font-weight:700;
+  color:var(--navy);margin-bottom:0.32rem}
+.hs-d{font-size:0.77rem;color:var(--muted);line-height:1.62}
+.params-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem}
+.param-box{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
+  padding:1rem 1.1rem;box-shadow:var(--sh)}
+.param-lbl{font-family:var(--ff-m);font-size:0.55rem;color:var(--blue);
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:.28rem}
+.param-box p{font-size:.76rem;color:var(--muted);line-height:1.55}
+
+/* ════════════════════════════════
+   3. RAG
+════════════════════════════════ */
+.rag-def{background:linear-gradient(135deg,var(--bg3),var(--ice2));
+  border:1px solid var(--bd2);border-radius:var(--r);padding:2rem;
+  margin-bottom:1.25rem;box-shadow:var(--sh)}
+.rag-def h3{font-family:var(--ff-h);font-size:1.1rem;font-weight:700;
+  margin-bottom:.8rem;color:var(--navy)}
+.rag-def p{font-size:.87rem;color:var(--muted);line-height:1.82;margin-bottom:.75rem}
+.rag-def p:last-child{margin-bottom:0}
+.rag-def strong{color:var(--text2);font-weight:500}
+.rag-def em{color:var(--blue2);font-style:normal;font-weight:500}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
+.cmp{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem;box-shadow:var(--sh)}
+.cmp h4{font-family:var(--ff-h);font-size:.83rem;font-weight:700;margin-bottom:.85rem}
+.cmp.neg h4{color:#b91c1c}.cmp.pos h4{color:#15803d}
+.cmp-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem;
+  font-size:.77rem;color:var(--muted);line-height:1.5}
+.cmp-row:last-child{margin-bottom:0}
+.cmp-row strong{color:var(--text2);font-weight:500}
+
+/* ════════════════════════════════
+   4. HOW RAG WORKS
+════════════════════════════════ */
+.pipe-wrap{background:var(--bg2);border:1px solid var(--bd);
+  border-radius:var(--r);padding:2rem 1.75rem;margin-bottom:1.5rem;box-shadow:var(--sh)}
+.ph{display:flex;align-items:center;gap:.6rem;margin-bottom:1.35rem}
+.pb{font-family:var(--ff-m);font-size:.56rem;text-transform:uppercase;
+  letter-spacing:.15em;padding:.2rem .6rem;border-radius:100px}
+.pb-v{background:var(--bg4);color:var(--navy);border:1px solid var(--bd2)}
+.pb-t{background:var(--ice2);color:var(--blue2);border:1px solid var(--bd2)}
+.pt{font-family:var(--ff-h);font-size:.84rem;font-weight:600;color:var(--text2)}
+.pipe-row{display:flex;align-items:center;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1.75rem}
+.pipe-row:last-child{margin-bottom:0}
+.pn{flex-shrink:0;width:105px;background:#fff;border:1px solid var(--bd);
+  border-radius:var(--rs);padding:.82rem .6rem;text-align:center;box-shadow:var(--sh);
+  transition:all .22s}
+.pn.a{border-color:var(--bd2);background:var(--ice)}
+.pn.b{border-color:var(--bd3);background:var(--ice2)}
+.pi{font-size:1.15rem;display:block;margin-bottom:.35rem}
+.pnm{font-family:var(--ff-h);font-size:.59rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:.13rem}
+.pn.a .pnm{color:var(--navy)}.pn.b .pnm{color:var(--blue2)}
+.pns{font-size:.54rem;color:var(--muted2);line-height:1.3}
+.parr{flex-shrink:0;width:28px;display:flex;align-items:center;
+  justify-content:center;color:var(--bd3);font-family:var(--ff-m);font-size:.65rem}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1rem}
+.sc{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.sc:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.sc-ico{font-size:1.25rem;margin-bottom:.52rem}
+.sc-t{font-family:var(--ff-h);font-size:.78rem;font-weight:700;color:var(--blue2);
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:.38rem}
+.sc-d{font-size:.77rem;color:var(--muted);line-height:1.65}
+.sc-tags{margin-top:.65rem;display:flex;flex-wrap:wrap;gap:.22rem}
+.tt{font-family:var(--ff-m);font-size:.55rem;padding:.12rem .42rem;border-radius:4px;
+  background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
+
+/* ════════════════════════════════
+   5. COPILOT AS RAG
+════════════════════════════════ */
+.cop-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+@media(max-width:680px){.cop-grid{grid-template-columns:1fr}}
+.cop-card{border:1px solid var(--bd);border-radius:var(--r);padding:1.75rem;
+  background:#fff;box-shadow:var(--sh)}
+.cop-card h3{font-family:var(--ff-h);font-size:.95rem;font-weight:700;
+  margin-bottom:.65rem;color:var(--navy)}
+.cop-card p{font-size:.82rem;color:var(--muted);line-height:1.75;margin-bottom:.65rem}
+.cop-card p:last-child{margin-bottom:0}
+.cop-card strong{color:var(--text2);font-weight:500}
+.cop-card em{color:var(--blue2);font-style:normal}
+.cq{padding:.8rem .95rem;border-radius:var(--rs);background:var(--bg2);
+  border-left:3px solid var(--blue2);font-family:var(--ff-m);
+  font-size:.67rem;color:var(--text2);line-height:1.6;margin-top:.75rem}
+.cql{display:block;font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--blue);margin-bottom:.26rem}
+.cq.dim{border-color:var(--bd3);color:var(--muted)}.cq.dim .cql{color:var(--muted2)}
+.mg-box{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.6rem;margin-top:1.25rem;box-shadow:var(--sh)}
+.mg-box h4{font-family:var(--ff-h);font-size:.88rem;font-weight:700;
+  color:var(--navy);margin-bottom:1rem}
+.mg-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.55rem}
+.mg-row:last-child{margin-bottom:0}
+.mgl{font-family:var(--ff-m);font-size:.58rem;color:var(--muted);min-width:78px}
+.mgi{display:flex;flex-wrap:wrap;gap:.25rem}
+.mgb{font-family:var(--ff-m);font-size:.58rem;padding:.16rem .5rem;
+  border-radius:5px;background:var(--ice);color:var(--blue);border:1px solid var(--bd2)}
+.agent-note{margin-top:1rem;padding:.9rem 1.05rem;border-radius:var(--rs);
+  background:linear-gradient(135deg,var(--ice),var(--ice2));border:1px solid var(--bd2)}
+.agent-note-lbl{font-family:var(--ff-m);font-size:.53rem;color:var(--blue2);
+  text-transform:uppercase;letter-spacing:.18em;display:block;margin-bottom:.26rem}
+.agent-note p{font-size:.77rem;color:var(--muted);line-height:1.65;margin:0}
+.agent-note strong{color:var(--navy);font-weight:500}
+
+/* ════════════════════════════════
+   6. FRAMEWORK
+════════════════════════════════ */
+.fhero{background:linear-gradient(135deg,var(--bg3),var(--ice2));
+  border:1px solid var(--bd2);border-radius:var(--r);padding:1.85rem;
+  margin-bottom:2rem;box-shadow:var(--sh)}
+.flbl{font-family:var(--ff-m);font-size:.55rem;color:var(--muted2);
+  text-transform:uppercase;letter-spacing:.2em;margin-bottom:1.1rem}
+.frow{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem}
+.fp{padding:.38rem .8rem;border-radius:6px;font-family:var(--ff-h);
+  font-size:.73rem;font-weight:700;white-space:nowrap;
+  background:var(--ice);color:var(--navy);border:1px solid var(--bd2)}
+.fp.alt{background:var(--ice2);color:var(--blue2);border-color:var(--bd2)}
+.fp.dim{background:#fff;color:var(--muted);border-color:var(--bd)}
+.fp-eq{font-size:1rem;color:var(--muted2);opacity:.5;font-family:var(--ff-h)}
+.fp-res{padding:.38rem .95rem;border-radius:6px;background:var(--navy);
+  color:#fff;font-family:var(--ff-h);font-size:.75rem;font-weight:700;
+  box-shadow:0 2px 8px rgba(37,41,105,0.25)}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem}
+.pl{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.5rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.pl:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.pl-ic{font-size:1.4rem;display:block;margin-bottom:.5rem}
+.pl-tt{font-family:var(--ff-h);font-size:.86rem;font-weight:700;
+  color:var(--navy);margin-bottom:.42rem}
+.pl-dc{font-size:.79rem;color:var(--muted);line-height:1.68}
+.pl-ex{margin-top:.9rem;padding:.7rem .85rem;border-radius:var(--rs);
+  background:var(--bg2);border-left:2.5px solid var(--blue2);
+  font-family:var(--ff-m);font-size:.65rem;color:var(--text2);line-height:1.55}
+.pl-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--blue);display:block;margin-bottom:.25rem}
+
+/* ════════════════════════════════
+   7. USE CASES
+════════════════════════════════ */
+.tab-bar{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:1.75rem;
+  padding:.28rem;background:var(--bg3);border-radius:10px;border:1px solid var(--bd)}
+.tb{flex:1;min-width:90px;padding:.52rem .6rem;border-radius:7px;
+  border:none;cursor:pointer;font-family:var(--ff-b);font-size:.72rem;font-weight:500;
+  transition:all .2s var(--ease);background:transparent;color:var(--muted);
+  display:flex;align-items:center;gap:.3rem;justify-content:center;white-space:nowrap}
+.tb.on{background:#fff;color:var(--navy);box-shadow:var(--sh);font-weight:600}
+.tb:hover:not(.on){color:var(--navy);background:rgba(255,255,255,0.6)}
+.tp{display:none}
+.tp.on{display:grid;grid-template-columns:1fr 1.4fr;gap:1.6rem;
+  animation:ti .28s ease}
+@keyframes ti{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:720px){.tp.on{grid-template-columns:1fr}}
+.ui h3{font-family:var(--ff-h);font-size:1.2rem;font-weight:700;
+  letter-spacing:-.02em;margin-bottom:.7rem;color:var(--navy)}
+.ui h3 span{color:var(--blue2)}
+.ui p{font-size:.83rem;color:var(--muted);line-height:1.78;margin-bottom:.9rem}
+.utip{padding:.9rem 1.05rem;border-radius:var(--rs);
+  background:var(--bg2);border:1px solid var(--bd)}
+.utip-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--blue);margin-bottom:.32rem;display:block}
+.utip p{font-size:.76rem;line-height:1.62;margin:0;color:var(--muted)}
+.ps2{display:flex;flex-direction:column;gap:.65rem}
+.pc{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);
+  padding:.95rem 1.05rem .95rem 1.3rem;position:relative;overflow:hidden;
+  box-shadow:var(--sh);transition:all .22s var(--ease)}
+.pc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2.5px;
+  background:linear-gradient(180deg,var(--navy),var(--blue2))}
+.pc:hover{box-shadow:var(--sh2);border-color:var(--bd2);transform:translateX(3px)}
+.pc-l{font-family:var(--ff-m);font-size:.52rem;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--blue);margin-bottom:.4rem;display:block}
+.pc-t{font-family:var(--ff-m);font-size:.69rem;color:var(--text2);line-height:1.65}
+.pc-b{display:inline-block;margin-top:.48rem;padding:.12rem .48rem;
+  border-radius:100px;font-size:.56rem;background:var(--ice);
+  color:var(--blue);border:1px solid var(--bd2)}
+
+/* ════════════════════════════════
+   8. PROMPT ENGINEERING
+════════════════════════════════ */
+.pe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:1rem;margin-bottom:1.5rem}
+.pe-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.35rem;box-shadow:var(--sh);transition:all .25s var(--ease);
+  position:relative;overflow:hidden}
+.pe-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px}
+.pe-card:nth-child(1)::after{background:linear-gradient(90deg,var(--navy),var(--blue2))}
+.pe-card:nth-child(2)::after{background:linear-gradient(90deg,var(--blue2),var(--sky))}
+.pe-card:nth-child(3)::after{background:linear-gradient(90deg,var(--sky),var(--sky2))}
+.pe-card:nth-child(4)::after{background:linear-gradient(90deg,var(--navy),var(--sky))}
+.pe-card:nth-child(5)::after{background:linear-gradient(90deg,var(--blue2),var(--navy))}
+.pe-card:nth-child(6)::after{background:linear-gradient(90deg,var(--sky2),var(--blue2))}
+.pe-card:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.pe-t{font-family:var(--ff-h);font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.38rem}
+.pe-d{font-size:.77rem;color:var(--muted);line-height:1.65}
+.pe-ex{margin-top:.75rem;padding:.65rem .8rem;border-radius:var(--rs);
+  background:var(--bg2);border:1px solid var(--bd);
+  font-family:var(--ff-m);font-size:.63rem;color:var(--text2);line-height:1.55}
+.pe-el{font-size:.5rem;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--muted2);display:block;margin-bottom:.22rem}
+.dos-donts{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.dos-donts{grid-template-columns:1fr}}
+.dd-box{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem;box-shadow:var(--sh)}
+.dd-box h4{font-family:var(--ff-h);font-size:.83rem;font-weight:700;margin-bottom:.8rem}
+.dd-box.dos h4{color:#15803d}.dd-box.don h4{color:#b91c1c}
+.dd-r{display:flex;align-items:flex-start;gap:.45rem;margin-bottom:.36rem;
+  font-size:.76rem;color:var(--muted);line-height:1.5}
+.dd-r:last-child{margin-bottom:0}
+
+/* ════════════════════════════════
+   9. COPILOT TIPS
+════════════════════════════════ */
+.cop-tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1rem}
+.ct{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.3rem;box-shadow:var(--sh);transition:all .25s var(--ease)}
+.ct:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.ct-app{font-family:var(--ff-m);font-size:.53rem;color:var(--blue);
+  text-transform:uppercase;letter-spacing:.18em;margin-bottom:.5rem;display:block}
+.ct-ico{font-size:1.25rem;display:block;margin-bottom:.45rem}
+.ct-t{font-family:var(--ff-h);font-size:.84rem;font-weight:700;
+  color:var(--navy);margin-bottom:.35rem}
+.ct p{font-size:.76rem;color:var(--muted);line-height:1.62}
+.wf-box{background:linear-gradient(135deg,var(--bg3),var(--ice2));
+  border:1px solid var(--bd2);border-radius:var(--r);padding:1.75rem;
+  margin-top:1.5rem;box-shadow:var(--sh)}
+.wf-box h4{font-family:var(--ff-h);font-size:.9rem;font-weight:700;
+  color:var(--navy);margin-bottom:1.2rem}
+.wf-steps{display:flex;align-items:flex-start;flex-wrap:wrap;gap:0}
+.wf-s{flex:1;min-width:110px;text-align:center;padding:.6rem .4rem;position:relative}
+.wf-s::after{content:'';position:absolute;top:1.25rem;right:-7px;
+  width:14px;height:1px;background:linear-gradient(90deg,var(--blue2),transparent)}
+.wf-s:last-child::after{display:none}
+.wf-ico{font-size:1.15rem;display:block;margin-bottom:.28rem}
+.wf-l{font-family:var(--ff-h);font-size:.63rem;font-weight:700;
+  color:var(--navy);margin-bottom:.16rem;text-transform:uppercase;letter-spacing:.04em}
+.wf-s2{font-size:.59rem;color:var(--muted);line-height:1.38}
+
+/* ════════════════════════════════
+   10. IMPACT
+════════════════════════════════ */
+.im-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1rem;margin-bottom:1.25rem}
+.im{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.5rem;text-align:center;box-shadow:var(--sh);
+  transition:all .25s var(--ease);position:relative;overflow:hidden}
+.im::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--navy),var(--blue2),var(--sky))}
+.im:hover{box-shadow:var(--sh3);border-color:var(--bd2);transform:translateY(-3px)}
+.im-ico{font-size:1.5rem;display:block;margin-bottom:.45rem}
+.im-v{font-family:var(--ff-h);font-size:1.85rem;font-weight:800;
+  color:var(--navy);letter-spacing:-.04em;line-height:1;margin-bottom:.2rem}
+.im-t{font-family:var(--ff-h);font-size:.73rem;font-weight:700;
+  color:var(--text2);margin-bottom:.25rem}
+.im-d{font-size:.71rem;color:var(--muted);line-height:1.55}
+.iq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.iq-grid{grid-template-columns:1fr}}
+.iq{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.4rem;box-shadow:var(--sh)}
+.iq h4{font-family:var(--ff-h);font-size:.84rem;font-weight:700;
+  color:var(--navy);margin-bottom:.8rem}
+.iq-r{display:flex;align-items:flex-start;gap:.45rem;margin-bottom:.38rem;
+  font-size:.76rem;color:var(--muted);line-height:1.5}
+.iq-r:last-child{margin-bottom:0}
+.iq-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;
+  margin-top:.42rem;background:var(--navy)}
+.iq.alt .iq-dot{background:var(--blue2)}
+
+/* ════════════════════════════════
+   11. CHEATSHEET
+════════════════════════════════ */
+.cs-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh)}
+table.cs{width:100%;border-collapse:collapse}
+table.cs thead tr{background:var(--bg3)}
+table.cs th{padding:.82rem 1.05rem;text-align:left;font-family:var(--ff-h);
+  font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--navy);border-bottom:1px solid var(--bd2)}
+table.cs td{padding:.75rem 1.05rem;border-bottom:1px solid var(--bd);
+  vertical-align:top;font-size:.78rem;color:var(--text)}
+table.cs tr:last-child td{border-bottom:none}
+table.cs tr:hover td{background:var(--bg3)}
+.rt{font-family:var(--ff-m);font-size:.54rem;padding:.11rem .4rem;
+  border-radius:4px;white-space:nowrap;background:var(--ice);
+  color:var(--blue);border:1px solid var(--bd2)}
+.rt-ce{background:#fff3ed;color:#c2410c;border-color:#fed7aa}
+.rt-al{background:var(--ice2);color:var(--navy);border-color:var(--bd3)}
+table.cs td:nth-child(3){font-family:var(--ff-m);font-size:.67rem;
+  color:var(--text2);min-width:275px}
+table.cs td:last-child{color:var(--muted);font-size:.71rem}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
+.fl{font-family:var(--ff-h);font-size:1.25rem;font-weight:700;
+  letter-spacing:-.02em;margin-bottom:.28rem;color:#fff}
+.fl em{color:var(--sky2);font-style:normal}
+.fauth{display:inline-flex;align-items:center;gap:.9rem;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;padding:.8rem 1.35rem;margin:.9rem auto;text-align:left}
+.fav{width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sky),var(--sky2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-h);font-weight:800;font-size:.9rem;color:var(--navy);flex-shrink:0}
+.fan{font-family:var(--ff-h);font-size:.83rem;font-weight:700;color:#fff}
+.far{font-family:var(--ff-m);font-size:.53rem;color:rgba(255,255,255,0.5);margin-top:1px}
+.fdiv{height:1px;background:rgba(255,255,255,0.1);max-width:320px;margin:.9rem auto}
+.flinks{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.flinks a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:.68rem;transition:all .2s}
+.flinks a:hover{color:var(--sky2)}
+.fcopy{margin-top:1.1rem;font-size:.62rem;color:rgba(255,255,255,0.25)}
+
+@media(max-width:900px){.nl{display:none}}
+@media(max-width:520px){.sp{padding:4.5rem 0}.genai-trio,.how-grid,.pg,.pe-grid,.cop-tips,.im-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nb">
+    <div class="nm">AI</div>
+    <div>
+      <div class="nw">A<em>I</em>mplify</div>
+      <div class="ns">Baxter Intelligent Automation</div>
+    </div>
+  </div>
+  <ul class="nl">
+    <li><a href="#genai">Gen AI</a></li>
+    <li><a href="#rag">RAG</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#usecases">Use Cases</a></li>
+    <li><a href="#prompting">Prompting</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#cheatsheet" class="nc">Cheatsheet</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-kicker"><span class="ld"></span>Baxter IA &middot; Gen AI &amp; Copilot 365</div>
+  <h1 class="h-t">
+    <span class="l1">Intelligence,</span>
+    <span class="l2">Amplified</span>
+    <span class="l3">Transformers &middot; RAG Pipelines &middot; Microsoft Copilot 365 &middot; Power Platform &middot; Celonis</span>
+  </h1>
+  <p class="h-desc">A technical deep-dive into Generative AI, how it actually works, and how to extract <strong>real, measurable value</strong> from the tools your team already has.</p>
+  <div class="h-pills">
+    <span class="pill">Transformer Architecture</span>
+    <span class="pill">RAG Pipelines</span>
+    <span class="pill">Copilot 365</span>
+    <span class="pill">Prompt Engineering</span>
+    <span class="pill">Power Automate</span>
+    <span class="pill">Celonis</span>
+    <span class="pill">Azure AI Search</span>
+  </div>
+  <div class="h-btns">
+    <a href="#genai" class="btn btn-p">Start Learning</a>
+    <a href="#cheatsheet" class="btn btn-s">Jump to Cheatsheet</a>
+  </div>
+  <div class="scroll-cue"><span></span><p>Scroll</p></div>
+</section>
+
+<!-- 1. WHAT IS GEN AI -->
+<section id="genai" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Generative AI</span>
+      <h2 class="sh">What is <span class="hi">Generative AI</span></h2>
+      <p class="sub">Not vendor hype &mdash; a precise understanding of what LLMs are, how they were built, and exactly what they can and cannot do.</p>
+    </div>
+    <div class="genai-trio">
+      <div class="trio-card rv"><span class="trio-ico">&#129504;</span>
+        <div class="trio-title">Statistical Pattern Machines</div>
+        <p class="trio-desc">LLMs are <strong>autoregressive transformers</strong> trained on internet-scale text to predict the next token in a sequence. Through billions of parameters, they compress linguistic patterns, factual associations, and reasoning heuristics. Not rule-based. Not a search engine. A learned probability distribution over language.</p>
+      </div>
+      <div class="trio-card rv d1"><span class="trio-ico">&#127775;</span>
+        <div class="trio-title">In-Context Learning</div>
+        <p class="trio-desc">The defining capability: LLMs adapt to new tasks <strong>at inference time</strong>, purely from examples and instructions in the prompt &mdash; with no model weight updates. This is why prompting is a genuine engineering discipline. Same model, radically different outputs depending on how you frame the input.</p>
+      </div>
+      <div class="trio-card rv d2"><span class="trio-ico">&#9888;</span>
+        <div class="trio-title">Core Failure Modes</div>
+        <p class="trio-desc"><strong>Hallucination</strong> &mdash; confident fabrication when pattern-matching fails. <strong>Knowledge cutoff</strong> &mdash; weights are frozen at training time. <strong>Organisation-blindness</strong> &mdash; no awareness of your data. These three failures are precisely what RAG is designed to address.</p>
+      </div>
+    </div>
+
+    <!-- SVG: LLM Inference -->
+    <div class="dw rv d1">
+      <div class="dlbl">// LLM inference &mdash; what happens when you send a prompt</div>
+      <svg viewBox="0 0 820 118" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:820px;display:block;margin:0 auto;overflow:visible">
+        <defs>
+          <linearGradient id="ga" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#252969"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+          <linearGradient id="gb" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2563eb"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+        </defs>
+        <rect x="3" y="22" width="108" height="68" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+        <text x="57" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#128172;</text>
+        <text x="57" y="66" text-anchor="middle" fill="#252969" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">YOUR PROMPT</text>
+        <text x="57" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">system + user msg</text>
+        <line x1="112" y1="56" x2="133" y2="56" stroke="url(#ga)" stroke-width="1.5"/><polygon points="133,52 141,56 133,60" fill="#2563eb"/>
+        <rect x="142" y="22" width="108" height="68" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+        <text x="196" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#128288;</text>
+        <text x="196" y="66" text-anchor="middle" fill="#252969" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">TOKENISE</text>
+        <text x="196" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">text &rarr; token IDs</text>
+        <line x1="251" y1="56" x2="272" y2="56" stroke="url(#ga)" stroke-width="1.5"/><polygon points="272,52 280,56 272,60" fill="#2563eb"/>
+        <rect x="281" y="22" width="108" height="68" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+        <text x="335" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#127358;</text>
+        <text x="335" y="66" text-anchor="middle" fill="#252969" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">EMBEDDINGS</text>
+        <text x="335" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">IDs &rarr; dense vectors</text>
+        <line x1="390" y1="56" x2="411" y2="56" stroke="url(#gb)" stroke-width="1.5"/><polygon points="411,52 419,56 411,60" fill="#3b82f6"/>
+        <rect x="420" y="22" width="108" height="68" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.2"/>
+        <text x="474" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#128064;</text>
+        <text x="474" y="66" text-anchor="middle" fill="#1e2d4d" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">ATTENTION</text>
+        <text x="474" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">context weighting</text>
+        <line x1="529" y1="56" x2="550" y2="56" stroke="url(#gb)" stroke-width="1.5"/><polygon points="550,52 558,56 550,60" fill="#3b82f6"/>
+        <rect x="559" y="22" width="108" height="68" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.2"/>
+        <text x="613" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#127922;</text>
+        <text x="613" y="66" text-anchor="middle" fill="#1e2d4d" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">SAMPLE TOKEN</text>
+        <text x="613" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">temperature + top-p</text>
+        <line x1="668" y1="56" x2="689" y2="56" stroke="url(#gb)" stroke-width="1.5"/><polygon points="689,52 697,56 689,60" fill="#60a5fa"/>
+        <rect x="698" y="22" width="116" height="68" rx="8" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1.4"/>
+        <text x="756" y="50" text-anchor="middle" font-size="18" font-family="sans-serif">&#10024;</text>
+        <text x="756" y="66" text-anchor="middle" fill="#1e2d4d" font-family="Outfit,sans-serif" font-size="9" font-weight="700" letter-spacing="0.4">RESPONSE</text>
+        <text x="756" y="80" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">loop until complete</text>
+        <path d="M 756 90 Q 756 108 613 108 Q 470 108 470 90" stroke="rgba(30,86,200,0.25)" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+        <text x="613" y="106" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7">autoregressive loop</text>
+      </svg>
+    </div>
+
+    <div class="cap-limit rv d2">
+      <div class="cl-box good">
+        <h4>&#10003;&nbsp; What LLMs do well</h4>
+        <div class="cl-row"><span>&#8226;</span>Natural language understanding &amp; generation at scale</div>
+        <div class="cl-row"><span>&#8226;</span>Code synthesis, debugging, and review across languages</div>
+        <div class="cl-row"><span>&#8226;</span>Structured extraction from unstructured text</div>
+        <div class="cl-row"><span>&#8226;</span>Summarisation, translation, format conversion</div>
+        <div class="cl-row"><span>&#8226;</span>Following complex multi-constraint instructions reliably</div>
+      </div>
+      <div class="cl-box bad">
+        <h4>&#10007;&nbsp; Where they fail without RAG</h4>
+        <div class="cl-row"><span>&#8226;</span>Anything after training cutoff &mdash; knowledge is frozen in weights</div>
+        <div class="cl-row"><span>&#8226;</span>Your organisation's data &mdash; it has never seen it</div>
+        <div class="cl-row"><span>&#8226;</span>Verifiable facts &mdash; fills gaps with confident fabrication</div>
+        <div class="cl-row"><span>&#8226;</span>Citing sources &mdash; parametric memory has no provenance</div>
+        <div class="cl-row"><span>&#8226;</span>Precision on domain-specific terms without explicit context</div>
+      </div>
+    </div>
+
+    <!-- FLIP CARDS -->
+    <div class="rv d3" style="margin-top:2.75rem">
+      <div class="fc-section-label">Key Terminology &nbsp;<span class="fc-hint">&#8592; tap any card to reveal the definition</span></div>
+      <div class="fc-grid" id="fcg">
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#129504;</span>
+              <div class="fc-term">Transformer</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Transformer</div>
+              <div class="fc-def">A neural network architecture built on <strong>self-attention</strong>. Introduced in 2017, it processes all tokens in parallel and learns which parts of the input matter for each output — enabling the scale that makes modern LLMs possible.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128288;</span>
+              <div class="fc-term">Tokenisation</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Tokenisation</div>
+              <div class="fc-def">Splitting text into <strong>sub-word units</strong> called tokens (~¾ of a word each). Models never see raw characters — only token IDs. "Power Automate" becomes 3 tokens. Context window limits are measured in tokens, not words.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#127358;</span>
+              <div class="fc-term">Embedding</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Embedding</div>
+              <div class="fc-def">A <strong>dense numeric vector</strong> representing a token or document in high-dimensional space. Semantically similar words cluster together. This is how models measure meaning — through geometry, not rules.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128064;</span>
+              <div class="fc-term">Attention</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Self-Attention</div>
+              <div class="fc-def">A mechanism that lets every token <strong>weigh every other token</strong> in the context window. "The flow fails when it…" — attention helps the model link "it" back to "flow" across many tokens.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128202;</span>
+              <div class="fc-term">Parameters</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Parameters</div>
+              <div class="fc-def">The <strong>numerical weights</strong> learned during training — GPT-4 has ~1 trillion. They encode all the model's knowledge. Once trained, they are fixed. Increasing parameters generally increases capability but also cost.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#127919;</span>
+              <div class="fc-term">Inference</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Inference</div>
+              <div class="fc-def">Running a <strong>trained model to generate output</strong> — what happens every time you send a prompt. Different from training (which updates weights). Inference is fast and cheap; training is slow and expensive.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#127919;</span>
+              <div class="fc-term">Temperature</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Temperature</div>
+              <div class="fc-def">A <strong>sampling parameter</strong> that controls output randomness. At 0 the model always picks the highest-probability token (deterministic). At 1+ it samples more freely — more creative but less precise.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128268;</span>
+              <div class="fc-term">Context Window</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Context Window</div>
+              <div class="fc-def">The <strong>maximum tokens a model can process at once</strong> — both input and output combined. GPT-4o: 128K tokens (~96K words). Everything in the window influences the output. Larger windows = richer context = better answers.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#127775;</span>
+              <div class="fc-term">RLHF</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">RLHF</div>
+              <div class="fc-def"><strong>Reinforcement Learning from Human Feedback.</strong> After pretraining, human raters score outputs. The model is fine-tuned to produce outputs humans prefer — this is what turns a raw text predictor into a helpful assistant like Copilot.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128290;</span>
+              <div class="fc-term">Vector Search</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Vector Search</div>
+              <div class="fc-def">Finding documents by <strong>semantic similarity</strong>, not keyword matching. A query is embedded into a vector, then the index returns the nearest document vectors by cosine distance. The foundation of every RAG system.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#127970;</span>
+              <div class="fc-term">Foundation Model</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Foundation Model</div>
+              <div class="fc-def">A <strong>large pretrained model</strong> (GPT-4o, Claude, Gemini) trained on internet-scale data, then adapted for specific tasks. Called "foundation" because other products and applications are built on top of them.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc" onclick="this.classList.toggle('flipped')">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <span class="fc-ico">&#128172;</span>
+              <div class="fc-term">Prompt</div>
+              <div class="fc-tap">Tap to flip</div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-term-back">Prompt</div>
+              <div class="fc-def">The <strong>full input sent to the model</strong> — typically a system message (hidden instructions) plus the user message. Prompt engineering is the discipline of crafting inputs to reliably elicit the outputs you want.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 2. HOW GEN AI WORKS -->
+<section id="how-it-works" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Under the Hood</span>
+      <h2 class="sh">How <span class="hi">Gen AI Works</span></h2>
+      <p class="sub">The transformer architecture in enough depth to reason about why prompts work and why they fail.</p>
+    </div>
+    <div class="how-grid">
+      <div class="hs rv"><div class="hs-n">Step 01</div><span class="hs-ico">&#128288;</span><div class="hs-t">Tokenisation</div><p class="hs-d">Text splits into sub-word tokens (~&#190; of a word each). "Power Automate" becomes ["Power"," Autom","ate"]. The model never sees raw characters &mdash; only token IDs mapped to learned embedding vectors.</p></div>
+      <div class="hs rv d1"><div class="hs-n">Step 02</div><span class="hs-ico">&#127358;</span><div class="hs-t">Embeddings</div><p class="hs-d">Each token ID maps to a dense vector (12,288 dimensions in GPT-4). Semantically similar tokens cluster in this space. This is where meaning enters the computation &mdash; not rules, pure geometry.</p></div>
+      <div class="hs rv d2"><div class="hs-n">Step 03</div><span class="hs-ico">&#128064;</span><div class="hs-t">Self-Attention</div><p class="hs-d">Every token attends to every other token in context. Multi-head attention learns which tokens matter to each other &mdash; capturing long-range dependencies, pronoun resolution, and contextual meaning shifts.</p></div>
+      <div class="hs rv d3"><div class="hs-n">Step 04</div><span class="hs-ico">&#128267;</span><div class="hs-t">Feed-Forward Layers</div><p class="hs-d">After attention, each position passes through FFN layers that encode learned knowledge. This is where most factual knowledge appears to be stored in model weights &mdash; not the attention mechanism.</p></div>
+      <div class="hs rv"><div class="hs-n">Step 05</div><span class="hs-ico">&#127922;</span><div class="hs-t">Next Token Sampling</div><p class="hs-d">The final layer outputs a probability distribution over the full vocabulary (~50k tokens). The model samples the next token, appends it, and repeats. This autoregressive loop is generation.</p></div>
+      <div class="hs rv d1"><div class="hs-n">Step 06</div><span class="hs-ico">&#127775;</span><div class="hs-t">RLHF Alignment</div><p class="hs-d">Raw pretrained models output chaotic continuations. RLHF trains the model to follow instructions and be helpful &mdash; producing the clean assistant behaviour you see in Copilot. Temperature and system prompts shape outputs at inference time.</p></div>
+    </div>
+    <div class="dw rv d2" style="margin-bottom:0">
+      <div class="dlbl">// Key inference parameters you control via prompting</div>
+      <div class="params-row">
+        <div class="param-box"><div class="param-lbl">Context Window</div><p>All text the model sees at once. GPT-4o: 128K tokens (~96K words). Everything inside influences every token generated. Paste context generously.</p></div>
+        <div class="param-box"><div class="param-lbl">Temperature</div><p>Sampling randomness. 0 = deterministic. 1+ = creative. Copilot uses ~0.7 for chat, lower for code. Shapes the probability distribution, not a creativity dial.</p></div>
+        <div class="param-box"><div class="param-lbl">System Prompt</div><p>Hidden instructions prepended before your message. How Copilot 365, custom agents, and RAG systems configure model behaviour, role, constraints, and knowledge sources.</p></div>
+        <div class="param-box"><div class="param-lbl">In-Context Learning</div><p>Examples and instructions in the prompt shift model behaviour with no weight update. Few-shot examples, personas, format schemas &mdash; all work through this mechanism.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 3. WHAT IS RAG -->
+<section id="rag" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">RAG</span>
+      <h2 class="sh">What is <span class="hi">RAG</span></h2>
+      <p class="sub">Retrieval-Augmented Generation &mdash; the architectural pattern that addresses every major LLM failure mode for enterprise use.</p>
+    </div>
+    <div class="rag-def rv d1">
+      <h3>The Core Problem RAG Solves</h3>
+      <p>LLMs have <em>static parametric knowledge</em> &mdash; baked into weights at training time, containing nothing beyond the cutoff date and nothing specific to your organisation. Ask GPT-4o "What is the error handling procedure for our SAP sync flow?" and it will confidently fabricate a plausible-sounding but factually wrong answer for your context. This is the fundamental enterprise AI problem.</p>
+      <p>RAG separates <strong>retrieval of relevant information</strong> from <strong>language generation</strong>. At query time, the system fetches the most semantically relevant content from an external knowledge store &mdash; your SharePoint, Celonis reports, runbooks &mdash; then injects that content into the model's context alongside the question. The model generates grounded in actual, specific, up-to-date information. Every answer is citable. Every claim is verifiable. This is the architecture behind every trustworthy enterprise AI system in production today &mdash; including <em>Microsoft Copilot 365</em>.</p>
+    </div>
+
+    <!-- SVG: RAG vs No-RAG -->
+    <div class="dw rv d2" style="margin-bottom:1.25rem">
+      <div class="dlbl">// Parametric LLM vs RAG-augmented LLM</div>
+      <svg viewBox="0 0 760 135" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:0 auto;overflow:visible">
+        <text x="172" y="16" text-anchor="middle" fill="#b91c1c" font-family="Outfit,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.4">WITHOUT RAG</text>
+        <rect x="10" y="24" width="104" height="88" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+        <text x="62" y="52" text-anchor="middle" font-size="18" font-family="sans-serif">&#128172;</text>
+        <text x="62" y="68" text-anchor="middle" fill="#7f1d1d" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">USER QUERY</text>
+        <text x="62" y="81" text-anchor="middle" fill="#b91c1c" font-family="JetBrains Mono,monospace" font-size="7">What does bot</text>
+        <text x="62" y="91" text-anchor="middle" fill="#b91c1c" font-family="JetBrains Mono,monospace" font-size="7">do on SAP fail?</text>
+        <line x1="115" y1="68" x2="136" y2="68" stroke="#fca5a5" stroke-width="1.2"/><polygon points="136,64 144,68 136,72" fill="#ef4444"/>
+        <rect x="145" y="24" width="108" height="88" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+        <text x="199" y="50" text-anchor="middle" font-size="16" font-family="sans-serif">&#129504;</text>
+        <text x="199" y="65" text-anchor="middle" fill="#991b1b" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">LLM ONLY</text>
+        <text x="199" y="77" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">parametric</text>
+        <text x="199" y="87" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">knowledge only</text>
+        <text x="199" y="100" text-anchor="middle" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="7">no org data</text>
+        <line x1="254" y1="68" x2="275" y2="68" stroke="#fca5a5" stroke-width="1.2"/><polygon points="275,64 283,68 275,72" fill="#ef4444"/>
+        <rect x="284" y="24" width="104" height="88" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+        <text x="336" y="50" text-anchor="middle" font-size="16" font-family="sans-serif">&#10060;</text>
+        <text x="336" y="65" text-anchor="middle" fill="#991b1b" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">HALLUCINATED</text>
+        <text x="336" y="77" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">confident but wrong</text>
+        <text x="336" y="88" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">no citations</text>
+        <text x="336" y="99" text-anchor="middle" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="7">not auditable</text>
+
+        <line x1="400" y1="10" x2="400" y2="128" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 3"/>
+
+        <text x="580" y="16" text-anchor="middle" fill="#15803d" font-family="Outfit,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.4">WITH RAG</text>
+        <rect x="410" y="24" width="104" height="88" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+        <text x="462" y="52" text-anchor="middle" font-size="18" font-family="sans-serif">&#128172;</text>
+        <text x="462" y="68" text-anchor="middle" fill="#14532d" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">USER QUERY</text>
+        <text x="462" y="81" text-anchor="middle" fill="#15803d" font-family="JetBrains Mono,monospace" font-size="7">Same question</text>
+        <text x="462" y="91" text-anchor="middle" fill="#15803d" font-family="JetBrains Mono,monospace" font-size="7">to RAG system</text>
+        <line x1="515" y1="68" x2="536" y2="68" stroke="#86efac" stroke-width="1.2"/><polygon points="536,64 544,68 536,72" fill="#22c55e"/>
+        <rect x="545" y="24" width="108" height="88" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+        <text x="599" y="46" text-anchor="middle" font-size="14" font-family="sans-serif">&#128452; &#128196;</text>
+        <text x="599" y="60" text-anchor="middle" fill="#1e40af" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">RETRIEVE</text>
+        <text x="599" y="72" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">IA SharePoint docs</text>
+        <text x="599" y="82" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">runbooks, PDD, SDD</text>
+        <text x="599" y="93" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="7">semantic search</text>
+        <line x1="654" y1="68" x2="675" y2="68" stroke="#86efac" stroke-width="1.2"/><polygon points="675,64 683,68 675,72" fill="#22c55e"/>
+        <rect x="684" y="24" width="74" height="88" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.4"/>
+        <text x="721" y="50" text-anchor="middle" font-size="16" font-family="sans-serif">&#10003;</text>
+        <text x="721" y="65" text-anchor="middle" fill="#14532d" font-family="Outfit,sans-serif" font-size="8.5" font-weight="700">GROUNDED</text>
+        <text x="721" y="77" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">cited answer</text>
+        <text x="721" y="88" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="7">accurate</text>
+        <text x="721" y="99" text-anchor="middle" fill="#15803d" font-family="JetBrains Mono,monospace" font-size="7">auditable</text>
+      </svg>
+    </div>
+
+    <div class="compare-grid rv d2">
+      <div class="cmp neg">
+        <h4>&#10060; Without RAG &mdash; Parametric LLM</h4>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Frozen knowledge</strong> &mdash; nothing post-cutoff, nothing org-specific</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Hallucination risk</strong> &mdash; fills factual gaps with confident fabrication</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Organisation-blind</strong> &mdash; knows nothing about your bots, runbooks, or Celonis data</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Non-citable</strong> &mdash; no provenance; impossible to audit in a GxP environment</span></div>
+      </div>
+      <div class="cmp pos">
+        <h4>&#10003; With RAG &mdash; Grounded Generation</h4>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Live knowledge</strong> &mdash; retrieves from documents updated today</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Grounded answers</strong> &mdash; model instructed to answer only from retrieved context</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Organisation-aware</strong> &mdash; your IA SharePoint PDD, SDD, runbooks become queryable</span></div>
+        <div class="cmp-row"><span>&#8226;</span><span><strong>Source-cited</strong> &mdash; every answer references the exact document and section</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 4. HOW RAG WORKS -->
+<section id="rag-how" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Architecture</span>
+      <h2 class="sh">How <span class="hi">RAG Works</span></h2>
+      <p class="sub">The full pipeline in two phases. Understanding both means you can design, debug, and optimise RAG systems &mdash; not just consume them.</p>
+    </div>
+    <div class="pipe-wrap rv d1">
+      <div class="ph"><span class="pb pb-v">Phase 1</span><span class="pt">Indexing &mdash; offline, on schedule when documents change</span></div>
+      <div class="pipe-row">
+        <div class="pn a"><span class="pi">&#128194;</span><div class="pnm">Source Docs</div><div class="pns">SharePoint PDD / SDD / Runbooks</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn a"><span class="pi">&#9986;</span><div class="pnm">Chunking</div><div class="pns">512-1024 token sliding window</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn a"><span class="pi">&#128290;</span><div class="pnm">Embedding</div><div class="pns">ada-002 &rarr; 1536-dim vectors</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn a"><span class="pi">&#128452;</span><div class="pnm">Vector Index</div><div class="pns">Azure AI Search HNSW</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn a"><span class="pi">&#128210;</span><div class="pnm">Metadata</div><div class="pns">Source URL, date, owner</div></div>
+      </div>
+      <div class="ph"><span class="pb pb-t">Phase 2</span><span class="pt">Query &mdash; real-time on every user question</span></div>
+      <div class="pipe-row">
+        <div class="pn b"><span class="pi">&#128172;</span><div class="pnm">User Query</div><div class="pns">Natural language question</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn b"><span class="pi">&#128290;</span><div class="pnm">Embed Query</div><div class="pns">Same model as index</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn b"><span class="pi">&#127919;</span><div class="pnm">Retrieve Top-K</div><div class="pns">Hybrid: vector + BM25 via RRF</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn b"><span class="pi">&#128196;</span><div class="pnm">Rerank</div><div class="pns">Cross-encoder for precision</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn b"><span class="pi">&#129504;</span><div class="pnm">Augment</div><div class="pns">Inject chunks + grounding</div></div>
+        <div class="parr">&gt;</div>
+        <div class="pn b"><span class="pi">&#10024;</span><div class="pnm">Cited Answer</div><div class="pns">Grounded + source reference</div></div>
+      </div>
+    </div>
+    <div class="step-grid">
+      <div class="sc rv"><div class="sc-ico">&#9986;</div><div class="sc-t">Chunking Strategy</div><p class="sc-d">Semantic chunking (split at headings, paragraphs) outperforms fixed-character splitting. Overlap (15-20%) prevents context loss at boundaries. Chunk size trades precision (small) vs context (large).</p><div class="sc-tags"><span class="tt">Semantic Split</span><span class="tt">Sliding Window</span><span class="tt">512-1024 tokens</span></div></div>
+      <div class="sc rv d1"><div class="sc-ico">&#128290;</div><div class="sc-t">Embedding Models</div><p class="sc-d">Identical model at index and query time is mandatory. text-embedding-3-large (3072-dim) outperforms ada-002 on most benchmarks. Never mix models across phases.</p><div class="sc-tags"><span class="tt">ada-002</span><span class="tt">text-embedding-3</span><span class="tt">Cosine Similarity</span></div></div>
+      <div class="sc rv d2"><div class="sc-ico">&#128269;</div><div class="sc-t">Hybrid Search</div><p class="sc-d">Pure vector search misses exact-match queries (error codes, IDs). Pure BM25 misses semantic variants. Hybrid via RRF captures both. Azure AI Search supports this natively. Always use hybrid in production.</p><div class="sc-tags"><span class="tt">BM25</span><span class="tt">RRF Fusion</span><span class="tt">Azure AI Search</span></div></div>
+      <div class="sc rv"><div class="sc-ico">&#127919;</div><div class="sc-t">Reranking</div><p class="sc-d">Vector retrieval gets you approximately right chunks. A cross-encoder reranker (Azure Semantic Ranker) re-scores with full query-document attention &mdash; dramatically improving precision. The latency cost is worth it.</p><div class="sc-tags"><span class="tt">Cross-Encoder</span><span class="tt">Semantic Ranker</span><span class="tt">Top-K</span></div></div>
+      <div class="sc rv d1"><div class="sc-ico">&#129504;</div><div class="sc-t">Grounding Instruction</div><p class="sc-d">The key hallucination control: "Answer only from the provided context. If the answer is not present, say so explicitly." This demotes parametric knowledge to a fallback and anchors every response to retrieved content.</p><div class="sc-tags"><span class="tt">System Prompt</span><span class="tt">Grounding</span><span class="tt">Context Window</span></div></div>
+      <div class="sc rv d2"><div class="sc-ico">&#10024;</div><div class="sc-t">Citation &amp; Traceability</div><p class="sc-d">Production RAG returns source document, page, and chunk alongside each answer. For Baxter with GxP and 21 CFR Part 11 requirements, this is non-negotiable. Every AI claim must trace to a primary source.</p><div class="sc-tags"><span class="tt">Source Citation</span><span class="tt">GxP</span><span class="tt">Audit Trail</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 5. COPILOT AS RAG -->
+<section id="copilot-rag" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Copilot 365</span>
+      <h2 class="sh">Copilot 365 <span class="hi">as a RAG System</span></h2>
+      <p class="sub">Copilot 365 is not magic &mdash; it is a production RAG pipeline over Microsoft Graph. Knowing the architecture tells you exactly how to prompt it effectively.</p>
+    </div>
+    <div class="cop-grid">
+      <div class="cop-card rv d1">
+        <h3>How Copilot 365 Retrieves</h3>
+        <p>Every Copilot 365 query triggers retrieval against the <em>Microsoft Graph</em> &mdash; the unified API indexing your emails, Teams messages, SharePoint documents, OneDrive files, Calendar, and meeting transcripts. Microsoft uses a semantic index built on Azure AI Search to make all of this retrievable by meaning, not just keyword.</p>
+        <p>Retrieved content is injected into GPT-4o's context window alongside your prompt. The model generates grounded in your real organisational data &mdash; cited, recent, and specific to you.</p>
+        <div class="cq"><span class="cql">What this means</span>Copilot is not guessing about your Invoice Automation &mdash; it is reading your actual emails, SharePoint PDD, and Teams conversations. Answer quality is directly proportional to the quality and recency of your M365 content.</div>
+      </div>
+      <div class="cop-card rv d2">
+        <h3>Prompting Copilot Effectively</h3>
+        <p>Since Copilot does RAG over Graph data, prompts should <em>explicitly reference real artefacts</em> &mdash; this signals which data to retrieve and dramatically improves answer quality.</p>
+        <div class="cq dim"><span class="cql">Weak &mdash; generic retrieval</span>Give me a status update on the invoice automation.</div>
+        <div class="cq" style="margin-top:0.65rem"><span class="cql">Strong &mdash; targeted retrieval</span>Based on the PDD in our IA SharePoint Bot Documentation library, my email thread with Finance this week, and action items from Monday&apos;s Teams standup &mdash; summarise project status, top 2 risks, and the one thing I need to do today.</div>
+      </div>
+    </div>
+    <div class="mg-box rv d2">
+      <h4>What Copilot 365 Retrieves From &mdash; Microsoft Graph Data Sources</h4>
+      <div class="mg-row"><div class="mgl">SharePoint</div><div class="mgi"><span class="mgb">IA Team Site</span><span class="mgb">Bot Documentation Library</span><span class="mgb">PDD / SDD Files</span><span class="mgb">Operational Runbooks</span></div></div>
+      <div class="mg-row"><div class="mgl">Exchange</div><div class="mgi"><span class="mgb">Inbox / Sent</span><span class="mgb">Stakeholder Threads</span><span class="mgb">Go-Live Communications</span><span class="mgb">Approval Chains</span></div></div>
+      <div class="mg-row"><div class="mgl">Teams</div><div class="mgi"><span class="mgb">Channel Messages</span><span class="mgb">Meeting Transcripts</span><span class="mgb">Chat History</span><span class="mgb">Shared Files</span></div></div>
+      <div class="mg-row"><div class="mgl">OneDrive</div><div class="mgi"><span class="mgb">Your Documents</span><span class="mgb">Shared Workbooks</span><span class="mgb">Draft Reports</span></div></div>
+      <div class="agent-note"><span class="agent-note-lbl">Copilot Studio &mdash; Custom RAG Agents</span><p>For workloads beyond Microsoft Graph &mdash; indexing all your bot runbooks for instant L1 support, or querying Celonis reports in plain English &mdash; Copilot Studio lets you build custom agents with your own Azure AI Search index and SharePoint connectors. <strong>No data leaves the Microsoft security boundary. Runs entirely within your M365 tenant.</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 6. FRAMEWORK -->
+<section id="framework" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Framework</span>
+      <h2 class="sh">The <span class="hi">RTCFC</span> Framework</h2>
+      <p class="sub">A structured decomposition of what a complete, high-quality prompt contains. Master this and outputs become reliable rather than variable.</p>
+    </div>
+    <div class="fhero rv d1">
+      <div class="flbl">// Anatomy of a production-grade prompt</div>
+      <div class="frow">
+        <div class="fp">Role</div><div class="fp-eq">+</div>
+        <div class="fp alt">Task</div><div class="fp-eq">+</div>
+        <div class="fp">Context</div><div class="fp-eq">+</div>
+        <div class="fp alt">Format</div><div class="fp-eq">+</div>
+        <div class="fp">Constraints</div><div class="fp-eq">+</div>
+        <div class="fp dim">Iterate</div><div class="fp-eq">=</div>
+        <div class="fp-res">Reliable Output</div>
+      </div>
+    </div>
+    <div class="pg">
+      <div class="pl rv"><span class="pl-ic">&#127917;</span><div class="pl-tt">Role &mdash; Set the Expert Persona</div><p class="pl-dc">System prompt priming shifts the model's distribution toward expert-level output. "Act as a senior Power Automate architect" activates relevant knowledge clusters. Always match the role to the specific domain of the task.</p><div class="pl-ex"><span class="pl-el">Example</span>Act as a senior Celonis EMS expert with deep SAP P2P event log knowledge and PQL optimisation experience...</div></div>
+      <div class="pl rv d1"><span class="pl-ic">&#127919;</span><div class="pl-tt">Task &mdash; One Precise Action</div><p class="pl-dc">One action verb per prompt. Compound tasks dilute attention. Chain them sequentially. Use precise verbs: generate, extract, refactor, debug, compare, classify. Not vague ones like "help me with" or "can you look at."</p><div class="pl-ex"><span class="pl-el">Example</span>...design a Power Automate flow triggered on new SharePoint Invoices item, routing approval when amount exceeds $5,000...</div></div>
+      <div class="pl rv d2"><span class="pl-ic">&#128206;</span><div class="pl-tt">Context &mdash; Maximise Relevance</div><p class="pl-dc">Paste the full error message. Paste the code block. Paste Celonis KPI values. Paste the meeting transcript. The model attends over everything &mdash; more signal means less noise. Do not paraphrase what you can paste verbatim.</p><div class="pl-ex"><span class="pl-el">Example</span>...standard connectors, SharePoint Online, SAP S/4HANA via HTTP, E3 licensing. Full error: [paste]...</div></div>
+      <div class="pl rv"><span class="pl-ic">&#128208;</span><div class="pl-tt">Format &mdash; Lock the Schema</div><p class="pl-dc">Unspecified format gives unpredictable structure. Define exactly: numbered steps with connector name and expression, JSON with keys A B C, executive summary under 200 words. The model conforms reliably to explicit schema instructions.</p><div class="pl-ex"><span class="pl-el">Example</span>...numbered steps: connector | operation | expression (if applicable) | error condition.</div></div>
+      <div class="pl rv d1"><span class="pl-ic">&#128683;</span><div class="pl-tt">Constraints &mdash; Hard Boundaries</div><p class="pl-dc">Exclusions prevent the model defaulting to its highest-frequency generic patterns. "No premium connectors", "avoid technical jargon", "standard Celonis objects only". Constraints narrow the solution space to what is actually viable.</p><div class="pl-ex"><span class="pl-el">Example</span>...standard connectors only, max 12 steps, must handle duplicate record exception, no hardcoded values.</div></div>
+      <div class="pl rv d2"><span class="pl-ic">&#128260;</span><div class="pl-tt">Iterate &mdash; Multi-Turn Refinement</div><p class="pl-dc">LLMs are stateful within a conversation. The first response is a well-informed draft. Follow-up prompts build on prior context. Chain atomic refinements: "Now add retry logic", "Rewrite for non-technical audience", "Add test scenarios for null input."</p><div class="pl-ex"><span class="pl-el">Follow-up patterns</span>Now add... &middot; Rewrite [section] for... &middot; What if [edge case]? &middot; Show 3 alternatives &middot; Generate test cases</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 7. USE CASES -->
+<section id="usecases" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Prompt Library</span>
+      <h2 class="sh">Use Cases for <span class="hi">Baxter IA</span></h2>
+      <p class="sub">Production-ready prompts for every domain your team works in. Copy, adapt, iterate.</p>
+    </div>
+    <div class="tab-bar rv d1">
+      <button class="tb on" onclick="st('pa',this)">&#9889; Power Automate</button>
+      <button class="tb" onclick="st('ce',this)">&#128310; Celonis</button>
+      <button class="tb" onclick="st('ml',this)">Email</button>
+      <button class="tb" onclick="st('ap',this)">Power Apps</button>
+      <button class="tb" onclick="st('dc',this)">Documentation</button>
+      <button class="tb" onclick="st('rp',this)">Code / RPA</button>
+    </div>
+    <div id="tab-pa" class="tp on">
+      <div class="ui"><h3><span>Power Automate</span></h3><p>Copilot understands connector schemas, expression functions, and flow patterns. Give it the business rule, data source, and constraints &mdash; it returns a complete blueprint to iterate on.</p><div class="utip"><span class="utip-l">Optimal workflow</span><p>Problem &rarr; blueprint &rarr; expand each step &rarr; error handling &rarr; test matrix. Five sequential prompts in one conversation beats one mega-prompt.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">Flow Architecture</span><div class="pc-t">"Act as a senior PA architect. Design a flow triggered when a new item is added to the Invoices list in our IA SharePoint. Extract vendor, amount, date. Send Outlook adaptive card approval when amount exceeds $5,000. Handle approval/rejection with parallel branches. Standard connectors only. Each action: connector, operation, key settings."</div><span class="pc-b">Reference actual list and site names</span></div>
+        <div class="pc"><span class="pc-l">Debug Error</span><div class="pc-t">"Flow fails at Get Items with: [paste full error JSON]. SharePoint connector, production environment, IA team site. Diagnose root cause. Top 5 causes ranked by likelihood with exact fix configuration for each."</div><span class="pc-b">Paste the full error JSON &mdash; not a summary</span></div>
+        <div class="pc"><span class="pc-l">Performance Optimisation</span><div class="pc-t">"This flow processes 2,000 SharePoint items in Apply to Each, runtime 52 minutes. Give 3 specific optimisations using batched requests, OData filter at source, parallel branches, or Select projection. Show before/after configuration and estimated time savings."</div><span class="pc-b">Provide actual record count and runtime</span></div>
+        <div class="pc"><span class="pc-l">Resilience Patterns</span><div class="pc-t">"Add enterprise-grade error handling to this flow [paste steps]. For each action: run-after to catch failures, Scope for Try-Catch, log to SharePoint BotLog list with timestamp/flow name/action/error/payload. Exponential backoff retry on all HTTP calls."</div><span class="pc-b">Error handling as a dedicated follow-up</span></div>
+      </div>
+    </div>
+    <div id="tab-ce" class="tp">
+      <div class="ui"><h3><span>Celonis Process Mining</span></h3><p>Copilot writes PQL, translates findings into business language, and builds ROI cases from conformance data. Always supply table names and column definitions as context.</p><div class="utip"><span class="utip-l">Technical context matters</span><p>Include case table, activity table, column names, and process name for PQL specific to your data model.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">PQL Query Generation</span><div class="pc-t">"Act as Celonis EMS expert. Write PQL to calculate throughput time in business days between Create PO and Goods Receipt in P2P. Exclude weekends. Case table: P2P_CASES, activity table: P2P_ACTIVITIES, timestamp: EVENTTIME. Handle missing Goods Receipt. Explain each clause."</div><span class="pc-b">Always provide exact table and column names</span></div>
+        <div class="pc"><span class="pc-l">KPI + Conformance</span><div class="pc-t">"Define Celonis KPI for touchless invoice rate: invoices completing P2P without manual intervention. Manual activities contain 'Manual', 'Override', or 'Rework'. Provide: PQL formula, filter logic, denominator definition, benchmark interpretation, top 3 improvement levers."</div><span class="pc-b">Define your exact business meaning of the metric</span></div>
+        <div class="pc"><span class="pc-l">Findings to Executive Language</span><div class="pc-t">"Translate Celonis findings into non-technical executive summary for VP Operations [paste KPI values, throughput stats, conformance rates]. Format: headline insight, 3 quantified bottlenecks with cost impact per year, 2 automation recommendations with effort rating. Max 200 words."</div><span class="pc-b">Paste raw KPI output &mdash; Copilot handles translation</span></div>
+        <div class="pc"><span class="pc-l">Automation ROI Case</span><div class="pc-t">"Business case: [activity] occurs [N]x/month, avg [X] min, conformance [Y]%, error rate [Z]%. Automation via Power Automate. Output: monthly hours saved, FTE equivalent, annual saving at $75/hr, build estimate, payback period, complexity rating with rationale."</div><span class="pc-b">Celonis data &rarr; investment-ready ROI case</span></div>
+      </div>
+    </div>
+    <div id="tab-ml" class="tp">
+      <div class="ui"><h3><span>Email &amp; Communication</span></h3><p>Stakeholder escalations, go-live communications, steering briefs. Copilot in Outlook drafts, summarises, and triages. Specify tone and audience explicitly.</p><div class="utip"><span class="utip-l">Three anchors for every draft</span><p>Tone + Recipient expertise level + Desired outcome. All three determine quality more than the content itself.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">Thread Summary</span><div class="pc-t">"Summarise this email thread [paste]. Output: 1) Core issue in one sentence 2) Decisions made with decision-maker 3) Action items: Owner | Action | Due Date 4) What is expected from me. Max 180 words."</div><span class="pc-b">Word limit forces priority ranking</span></div>
+        <div class="pc"><span class="pc-l">Stakeholder Communication</span><div class="pc-t">"Draft a response to this email [paste] raising concern about the automation delay. Acknowledge directly, state the specific root cause, give revised timeline with one key milestone, close with concrete next action. Tone: professional, accountable, forward-looking. Recipient: non-technical VP."</div><span class="pc-b">Name the specific root cause &mdash; never be vague</span></div>
+        <div class="pc"><span class="pc-l">Meeting Follow-up</span><div class="pc-t">"From this Teams transcript [paste]: draft follow-up to all attendees. Include: 3-bullet summary, action items Owner/Action/Due Date, decisions made, open questions. Write a specific subject line for this meeting."</div><span class="pc-b">Paste the transcript &mdash; Copilot extracts everything</span></div>
+        <div class="pc"><span class="pc-l">Go-Live Announcement</span><div class="pc-t">"Draft go-live announcement for our Power Automate invoice automation launching Monday. Audience: Finance team (non-technical). Cover: what is changing, what they need to do differently (specific), who to contact, support hours. Tone: positive, clear, reassuring."</div><span class="pc-b">Audience technical level changes everything</span></div>
+      </div>
+    </div>
+    <div id="tab-ap" class="tp">
+      <div class="ui"><h3><span>Power Apps</span></h3><p>Architecture, Power Fx, delegation, and UX. Build layered: data model first, then screens, then formulas. Avoid the single mega-prompt trap.</p><div class="utip"><span class="utip-l">Layered prompting wins</span><p>Data model &rarr; screen architecture &rarr; individual formula &rarr; delegation fix. Each layer builds correctly on the previous.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">App Architecture</span><div class="pc-t">"Design Canvas Power App for field engineers to log equipment maintenance on mobile. Define: 1) Data model in SharePoint (tables, columns, types) 2) Screen list with purpose 3) Navigation flows 4) Offline strategy (Collections + SaveData/LoadData) 5) Permissions model. Architecture only &mdash; no formulas yet."</div><span class="pc-b">Architecture before formulas &mdash; always</span></div>
+        <div class="pc"><span class="pc-l">Delegable Formula</span><div class="pc-t">"Write PA formula to show Assets SharePoint list items where Status='Open' AND AssignedTo equals logged-in user, sorted by Priority descending. List has 90,000 records &mdash; must be fully delegable. Explain which functions delegate to SharePoint and why."</div><span class="pc-b">Always state record count &mdash; triggers delegation reasoning</span></div>
+        <div class="pc"><span class="pc-l">Delegation Fix</span><div class="pc-t">"This formula has a blue delegation warning: [paste formula]. SharePoint list, 75,000 records. Diagnose why, then provide fully delegable replacement using Filter, Search, or Collection pre-load. Show before/after and explain the architectural change."</div><span class="pc-b">Paste the exact formula verbatim</span></div>
+        <div class="pc"><span class="pc-l">Mobile UX Audit</span><div class="pc-t">"Review this Power Apps screen [describe] for warehouse workers on handheld scanners. Identify: 1) Touch target issues vs 44px minimum 2) Text legibility (font size, contrast) 3) Navigation confusion 4) Fields that can be auto-populated. Provide specific property values to fix each issue."</div><span class="pc-b">Request specific property values, not general advice</span></div>
+      </div>
+    </div>
+    <div id="tab-dc" class="tp">
+      <div class="ui"><h3><span>Documentation</span></h3><p>PDD, SDD, Runbooks, BRDs &mdash; Copilot generates all from raw inputs. The shift is from writing to reviewing. All stored in IA SharePoint as single source of truth.</p><div class="utip"><span class="utip-l">The generation workflow</span><p>Teams transcript &rarr; Copilot in Word structures and expands &rarr; your review &rarr; saved to IA SharePoint. Writing time drops 70-80%.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">Process Design Document</span><div class="pc-t">"Generate PDD for automating [process]. Sections: 1) Executive Summary 2) AS-IS Process narrative 3) TO-BE Automated Flow with system interactions 4) In/Out of scope 5) Benefits with quantified KPIs (cycle time, error rate, FTE savings) 6) Exceptions and Assumptions 7) Risks. Formal technical tone."</div><span class="pc-b">AS-IS and TO-BE are both mandatory</span></div>
+        <div class="pc"><span class="pc-l">Solution Design Document</span><div class="pc-t">"Write SDD for [solution] on PA and Power Apps. Sections: 1) Architecture (described) 2) Component inventory 3) Data flow 4) Integration points: [systems] with auth method and data contract 5) Security model 6) Error handling strategy 7) Environment strategy Dev/UAT/Prod 8) Deployment steps."</div><span class="pc-b">Always include integration authentication details</span></div>
+        <div class="pc"><span class="pc-l">Operational Runbook</span><div class="pc-t">"Write ops runbook for [automation] running nightly at 02:00 UTC syncing SAP to SharePoint BotResults. Audience: L1 ops, no PA knowledge. Sections: 1) Schedule verification 2) Monitoring checklist 3) Top 10 error codes with exact resolution 4) Escalation L1/L2/IA Team with SLA 5) Rollback procedure."</div><span class="pc-b">Specify audience technical level explicitly</span></div>
+        <div class="pc"><span class="pc-l">Business Requirements Document</span><div class="pc-t">"Convert interview notes [paste] into BRD: Objective, Scope in/out, Stakeholder Register, user stories (As a / I want / So that / Given-When-Then), NFRs, Assumptions, Dependencies, Open Questions with owner."</div><span class="pc-b">Paste raw notes &mdash; Copilot structures the artefact</span></div>
+      </div>
+    </div>
+    <div id="tab-rp" class="tp">
+      <div class="ui"><h3><span>Code &amp; RPA</span></h3><p>Code generation, review, and debugging across Python, C#, VB.Net. Provide language, platform, existing code or error, and desired behaviour.</p><div class="utip"><span class="utip-l">The precise trio</span><p>Platform + exact error text + what you have already tried. Eliminates most back-and-forth.</p></div></div>
+      <div class="ps2">
+        <div class="pc"><span class="pc-l">UiPath VB.Net</span><div class="pc-t">"Write UiPath VB.Net to read Excel [columns Name, Email, SAP_ID, Amount], iterate each row, navigate to [URL], authenticate via Windows SSO, fill form with [column-to-field mapping], submit, write confirmation number back to column E. Try-Catch per row, log failures to error sheet with row number and exception. Do not stop on individual row failure."</div><span class="pc-b">Include error handling in the original prompt</span></div>
+        <div class="pc"><span class="pc-l">Python Data Pipeline</span><div class="pc-t">"Write Python that: 1) Reads all .xlsx from folder recursively 2) Merges to single DataFrame 3) Deduplicates on InvoiceID keeping latest ProcessedDate 4) Validates: Amount numeric and positive, Email matches regex 5) Writes clean rows to output.csv and invalid to errors.csv with Reason column 6) Logs summary count. Use pandas, pathlib. Handle FileNotFoundError."</div><span class="pc-b">Specify validation rules and error output format</span></div>
+        <div class="pc"><span class="pc-l">SharePoint REST API (C#)</span><div class="pc-t">"Async C# method using HttpClient: authenticate with Azure AD client credentials from Key Vault via DefaultAzureCredential, GET BotLog list items at [site URL] where Status eq 'Failed' via OData filter, deserialise to List&lt;BotLogItem&gt;, Polly retry for 429/503 with exponential backoff and jitter, max 3 retries."</div><span class="pc-b">Include auth method, site URL, list name, retry strategy</span></div>
+        <div class="pc"><span class="pc-l">Code Review</span><div class="pc-t">"Review this [language] code [paste]. Classify by severity Critical/Major/Minor: 1) Logic errors 2) Exception handling gaps 3) Security vulnerabilities (injection, secret exposure) 4) Performance bottlenecks 5) Maintainability. Provide fixed version with inline comments explaining each change."</div><span class="pc-b">Classify by severity &mdash; forces prioritisation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 8. PROMPT ENGINEERING -->
+<section id="prompting" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Advanced Techniques</span>
+      <h2 class="sh">Advanced <span class="hi">Prompt Engineering</span></h2>
+      <p class="sub">Techniques that separate consistent, production-quality outputs from variable, unpredictable ones. Engineering patterns, not tricks.</p>
+    </div>
+    <div class="pe-grid">
+      <div class="pe-card rv"><div class="pe-t">Chain-of-Thought</div><p class="pe-d">Instruct the model to reason step-by-step before the final answer. "Think through this step by step" activates more deliberate computation and reduces errors on multi-step reasoning, debugging, and architectural decisions.</p><div class="pe-ex"><span class="pe-el">Pattern</span>...before designing the flow, reason through the data dependencies and potential race conditions step by step, then provide the final design.</div></div>
+      <div class="pe-card rv d1"><div class="pe-t">Few-Shot Exemplars</div><p class="pe-d">Provide 2-3 input-output pair examples before your actual request. The model infers the pattern and dramatically improves format consistency. Powerful for custom document formats like Baxter's PDD template and classification tasks.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Here are two correctly formatted user stories from our last project: [example 1] [example 2]. Now write user stories for this: [requirement].</div></div>
+      <div class="pe-card rv d2"><div class="pe-t">Self-Consistency Sampling</div><p class="pe-d">For high-stakes outputs, request 3 independent analyses and identify convergence. "Give me 3 independent analyses and identify where they agree." The majority answer across samples is more reliable than any single answer.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Analyse this architecture from 3 angles: performance, security, and maintainability. Then identify where all three agree on the biggest risk.</div></div>
+      <div class="pe-card rv"><div class="pe-t">Persona + Constraint Stacking</div><p class="pe-d">Combine a specific expert persona with hard constraints to narrow the probability distribution precisely. "Act as a GxP-compliance-focused PA architect who must use only standard connectors approved for Baxter's production environment" is far more precise than "help me design a flow."</p><div class="pe-ex"><span class="pe-el">Pattern</span>Act as a GxP-aware automation architect. Design only to Baxter IT-approved connector list. Every decision must include a GxP risk justification.</div></div>
+      <div class="pe-card rv d1"><div class="pe-t">Output Schema Locking</div><p class="pe-d">Define the output as a rigid schema &mdash; JSON structure, table with exact columns, numbered sections with defined headings. Locked format channels creativity entirely into content quality rather than structural decisions. Produces consistently parseable outputs.</p><div class="pe-ex"><span class="pe-el">Pattern</span>Return as JSON: {{"risk": string, "severity": "High|Medium|Low", "mitigation": string}}. No preamble or explanation outside the schema.</div></div>
+      <div class="pe-card rv d2"><div class="pe-t">Anti-Hallucination Grounding</div><p class="pe-d">For accuracy-critical tasks, add an explicit uncertainty instruction: "If you are not certain about a specific API endpoint or technical detail, say so rather than guessing." Shifts sampling toward admitted uncertainty over confident fabrication.</p><div class="pe-ex"><span class="pe-el">Pattern</span>...if uncertain about any specific SharePoint REST endpoint or PA expression syntax, state your uncertainty rather than guessing.</div></div>
+    </div>
+    <div class="dos-donts rv d1">
+      <div class="dd-box dos">
+        <h4>Patterns That Work</h4>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Paste the full error message &mdash; never summarise it</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Specify exact output format (table columns, JSON schema, step structure)</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>State what NOT to include as explicitly as what to include</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Chain follow-up prompts &mdash; refine in steps, not one shot</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Ask for reasoning before the final answer on complex tasks</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Request 3 alternatives before committing to an approach</div>
+        <div class="dd-r"><span style="color:#15803d">&#10003;</span>Ask for test cases as a dedicated follow-up prompt</div>
+      </div>
+      <div class="dd-box don">
+        <h4>Failure Patterns to Avoid</h4>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Accepting the first output without iteration</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Asking 5 different things in a single prompt</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Using vague verbs: "help me", "make something", "improve this"</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Paraphrasing error messages instead of pasting verbatim</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Not specifying audience for communication drafts</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Trusting specific technical details without verification</div>
+        <div class="dd-r"><span style="color:#b91c1c">&#10007;</span>Starting a new chat for every follow-up (destroys context)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 9. COPILOT TIPS -->
+<section id="copilot-tips" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Copilot 365</span>
+      <h2 class="sh">Using Copilot 365 <span class="hi">Effectively</span></h2>
+      <p class="sub">Copilot is embedded across your M365 stack. Here is how to integrate it into real IA workflows across every app your team already uses.</p>
+    </div>
+    <div class="cop-tips">
+      <div class="ct rv"><span class="ct-app">Outlook</span><span class="ct-ico">&#128231;</span><div class="ct-t">Email Intelligence</div><p>Summarise threads before responding. Draft with "Draft a reply that..." plus explicit tone. Coach mode gives a draft &mdash; refine with follow-ups. Digest flagged emails from the last 24 hours in one prompt.</p></div>
+      <div class="ct rv d1"><span class="ct-app">Teams</span><span class="ct-ico">&#128172;</span><div class="ct-t">Meeting Intelligence</div><p>Enable transcription before every meeting. After: "Summarise key decisions", "List action items with owners", "What did [person] commit to?" Use recap to generate follow-up emails automatically.</p></div>
+      <div class="ct rv d2"><span class="ct-app">Word</span><span class="ct-ico">&#128196;</span><div class="ct-t">Document Generation</div><p>Draft PDD and SDD from a bullet outline. Paste meeting notes and expand into formal documentation. Rewrite sections for different audiences. "Make this section 40% more concise."</p></div>
+      <div class="ct rv d3"><span class="ct-app">Power Automate</span><span class="ct-ico">&#9889;</span><div class="ct-t">Flow Scaffolding</div><p>Describe the business scenario in natural language from the PA designer. Copilot generates the initial flow JSON. Use it for the first 80% &mdash; refine edge cases and error handling manually.</p></div>
+      <div class="ct rv"><span class="ct-app">SharePoint</span><span class="ct-ico">&#128193;</span><div class="ct-t">Knowledge Retrieval</div><p>Ask questions about your SharePoint content in natural language. "Find the runbook for the SAP sync flow", "Latest version of the Invoice Automation PDD?" Copilot retrieves from your IA site directly.</p></div>
+      <div class="ct rv d1"><span class="ct-app">Excel</span><span class="ct-ico">&#128202;</span><div class="ct-t">Data Analysis</div><p>"Analyse this bot performance data and identify the 3 automations with highest error rate over the last 30 days." Charts, pivot tables, and conditional formatting from natural language.</p></div>
+      <div class="ct rv d2"><span class="ct-app">BizChat</span><span class="ct-ico">&#127760;</span><div class="ct-t">Cross-App Synthesis</div><p>The most powerful mode. Queries your entire Graph simultaneously. "Based on my recent emails, Teams messages, and the project charter in SharePoint, what is the current risk status of the AP Automation?" RAG at full scale.</p></div>
+      <div class="ct rv d3"><span class="ct-app">Copilot Studio</span><span class="ct-ico">&#129302;</span><div class="ct-t">Custom RAG Agents</div><p>Build an agent with your IA SharePoint as the knowledge base. Deploy to Teams. The full team gets an AI that answers questions about your bots, runbooks, and processes &mdash; cited from the actual documents.</p></div>
+    </div>
+    <div class="wf-box rv d2">
+      <h4>The AI-First IA Workflow &mdash; From Discovery to Production</h4>
+      <div class="wf-steps">
+        <div class="wf-s"><span class="wf-ico">&#128310;</span><div class="wf-l">Discover</div><div class="wf-s2">Celonis surfaces bottleneck. AI translates to business case.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#128196;</span><div class="wf-l">Document</div><div class="wf-s2">Copilot in Word generates PDD from stakeholder notes.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#127760;</span><div class="wf-l">Design</div><div class="wf-s2">Copilot in PA scaffolds the flow. Prompt for architecture first.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#128104;&#8205;&#128187;</span><div class="wf-l">Build</div><div class="wf-s2">Copilot generates expressions, formulas, C# integrations.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#129514;</span><div class="wf-l">Test</div><div class="wf-s2">Copilot generates test matrix including edge cases.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#128218;</span><div class="wf-l">Document</div><div class="wf-s2">SDD + Runbook generated, saved to IA SharePoint.</div></div>
+        <div class="wf-s"><span class="wf-ico">&#127881;</span><div class="wf-l">Release</div><div class="wf-s2">Go-live comms drafted in Outlook Copilot.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 10. IMPACT -->
+<section id="impact" class="sp" style="background:var(--bg2)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Impact</span>
+      <h2 class="sh">What <span class="hi">Impact</span> Looks Like</h2>
+      <p class="sub">Microsoft research data and task-level projections for IA team workflows based on Copilot 365 deployment evidence.</p>
+    </div>
+    <div class="im-grid">
+      <div class="im rv"><span class="im-ico">&#128336;</span><div class="im-v">70%</div><div class="im-t">Documentation Time Saved</div><p class="im-d">PDD and SDD first-draft time drops from 3-4 hours to under 45 minutes when using Copilot in Word from meeting notes.</p></div>
+      <div class="im rv d1"><span class="im-ico">&#128269;</span><div class="im-v">4&times;</div><div class="im-t">Faster Debugging</div><p class="im-d">Time from error to root cause drops significantly when pasting the exact error into Copilot with full context vs manually tracing logs.</p></div>
+      <div class="im rv d2"><span class="im-ico">&#128231;</span><div class="im-v">2hrs</div><div class="im-t">Email Time Saved / Week</div><p class="im-d">Microsoft Work Trend Index: Copilot 365 users spend an average of 2 fewer hours per week on email processing and triage.</p></div>
+      <div class="im rv d3"><span class="im-ico">&#128202;</span><div class="im-v">86%</div><div class="im-t">Users Report Productivity Lift</div><p class="im-d">86% of Copilot 365 users report measurable productivity improvement. Strongest gains in meeting catch-up and document creation.</p></div>
+    </div>
+    <div class="iq-grid">
+      <div class="iq rv d1">
+        <h4>Time Saved on IA Team Tasks</h4>
+        <div class="iq-r"><span class="iq-dot"></span>PDD first draft: 4 hours &rarr; 30-45 minutes</div>
+        <div class="iq-r"><span class="iq-dot"></span>Flow debugging: 30-90 min &rarr; 5-10 min with error paste</div>
+        <div class="iq-r"><span class="iq-dot"></span>Stakeholder report: 2 hours &rarr; 20 minutes with BizChat</div>
+        <div class="iq-r"><span class="iq-dot"></span>Celonis findings translation: 1 hour &rarr; 10 minutes</div>
+        <div class="iq-r"><span class="iq-dot"></span>Code review: 45 minutes &rarr; 10 minutes with structured prompt</div>
+        <div class="iq-r"><span class="iq-dot"></span>Onboarding to new bot: days &rarr; minutes via RAG agent</div>
+      </div>
+      <div class="iq alt rv d2">
+        <h4>Qualitative Improvements</h4>
+        <div class="iq-r"><span class="iq-dot"></span>Documentation consistency &mdash; every PDD and SDD follows identical completeness standard</div>
+        <div class="iq-r"><span class="iq-dot"></span>Knowledge retention &mdash; RAG over SharePoint means institutional knowledge survives team changes</div>
+        <div class="iq-r"><span class="iq-dot"></span>Faster onboarding &mdash; new members query the knowledge base from day 1</div>
+        <div class="iq-r"><span class="iq-dot"></span>Audit readiness &mdash; every AI answer cites source; GxP evidence packages on demand</div>
+        <div class="iq-r"><span class="iq-dot"></span>Strategic focus &mdash; less time on mechanical tasks, more on high-value design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- 11. CHEATSHEET -->
+<section id="cheatsheet" class="sp" style="background:var(--bg)">
+  <div class="w">
+    <div class="rv"><span class="lbl">Quick Reference</span>
+      <h2 class="sh">The IA Team <span class="hi">Prompt Cheatsheet</span></h2>
+      <p class="sub">18 prompt templates for the full range of daily IA scenarios, role-tagged and RTCFC-structured.</p>
+    </div>
+    <div class="cs-wrap rv d1">
+      <table class="cs">
+        <thead><tr><th>Role</th><th>Scenario</th><th>Prompt Template</th><th>Key Variable</th></tr></thead>
+        <tbody>
+          <tr><td><span class="rt">PA Dev</span></td><td>Flow Architecture</td><td>"Act as senior PA architect. Design flow triggered by [trigger] that [business rule]. Standard connectors. Each action: connector name, operation, key settings."</td><td>Trigger + Rule + Constraints</td></tr>
+          <tr><td><span class="rt">PA Dev</span></td><td>Debug Error</td><td>"Flow fails at [step] with: [paste full error JSON]. SharePoint, IA team site. Top 5 causes ranked by likelihood with exact fix configuration."</td><td>Full error text verbatim</td></tr>
+          <tr><td><span class="rt">PA Dev</span></td><td>Build Expression</td><td>"Write PA expression to [goal]. Explain each function, why it is used, and what edge case it handles."</td><td>Goal + input data type</td></tr>
+          <tr><td><span class="rt">PA Dev</span></td><td>Optimise Flow</td><td>"Flow processes [N] items, runtime [X] min. 3 specific optimisations using batched requests, OData filter, or parallel branches. Before/after config and estimated time saving."</td><td>Record count + current runtime</td></tr>
+          <tr><td><span class="rt rt-ce">Celonis Dev</span></td><td>Write PQL</td><td>"Act as Celonis EMS expert. PQL to calculate [KPI] for [process]. Case table: [name], activity: [name], timestamp: [col]. Handle missing [activity]. Explain each clause."</td><td>Table names + column names</td></tr>
+          <tr><td><span class="rt rt-ce">Celonis Dev</span></td><td>Define KPI</td><td>"Define Celonis KPI for [metric] in [process]. PQL formula, filter logic, denominator definition, benchmark interpretation, top 3 improvement levers."</td><td>Metric + process + denominator</td></tr>
+          <tr><td><span class="rt rt-ce">Celonis Dev</span></td><td>Findings to Language</td><td>"Translate Celonis findings [paste stats] to executive summary. Headline insight, 3 quantified bottlenecks with cost impact, 2 automation recommendations with effort rating. Max 200 words."</td><td>Raw KPI values + cost assumption</td></tr>
+          <tr><td><span class="rt rt-ce">Celonis Dev</span></td><td>Automation ROI</td><td>"Business case: [activity] [N]x/month, avg [X] min, conformance [Y]%, error [Z]%. Monthly hours saved, FTE equivalent, annual saving at $75/hr, build estimate, payback, complexity rating."</td><td>Celonis metrics + cost rate</td></tr>
+          <tr><td><span class="rt">BA</span></td><td>Write BRD</td><td>"Convert interview notes [paste] to BRD: Objective, Scope in/out, Stakeholder Register, user stories (As a / I want / So that / Given-When-Then), NFRs, Assumptions, Open Questions."</td><td>Raw interview notes</td></tr>
+          <tr><td><span class="rt">BA</span></td><td>AS-IS / TO-BE</td><td>"From process notes [paste]: AS-IS narrative with actors, steps, pain points, system touchpoints; then TO-BE automated flow with what automation handles vs what stays manual."</td><td>Process notes + boundary</td></tr>
+          <tr><td><span class="rt">BA</span></td><td>Acceptance Criteria</td><td>"BDD acceptance criteria (Given-When-Then) for user story: [paste]. Cover happy path, 3 edge cases, 2 failure scenarios, one performance criterion."</td><td>User story + edge cases</td></tr>
+          <tr><td><span class="rt">Manager</span></td><td>Portfolio Status</td><td>"From raw notes [paste]: 1-page exec status report. Portfolio RAG with justification, milestones, risks with mitigation, decisions required, next 2-week plan. VP audience."</td><td>Raw notes + RAG criteria</td></tr>
+          <tr><td><span class="rt">Manager</span></td><td>Steering Pack</td><td>"Draft steering committee talking points from [project data]. Achievements, current risks with owner, decisions required today, resource asks. Non-technical VP audience."</td><td>Project data + decisions needed</td></tr>
+          <tr><td><span class="rt rt-al">All</span></td><td>Write PDD</td><td>"Generate PDD for automating [process]. Executive Summary, AS-IS narrative, TO-BE flow, In/Out scope, Benefits with quantified KPIs, Exceptions, Risks. Formal tone."</td><td>Process + AS-IS steps</td></tr>
+          <tr><td><span class="rt rt-al">All</span></td><td>Write SDD</td><td>"SDD for [solution]. Architecture, component inventory, data flow, integration points with auth method, security model, error handling, environment strategy, deployment steps."</td><td>Solution + systems + auth</td></tr>
+          <tr><td><span class="rt rt-al">All</span></td><td>Write Runbook</td><td>"Ops runbook for [automation] running [schedule]. Monitoring checklist, top 10 errors with resolution, escalation L1/L2/IA with SLA, rollback procedure. Audience: L1 ops."</td><td>Automation + schedule + errors</td></tr>
+          <tr><td><span class="rt rt-al">All</span></td><td>Summarise Thread</td><td>"Summarise thread [paste]. 1) Core issue 2) Decisions with decision-maker 3) Action items: Owner | Action | Due Date 4) What is expected from me. Max 180 words."</td><td>Full email thread verbatim</td></tr>
+          <tr><td><span class="rt rt-al">All</span></td><td>RAG System Prompt</td><td>"You are an expert on Baxter IA processes. Answer only from the provided documents. If the answer is not in the context, say so explicitly. Cite source document and section for every claim."</td><td>System prompt for Copilot Studio</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">A<em>I</em>mplify</div>
+  <div style="font-size:.72rem;color:rgba(255,255,255,0.45);margin-bottom:.9rem">Gen AI &amp; Copilot 365 &middot; Baxter Intelligent Automation</div>
+  <div class="fauth">
+    <div class="fav">A</div>
+    <div>
+      <div class="fan">Anupam Singh</div>
+      <div class="far">AI Developer &middot; Intelligent Automation &middot; Baxter International</div>
+    </div>
+  </div>
+  <div class="fdiv"></div>
+  <div class="flinks">
+    <a href="#genai">Gen AI</a><a href="#how-it-works">How It Works</a>
+    <a href="#rag">RAG</a><a href="#rag-how">RAG Architecture</a>
+    <a href="#copilot-rag">Copilot as RAG</a><a href="#framework">Framework</a>
+    <a href="#usecases">Use Cases</a><a href="#prompting">Prompt Engineering</a>
+    <a href="#copilot-tips">Copilot Tips</a><a href="#impact">Impact</a>
+    <a href="#cheatsheet">Cheatsheet</a>
+  </div>
+  <div class="fcopy">Built for the Baxter IA Team &middot; Copilot 365 &middot; Power Platform &middot; Celonis &middot; Azure AI</div>
+</footer>
+
+<script>
+function st(id,btn){
+  document.querySelectorAll('.tp').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.07});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+const ss=[...document.querySelectorAll('section[id]')];
+const nas=[...document.querySelectorAll('.nl a')];
+addEventListener('scroll',()=>{
+  let cur='';
+  ss.forEach(s=>{if(scrollY>=s.offsetTop-110)cur=s.id});
+  nas.forEach(a=>{const on=a.getAttribute('href')==='#'+cur;if(!a.classList.contains('nc'))a.style.color=on?'var(--blue2)':''});
+},{passive:true});
+</script>
+</body>
+</html>
