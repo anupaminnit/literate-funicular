@@ -565,6 +565,30 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
 
 @media(max-width:900px){.nl{display:none}}
 @media(max-width:520px){.sp{padding:4.5rem 0}.genai-trio,.how-grid,.pg,.pe-grid,.cop-tips,.im-grid{grid-template-columns:1fr}}
+
+/* ════════════════════════════════
+   EXPLANATORY DIAGRAMS
+════════════════════════════════ */
+.diag-section{margin-top:2.5rem}
+.diag-row{display:grid;gap:1.25rem;margin-bottom:1.25rem}
+.diag-row.cols-2{grid-template-columns:1fr 1fr}
+.diag-row.cols-1{grid-template-columns:1fr}
+@media(max-width:720px){.diag-row.cols-2{grid-template-columns:1fr}}
+.diag-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);
+  padding:1.6rem 1.5rem 1.25rem;box-shadow:var(--sh);overflow:hidden}
+.diag-card.accent{background:linear-gradient(135deg,var(--bg3) 0%,var(--ice2) 100%);
+  border-color:var(--bd2)}
+.diag-label{font-family:var(--ff-m);font-size:0.55rem;color:var(--blue);
+  text-transform:uppercase;letter-spacing:0.2em;display:block;margin-bottom:0.9rem;
+  padding-bottom:0.55rem;border-bottom:1px solid var(--bd)}
+.diag-card svg text{font-smooth:always;-webkit-font-smoothing:antialiased}
+/* animated dash for NN connections */
+@keyframes dash-flow{to{stroke-dashoffset:-20}}
+.flow-line{stroke-dasharray:6 4;animation:dash-flow 1.8s linear infinite}
+/* token bounce */
+@keyframes tok-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.tok-animated{animation:tok-in 0.4s ease both}
+
 </style>
 </head>
 <body>
@@ -901,6 +925,324 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
         <div class="param-box"><div class="param-lbl">System Prompt</div><p>Hidden instructions prepended before your message. How Copilot 365, custom agents, and RAG systems configure model behaviour, role, constraints, and knowledge sources.</p></div>
         <div class="param-box"><div class="param-lbl">In-Context Learning</div><p>Examples and instructions in the prompt shift model behaviour with no weight update. Few-shot examples, personas, format schemas &mdash; all work through this mechanism.</p></div>
       </div>
+
+    <!-- ── VISUAL DIAGRAMS: Tokenisation + Neural Net ── -->
+    <div class="diag-section rv d3">
+      <div class="diag-row cols-1">
+        <div class="diag-card accent">
+          <span class="diag-label">// fig. 1 — tokenisation: from raw text to token IDs to embeddings</span>
+          <svg viewBox="0 0 760 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible">
+  <defs>
+    <linearGradient id="tok-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#252969"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Source text bar -->
+  <rect x="60" y="18" width="640" height="38" rx="9" fill="#f0f5ff" stroke="rgba(37,65,169,0.18)" stroke-width="1.2"/>
+  <text x="380" y="42" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="14" font-weight="500" letter-spacing="0.5">The  quick  brown  fox  jumps  over  the  lazy  dog</text>
+
+  <!-- Arrows down -->
+  <line x1="100" y1="57" x2="100" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="190" y1="57" x2="190" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="280" y1="57" x2="280" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="370" y1="57" x2="370" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="460" y1="57" x2="460" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="550" y1="57" x2="550" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="625" y1="57" x2="625" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <line x1="695" y1="57" x2="695" y2="74" stroke="rgba(37,65,169,0.25)" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <polygon points="100,74 96,68 104,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="190,74 186,68 194,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="280,74 276,68 284,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="370,74 366,68 374,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="460,74 456,68 464,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="550,74 546,68 554,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="625,74 621,68 629,68" fill="rgba(37,65,169,0.3)"/>
+  <polygon points="695,74 691,68 699,68" fill="rgba(37,65,169,0.3)"/>
+
+  <!-- Token boxes row 1 -->
+  <rect x="63" y="76" width="74" height="34" rx="7" fill="#252969"/>
+  <text x="100" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">The</text>
+  <rect x="152" y="76" width="76" height="34" rx="7" fill="#1e56c8"/>
+  <text x="190" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">quick</text>
+  <rect x="242" y="76" width="76" height="34" rx="7" fill="#2563eb"/>
+  <text x="280" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">brown</text>
+  <rect x="333" y="76" width="74" height="34" rx="7" fill="#1d4ed8"/>
+  <text x="370" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">fox</text>
+  <rect x="422" y="76" width="76" height="34" rx="7" fill="#1e40af"/>
+  <text x="460" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">jumps</text>
+  <rect x="513" y="76" width="74" height="34" rx="7" fill="#1e56c8"/>
+  <text x="550" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">over</text>
+  <rect x="591" y="76" width="68" height="34" rx="7" fill="#252969"/>
+  <text x="625" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">the</text>
+  <rect x="662" y="76" width="66" height="34" rx="7" fill="#0f3fab"/>
+  <text x="695" y="98" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">lazy</text>
+
+  <!-- Token IDs -->
+  <text x="100" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#1284</text>
+  <text x="190" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#4789</text>
+  <text x="280" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#6201</text>
+  <text x="370" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#3421</text>
+  <text x="460" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#9018</text>
+  <text x="550" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#5503</text>
+  <text x="625" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#1284</text>
+  <text x="695" y="130" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">#7723</text>
+
+  <!-- Arrow to embeddings -->
+  <line x1="380" y1="138" x2="380" y2="155" stroke="rgba(37,65,169,0.3)" stroke-width="1.5"/>
+  <polygon points="380,158 376,151 384,151" fill="rgba(37,65,169,0.4)"/>
+  <rect x="200" y="160" width="360" height="26" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="380" y="177" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.1em">→  EMBEDDING  →  [0.42, -0.18, 0.91, 0.03, ...  12,288 dims]</text>
+
+  <!-- Bottom caption -->
+  <text x="380" y="198" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5" letter-spacing="0.1em">NOTE: "The" at position 1 and position 7 get the SAME token ID (#1284) but different context-aware embeddings</text>
+</svg>
+        </div>
+      </div>
+      <div class="diag-row cols-2">
+        <div class="diag-card">
+          <span class="diag-label">// fig. 2 — transformer block: one forward pass through the network</span>
+          <svg viewBox="0 0 640 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible">
+  <style>
+    @keyframes dash-flow{to{stroke-dashoffset:-20}}
+    .flow-line{stroke-dasharray:6 4;animation:dash-flow 1.8s linear infinite}
+  </style>
+  <text x="320" y="18" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em">TRANSFORMER BLOCK — HOW ONE LAYER PROCESSES A TOKEN</text>
+
+  <!-- Input layer nodes -->
+  <circle cx="75" cy="80" r="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <circle cx="75" cy="130" r="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <circle cx="75" cy="180" r="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <circle cx="75" cy="230" r="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="75" y="84" text-anchor="middle" fill="#1e40af" font-family="serif" font-size="11">x</text>
+  <text x="75" y="134" text-anchor="middle" fill="#1e40af" font-family="serif" font-size="11">x</text>
+  <text x="75" y="184" text-anchor="middle" fill="#1e40af" font-family="serif" font-size="11">x</text>
+  <text x="75" y="234" text-anchor="middle" fill="#1e40af" font-family="serif" font-size="11">x</text>
+  <text x="75" y="265" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="9" font-weight="700">INPUT</text>
+  <text x="75" y="278" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">(token embed.)</text>
+
+  <!-- Faint background connections: input→attention -->
+  <line x1="91" y1="80" x2="199" y2="105" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="80" x2="199" y2="155" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="130" x2="199" y2="105" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="130" x2="199" y2="155" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="130" x2="199" y2="205" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="180" x2="199" y2="155" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="180" x2="199" y2="205" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="91" y1="230" x2="199" y2="205" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <!-- Highlighted active connections -->
+  <line class="flow-line" x1="91" y1="80" x2="199" y2="155" stroke="#2563eb" stroke-width="1.8"/>
+  <line class="flow-line" x1="91" y1="130" x2="199" y2="105" stroke="#2563eb" stroke-width="1.8" style="animation-delay:0.3s"/>
+  <line class="flow-line" x1="91" y1="180" x2="199" y2="205" stroke="#2563eb" stroke-width="1.8" style="animation-delay:0.6s"/>
+
+  <!-- Attention layer -->
+  <rect x="195" y="60" width="90" height="180" rx="10" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="240" y="90" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="9" font-weight="700">MULTI-HEAD</text>
+  <text x="240" y="104" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="9" font-weight="700">ATTENTION</text>
+  <text x="240" y="125" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="8">Q · Kᵀ / √d</text>
+  <text x="240" y="142" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="8">softmax → V</text>
+  <!-- Q K V labels -->
+  <rect x="208" y="158" width="20" height="18" rx="3" fill="#252969"/>
+  <text x="218" y="171" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">Q</text>
+  <rect x="233" y="158" width="20" height="18" rx="3" fill="#1e56c8"/>
+  <text x="243" y="171" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">K</text>
+  <rect x="258" y="158" width="20" height="18" rx="3" fill="#2563eb"/>
+  <text x="268" y="171" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">V</text>
+  <text x="240" y="205" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">12 heads</text>
+  <text x="240" y="218" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">parallel</text>
+  <text x="240" y="275" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="9" font-weight="700">ATTENTION</text>
+
+  <!-- Add &amp; Norm 1 -->
+  <line x1="285" y1="155" x2="310" y2="155" stroke="#60a5fa" stroke-width="1.5"/><polygon points="310,151 318,155 310,159" fill="#60a5fa"/>
+  <rect x="319" y="133" width="70" height="44" rx="7" fill="#f0f5ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="354" y="153" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Add &amp;</text>
+  <text x="354" y="168" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Norm</text>
+  <!-- residual skip -->
+  <path d="M 75 50 Q 75 35 354 35 Q 354 133 354 133" stroke="rgba(37,65,169,0.2)" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+  <text x="213" y="30" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5">residual connection</text>
+
+  <!-- FFN -->
+  <line x1="389" y1="155" x2="410" y2="155" stroke="#93c5fd" stroke-width="1.5"/><polygon points="410,151 418,155 410,159" fill="#93c5fd"/>
+  <rect x="419" y="100" width="90" height="110" rx="10" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="464" y="128" text-anchor="middle" fill="#1e2d4d" font-family="system-ui,sans-serif" font-size="9" font-weight="700">FEED-</text>
+  <text x="464" y="143" text-anchor="middle" fill="#1e2d4d" font-family="system-ui,sans-serif" font-size="9" font-weight="700">FORWARD</text>
+  <text x="464" y="162" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="8">Linear</text>
+  <text x="464" y="176" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="8">GELU</text>
+  <text x="464" y="190" text-anchor="middle" fill="#1e56c8" font-family="JetBrains Mono,monospace" font-size="8">Linear</text>
+  <text x="464" y="275" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="9" font-weight="700">FFN</text>
+  <text x="464" y="288" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">(stores facts)</text>
+
+  <!-- Add &amp; Norm 2 -->
+  <line x1="509" y1="155" x2="530" y2="155" stroke="#3b82f6" stroke-width="1.5"/><polygon points="530,151 538,155 530,159" fill="#3b82f6"/>
+  <rect x="539" y="133" width="70" height="44" rx="7" fill="#f0f5ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="574" y="153" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Add &amp;</text>
+  <text x="574" y="168" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Norm</text>
+  <!-- second residual -->
+  <path d="M 354 177 Q 354 220 464 220 Q 574 220 574 177" stroke="rgba(37,65,169,0.2)" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+
+  <!-- Output -->
+  <line x1="609" y1="155" x2="628" y2="155" stroke="#252969" stroke-width="1.5"/><polygon points="628,151 636,155 628,159" fill="#252969"/>
+  <text x="574" y="275" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="9" font-weight="700">NORM</text>
+
+  <!-- Repeat N× label -->
+  <rect x="180" y="290" width="290" height="22" rx="5" fill="#f0f5ff" stroke="rgba(37,65,169,0.15)" stroke-width="1"/>
+  <text x="325" y="305" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="8.5" letter-spacing="0.05em">This block repeats N× (GPT-4: 96 layers stacked)</text>
+</svg>
+        </div>
+        <div class="diag-card accent">
+          <span class="diag-label">// fig. 3 — self-attention: "The cat sat on the mat"</span>
+          <svg viewBox="0 0 420 390" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:440px;display:block;overflow:visible">
+  <text x="210" y="18" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">SELF-ATTENTION SCORES</text>
+  <text x="210" y="33" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8">How much each token "looks at" every other token</text>
+
+  <!-- Column headers (keys) -->
+  <text x="100" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">The</text>
+  <text x="150" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">cat</text>
+  <text x="200" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">sat</text>
+  <text x="250" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">on</text>
+  <text x="300" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">the</text>
+  <text x="350" y="52" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">mat</text>
+
+  <!-- Row labels (queries) -->
+  <text x="72" y="78" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">The</text>
+  <text x="72" y="118" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">cat</text>
+  <text x="72" y="158" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">sat</text>
+  <text x="72" y="198" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">on</text>
+  <text x="72" y="238" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">the</text>
+  <text x="72" y="278" text-anchor="end" fill="#252969" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="600">mat</text>
+
+  <!-- Heatmap cells — weights: row=query, col=key -->
+  <!-- Row 0: The -->
+  <rect x="76" y="60" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="99" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+  <rect x="126" y="60" width="46" height="30" rx="4" fill="rgb(104,112,186)"/><text x="149" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">48%</text>
+  <rect x="176" y="60" width="46" height="30" rx="4" fill="rgb(198,202,232)"/><text x="199" y="80" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">12%</text>
+  <rect x="226" y="60" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="249" y="80" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">6%</text>
+  <rect x="276" y="60" width="46" height="30" rx="4" fill="rgb(155,161,211)"/><text x="299" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">28%</text>
+  <rect x="326" y="60" width="46" height="30" rx="4" fill="rgb(213,216,237)"/><text x="349" y="80" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">8%</text>
+
+  <!-- Row 1: cat -->
+  <rect x="76" y="100" width="46" height="30" rx="4" fill="rgb(155,161,211)"/><text x="99" y="120" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">28%</text>
+  <rect x="126" y="100" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="149" y="120" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+  <rect x="176" y="100" width="46" height="30" rx="4" fill="rgb(85,95,168)"/><text x="199" y="120" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">62%</text>
+  <rect x="226" y="100" width="46" height="30" rx="4" fill="rgb(213,216,237)"/><text x="249" y="120" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">8%</text>
+  <rect x="276" y="100" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="299" y="120" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">5%</text>
+  <rect x="326" y="100" width="46" height="30" rx="4" fill="rgb(70,79,158)"/><text x="349" y="120" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">72%</text>
+
+  <!-- Row 2: sat -->
+  <rect x="76" y="140" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="99" y="160" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">5%</text>
+  <rect x="126" y="140" width="46" height="30" rx="4" fill="rgb(85,95,168)"/><text x="149" y="160" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">62%</text>
+  <rect x="176" y="140" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="199" y="160" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+  <rect x="226" y="140" width="46" height="30" rx="4" fill="rgb(155,161,211)"/><text x="249" y="160" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">30%</text>
+  <rect x="276" y="140" width="46" height="30" rx="4" fill="rgb(198,202,232)"/><text x="299" y="160" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">15%</text>
+  <rect x="326" y="140" width="46" height="30" rx="4" fill="rgb(120,127,196)"/><text x="349" y="160" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">42%</text>
+
+  <!-- Row 3: on -->
+  <rect x="76" y="180" width="46" height="30" rx="4" fill="rgb(235,237,247)"/><text x="99" y="200" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">3%</text>
+  <rect x="126" y="180" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="149" y="200" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">5%</text>
+  <rect x="176" y="180" width="46" height="30" rx="4" fill="rgb(155,161,211)"/><text x="199" y="200" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">30%</text>
+  <rect x="226" y="180" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="249" y="200" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+  <rect x="276" y="180" width="46" height="30" rx="4" fill="rgb(70,79,158)"/><text x="299" y="200" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">75%</text>
+  <rect x="326" y="180" width="46" height="30" rx="4" fill="rgb(120,127,196)"/><text x="349" y="200" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">40%</text>
+
+  <!-- Row 4: the -->
+  <rect x="76" y="220" width="46" height="30" rx="4" fill="rgb(104,112,186)"/><text x="99" y="240" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">50%</text>
+  <rect x="126" y="220" width="46" height="30" rx="4" fill="rgb(198,202,232)"/><text x="149" y="240" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">15%</text>
+  <rect x="176" y="220" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="199" y="240" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">5%</text>
+  <rect x="226" y="220" width="46" height="30" rx="4" fill="rgb(70,79,158)"/><text x="249" y="240" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">75%</text>
+  <rect x="276" y="220" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="299" y="240" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+  <rect x="326" y="220" width="46" height="30" rx="4" fill="rgb(85,95,168)"/><text x="349" y="240" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">60%</text>
+
+  <!-- Row 5: mat -->
+  <rect x="76" y="260" width="46" height="30" rx="4" fill="rgb(228,230,244)"/><text x="99" y="280" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8">6%</text>
+  <rect x="126" y="260" width="46" height="30" rx="4" fill="rgb(70,79,158)"/><text x="149" y="280" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">72%</text>
+  <rect x="176" y="260" width="46" height="30" rx="4" fill="rgb(120,127,196)"/><text x="199" y="280" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">40%</text>
+  <rect x="226" y="260" width="46" height="30" rx="4" fill="rgb(155,161,211)"/><text x="249" y="280" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">28%</text>
+  <rect x="276" y="260" width="46" height="30" rx="4" fill="rgb(85,95,168)"/><text x="299" y="280" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">60%</text>
+  <rect x="326" y="260" width="46" height="30" rx="4" fill="rgb(37,41,105)"/><text x="349" y="280" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">100%</text>
+
+  <!-- Highlight "cat→mat" strong relationship -->
+  <rect x="326" y="100" width="46" height="30" rx="4" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <line x1="372" y1="115" x2="395" y2="115" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="398" y="119" fill="#b91c1c" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="600">cat sees mat!</text>
+
+  <!-- Colour legend -->
+  <rect x="78" y="308" width="288" height="12" rx="3" fill="url(#lg-grad)"/>
+  <defs>
+    <linearGradient id="lg-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgb(239,246,255)"/>
+      <stop offset="100%" stop-color="rgb(37,41,105)"/>
+    </linearGradient>
+  </defs>
+  <text x="78" y="334" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">low attention</text>
+  <text x="366" y="334" text-anchor="end" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">high attention</text>
+
+  <!-- Axis labels -->
+  <text x="210" y="358" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8">← Keys (what each token exposes)</text>
+  <text x="22" y="180" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(-90,22,180)">Queries (what each token seeks) →</text>
+</svg>
+        </div>
+      </div>
+      <div class="diag-row cols-1">
+        <div class="diag-card">
+          <span class="diag-label">// fig. 4 — next-token probability distribution (temperature effect)</span>
+          <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible">
+  <text x="220" y="18" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">NEXT TOKEN PREDICTION — OUTPUT PROBABILITY DISTRIBUTION</text>
+  <text x="220" y="33" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8">Prompt: "The capital of France is ___"  →  model outputs softmax over 50,000 tokens</text>
+
+  <!-- Y axis -->
+  <line x1="70" y1="48" x2="70" y2="215" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- X axis -->
+  <line x1="70" y1="215" x2="420" y2="215" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Y labels -->
+  <text x="64" y="216" text-anchor="end" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5">0%</text>
+  <text x="64" y="162" text-anchor="end" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5">30%</text>
+  <text x="64" y="108" text-anchor="end" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5">60%</text>
+  <text x="64" y="54" text-anchor="end" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="7.5">90%</text>
+  <!-- Grid lines -->
+  <line x1="70" y1="162" x2="420" y2="162" stroke="#f0f5ff" stroke-width="1"/>
+  <line x1="70" y1="108" x2="420" y2="108" stroke="#f0f5ff" stroke-width="1"/>
+  <line x1="70" y1="54" x2="420" y2="54" stroke="#f0f5ff" stroke-width="1"/>
+
+  <!-- Bars: Paris ~89%, Lyon ~4%, Berlin ~2%, London ~2%, others ~3% -->
+  <!-- Paris: 89% → height = 0.89 * 162 = 144 -->
+  <rect x="90" y="71" width="50" height="144" rx="4" fill="url(#bar-grad-main)"/>
+  <defs>
+    <linearGradient id="bar-grad-main" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#252969"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="bar-grad-dim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+  </defs>
+  <text x="115" y="66" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">89%</text>
+  <text x="115" y="230" text-anchor="middle" fill="#252969" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">Paris</text>
+
+  <!-- Lyon: 4% → height = 7 -->
+  <rect x="170" y="208" width="50" height="7" rx="3" fill="url(#bar-grad-dim)"/>
+  <text x="195" y="205" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8.5">4%</text>
+  <text x="195" y="230" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="9">Lyon</text>
+
+  <!-- Berlin: 2% → height = 3 -->
+  <rect x="250" y="211" width="50" height="4" rx="2" fill="url(#bar-grad-dim)"/>
+  <text x="275" y="208" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8.5">2%</text>
+  <text x="275" y="230" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="9">Berlin</text>
+
+  <!-- London: 2% -->
+  <rect x="330" y="212" width="50" height="3" rx="2" fill="url(#bar-grad-dim)"/>
+  <text x="355" y="209" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8.5">2%</text>
+  <text x="355" y="230" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="9">London</text>
+
+  <!-- ~50K others label -->
+  <text x="220" y="248" text-anchor="middle" fill="#c0cfe0" font-family="JetBrains Mono,monospace" font-size="8">+ ~49,996 other tokens each with probability &lt; 1%</text>
+
+  <!-- Temperature annotation -->
+  <rect x="76" y="258" width="288" height="18" rx="5" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="220" y="271" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="8">temperature=0 → always "Paris" ·· temperature=1 → occasionally samples "Lyon"</text>
+</svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1028,6 +1370,206 @@ footer{background:var(--navy);padding:2.5rem 2rem 1.75rem;text-align:center}
       <div class="sc rv"><div class="sc-ico">&#127919;</div><div class="sc-t">Reranking</div><p class="sc-d">Vector retrieval gets you approximately right chunks. A cross-encoder reranker (Azure Semantic Ranker) re-scores with full query-document attention &mdash; dramatically improving precision. The latency cost is worth it.</p><div class="sc-tags"><span class="tt">Cross-Encoder</span><span class="tt">Semantic Ranker</span><span class="tt">Top-K</span></div></div>
       <div class="sc rv d1"><div class="sc-ico">&#129504;</div><div class="sc-t">Grounding Instruction</div><p class="sc-d">The key hallucination control: "Answer only from the provided context. If the answer is not present, say so explicitly." This demotes parametric knowledge and anchors every response to retrieved content.</p><div class="sc-tags"><span class="tt">System Prompt</span><span class="tt">Grounding</span><span class="tt">Context Window</span></div></div>
       <div class="sc rv d2"><div class="sc-ico">&#10024;</div><div class="sc-t">Citation &amp; Traceability</div><p class="sc-d">Production RAG returns source document, page, and chunk alongside each answer. For GxP and 21 CFR Part 11 requirements, this is non-negotiable. Every AI claim must trace to a primary source.</p><div class="sc-tags"><span class="tt">Source Citation</span><span class="tt">GxP</span><span class="tt">Audit Trail</span></div></div>
+
+    <!-- ── VISUAL DIAGRAMS: Embedding Space + Chunking ── -->
+    <div class="diag-section rv d2">
+      <div class="diag-row cols-1">
+        <div class="diag-card accent">
+          <span class="diag-label">// fig. 5 — vector embedding space: semantic similarity as geometry</span>
+          <svg viewBox="0 0 700 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible">
+  <defs>
+    <radialGradient id="emb-bg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#f0f5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="380" rx="12" fill="url(#emb-bg)"/>
+  <text x="350" y="24" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em">VECTOR EMBEDDING SPACE — MEANING AS GEOMETRY</text>
+  <text x="350" y="39" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8">Semantically similar words cluster together. Distance = semantic difference.</text>
+
+  <!-- soft grid hints -->
+  <line x1="50" y1="335" x2="660" y2="335" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <line x1="50" y1="55" x2="50" y2="335" stroke="rgba(37,65,169,0.07)" stroke-width="1"/>
+  <text x="355" y="352" text-anchor="middle" fill="rgba(37,65,169,0.22)" font-family="JetBrains Mono,monospace" font-size="8">dimension 1 (projected to 2D for visualisation)</text>
+  <text x="25" y="200" text-anchor="middle" fill="rgba(37,65,169,0.22)" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(-90,25,200)">dimension 2</text>
+
+  <!-- Cluster 1: Code & Dev — top left -->
+  <ellipse cx="150" cy="130" rx="82" ry="52" fill="rgba(37,41,105,0.06)" stroke="rgba(37,41,105,0.18)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="150" y="72" text-anchor="middle" fill="rgba(37,41,105,0.7)" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Code &amp; Dev</text>
+  <circle cx="118" cy="118" r="5" fill="#252969" stroke="#1e40af" stroke-width="1.2"/>
+  <text x="118" y="110" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">Python</text>
+  <circle cx="170" cy="105" r="5" fill="#252969" stroke="#1e40af" stroke-width="1.2"/>
+  <text x="170" y="97" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">API</text>
+  <circle cx="145" cy="148" r="5" fill="#252969" stroke="#1e40af" stroke-width="1.2"/>
+  <text x="145" y="162" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">SQL</text>
+  <circle cx="192" cy="135" r="5" fill="#252969" stroke="#1e40af" stroke-width="1.2"/>
+  <text x="200" y="148" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">debug</text>
+
+  <!-- Cluster 2: Writing — top centre -->
+  <ellipse cx="360" cy="110" rx="86" ry="50" fill="rgba(30,86,200,0.06)" stroke="rgba(30,86,200,0.18)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="360" y="56" text-anchor="middle" fill="rgba(30,86,200,0.7)" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Writing</text>
+  <circle cx="310" cy="100" r="5" fill="#1e56c8" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="310" y="92" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">email</text>
+  <circle cx="355" cy="90" r="5" fill="#1e56c8" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="355" y="82" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">draft</text>
+  <circle cx="400" cy="105" r="5" fill="#1e56c8" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="408" y="98" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">reply</text>
+  <circle cx="340" cy="128" r="5" fill="#1e56c8" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="330" y="142" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">summarise</text>
+
+  <!-- Cluster 3: Analysis — top right -->
+  <ellipse cx="570" cy="125" rx="78" ry="52" fill="rgba(15,63,171,0.06)" stroke="rgba(15,63,171,0.18)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="570" y="68" text-anchor="middle" fill="rgba(15,63,171,0.7)" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Analysis</text>
+  <circle cx="528" cy="115" r="5" fill="#0f3fab" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="520" y="107" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">report</text>
+  <circle cx="572" cy="100" r="5" fill="#0f3fab" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="572" y="92" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">review</text>
+  <circle cx="610" cy="118" r="5" fill="#0f3fab" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="618" y="111" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">KPI</text>
+  <circle cx="555" cy="142" r="5" fill="#0f3fab" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="555" y="156" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">data</text>
+
+  <!-- Cluster 4: Automation — bottom left -->
+  <ellipse cx="165" cy="268" rx="82" ry="50" fill="rgba(29,78,216,0.06)" stroke="rgba(29,78,216,0.18)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="165" y="212" text-anchor="middle" fill="rgba(29,78,216,0.7)" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Automation</text>
+  <circle cx="128" cy="258" r="5" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="118" y="250" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">flow</text>
+  <circle cx="162" cy="242" r="5" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="162" y="234" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">trigger</text>
+  <circle cx="200" cy="262" r="5" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="208" y="255" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">bot</text>
+  <circle cx="150" cy="288" r="5" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="140" y="302" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">automate</text>
+
+  <!-- Cluster 5: Documents — bottom right -->
+  <ellipse cx="500" cy="260" rx="82" ry="50" fill="rgba(30,64,175,0.06)" stroke="rgba(30,64,175,0.18)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="500" y="205" text-anchor="middle" fill="rgba(30,64,175,0.7)" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Documents</text>
+  <circle cx="460" cy="250" r="5" fill="#1e40af" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="452" y="242" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">PDD</text>
+  <circle cx="498" cy="238" r="5" fill="#1e40af" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="498" y="230" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">SDD</text>
+  <circle cx="535" cy="255" r="5" fill="#1e40af" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="545" y="248" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">runbook</text>
+  <circle cx="480" cy="278" r="5" fill="#1e40af" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="470" y="292" text-anchor="middle" fill="#1e2d4d" font-family="JetBrains Mono,monospace" font-size="8.5">template</text>
+
+  <!-- Query vector Q with nearest-neighbor lines -->
+  <line x1="330" y1="268" x2="200" y2="262" stroke="#2563eb" stroke-width="1.3" stroke-dasharray="5 3" opacity="0.6"/>
+  <line x1="330" y1="268" x2="162" y2="242" stroke="#2563eb" stroke-width="1.3" stroke-dasharray="5 3" opacity="0.5"/>
+  <line x1="330" y1="268" x2="128" y2="258" stroke="#2563eb" stroke-width="1.3" stroke-dasharray="5 3" opacity="0.45"/>
+  <circle cx="330" cy="268" r="10" fill="#2563eb" stroke="#fff" stroke-width="2.5"/>
+  <text x="330" y="272" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="9" font-weight="800">Q</text>
+  <rect x="345" y="250" width="168" height="24" rx="5" fill="#252969" opacity="0.88"/>
+  <text x="429" y="266" text-anchor="middle" fill="#fff" font-family="JetBrains Mono,monospace" font-size="8">"How do I debug a PA flow?"</text>
+
+  <!-- Distance annotation -->
+  <text x="240" y="320" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8">← nearest neighbours returned to augment context window →</text>
+</svg>
+        </div>
+      </div>
+      <div class="diag-row cols-1">
+        <div class="diag-card">
+          <span class="diag-label">// fig. 6 — document chunking with overlap: how your docs become a searchable index</span>
+          <svg viewBox="0 0 700 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible">
+  <text x="350" y="20" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">DOCUMENT CHUNKING — HOW RAG SPLITS YOUR KNOWLEDGE BASE</text>
+  <text x="350" y="35" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="8">Sliding-window with overlap ensures no context is lost at chunk boundaries</text>
+
+  <!-- Source document -->
+  <rect x="30" y="50" width="148" height="200" rx="8" fill="#fff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="104" y="70" text-anchor="middle" fill="#252969" font-family="system-ui,sans-serif" font-size="9" font-weight="700">Source Document</text>
+  <text x="104" y="84" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">invoice-automation-runbook.docx</text>
+  <!-- simulated text lines -->
+  <rect x="46" y="92" width="116" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="102" width="100" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="112" width="108" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="122" width="90" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="132" width="116" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="142" width="104" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="152" width="96" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="162" width="116" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="172" width="82" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="182" width="116" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="192" width="100" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="202" width="108" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="212" width="90" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="222" width="116" height="5" rx="2" fill="#e2e8f0"/>
+  <rect x="46" y="232" width="104" height="5" rx="2" fill="#e2e8f0"/>
+
+  <!-- Arrow to chunks -->
+  <line x1="178" y1="150" x2="218" y2="150" stroke="#60a5fa" stroke-width="1.5"/>
+  <polygon points="218,146 226,150 218,154" fill="#60a5fa"/>
+  <text x="198" y="143" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">chunk</text>
+
+  <!-- Chunks with overlap -->
+  <!-- Chunk A -->
+  <rect x="228" y="58" width="140" height="64" rx="7" fill="#eff6ff" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="298" y="74" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Chunk A  (512 tokens)</text>
+  <rect x="244" y="80" width="108" height="4" rx="2" fill="#93c5fd"/>
+  <rect x="244" y="89" width="96" height="4" rx="2" fill="#93c5fd"/>
+  <rect x="244" y="98" width="108" height="4" rx="2" fill="#93c5fd"/>
+  <rect x="244" y="107" width="80" height="4" rx="2" fill="#bfdbfe"/>
+  <!-- Overlap band at bottom of A -->
+  <rect x="228" y="109" width="140" height="13" rx="0" fill="rgba(37,99,235,0.10)" stroke="none"/>
+  <text x="298" y="119" text-anchor="middle" fill="#2563eb" font-family="JetBrains Mono,monospace" font-size="7">▒ overlap zone (15%)</text>
+
+  <!-- Chunk B -->
+  <rect x="228" y="131" width="140" height="64" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="298" y="147" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Chunk B  (512 tokens)</text>
+  <!-- Overlap band at top of B -->
+  <rect x="228" y="131" width="140" height="13" rx="0" fill="rgba(37,99,235,0.10)" stroke="none"/>
+  <text x="298" y="141" text-anchor="middle" fill="#2563eb" font-family="JetBrains Mono,monospace" font-size="7">▒ overlap zone (shared)</text>
+  <rect x="244" y="149" width="108" height="4" rx="2" fill="#60a5fa"/>
+  <rect x="244" y="158" width="96" height="4" rx="2" fill="#60a5fa"/>
+  <rect x="244" y="167" width="100" height="4" rx="2" fill="#60a5fa"/>
+  <rect x="244" y="176" width="80" height="4" rx="2" fill="#93c5fd"/>
+
+  <!-- Chunk C -->
+  <rect x="228" y="204" width="140" height="46" rx="7" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="298" y="220" text-anchor="middle" fill="#1e40af" font-family="system-ui,sans-serif" font-size="8.5" font-weight="700">Chunk C  (512 tokens)</text>
+  <rect x="244" y="228" width="108" height="4" rx="2" fill="#60a5fa"/>
+  <rect x="244" y="237" width="80" height="4" rx="2" fill="#93c5fd"/>
+
+  <!-- Arrow to embeddings -->
+  <line x1="368" y1="150" x2="404" y2="150" stroke="#252969" stroke-width="1.5"/>
+  <polygon points="404,146 412,150 404,154" fill="#252969"/>
+  <text x="386" y="143" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">embed</text>
+
+  <!-- Vector representations -->
+  <rect x="414" y="60" width="130" height="55" rx="7" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="479" y="76" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">Chunk A vector</text>
+  <text x="479" y="90" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">[0.42, -0.18, 0.91</text>
+  <text x="479" y="103" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5"> 0.07, ...  1536d]</text>
+
+  <rect x="414" y="122" width="130" height="55" rx="7" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="479" y="138" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">Chunk B vector</text>
+  <text x="479" y="152" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">[-0.11, 0.65, 0.23</text>
+  <text x="479" y="165" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5"> 0.88, ...  1536d]</text>
+
+  <rect x="414" y="184" width="130" height="55" rx="7" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="479" y="200" text-anchor="middle" fill="#1e40af" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">Chunk C vector</text>
+  <text x="479" y="214" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">[0.77, -0.44, 0.12</text>
+  <text x="479" y="227" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5"> -0.31, ...  1536d]</text>
+
+  <!-- Arrow to index -->
+  <line x1="544" y1="150" x2="576" y2="150" stroke="#252969" stroke-width="1.5"/>
+  <polygon points="576,146 584,150 576,154" fill="#252969"/>
+  <text x="560" y="143" text-anchor="middle" fill="#6b80a0" font-family="JetBrains Mono,monospace" font-size="7.5">index</text>
+
+  <!-- Vector DB box -->
+  <rect x="586" y="90" width="100" height="120" rx="8" fill="#252969"/>
+  <text x="636" y="118" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="9" font-weight="700">Vector</text>
+  <text x="636" y="132" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="9" font-weight="700">Index</text>
+  <text x="636" y="150" text-anchor="middle" fill="#60a5fa" font-family="JetBrains Mono,monospace" font-size="7.5">HNSW</text>
+  <text x="636" y="163" text-anchor="middle" fill="#60a5fa" font-family="JetBrains Mono,monospace" font-size="7.5">Azure AI</text>
+  <text x="636" y="176" text-anchor="middle" fill="#60a5fa" font-family="JetBrains Mono,monospace" font-size="7.5">Search</text>
+  <text x="636" y="194" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono,monospace" font-size="7.5">queryable</text>
+  <text x="636" y="205" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono,monospace" font-size="7.5">by cosine</text>
+
+  <!-- Caption -->
+  <text x="350" y="262" text-anchor="middle" fill="#9ab0c8" font-family="JetBrains Mono,monospace" font-size="8">Overlap prevents a key sentence split across boundaries from being missed in retrieval</text>
+</svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
